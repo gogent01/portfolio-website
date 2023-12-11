@@ -2,25 +2,26 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import { motion, useAnimate, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import SlidingTitle from '@/components/SlidingTitle';
 import GridContainer from '@/components/GridContainer';
-import { useEffect } from 'react';
+import { CurrentViewContext } from '@/components/CurrentViewProvider';
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
     <SlidingTitle
       level={'h1'}
-      scrollStart={0}
-      scrollEnd={80}
-      offset={80}
-      velocity={1.5}
+      topTarget={0.5}
+      offsetTop={0.5}
+      pause={0.5}
+      origin={'left'}
+      stop={false}
       className={classNames(
         'text-gray-900',
-        'top-96 text-4xl col-start-1 col-span-4',
-        'md:top-88 md:text-5xl md:col-start-2 md:col-span-6',
-        'lg:top-80 lg:text-6xl lg:col-start-2 lg:col-span-8',
-        'xl:top-72 xl:text-7xl xl:col-start-2 xl:col-span-7'
+        'text-4xl col-start-1 col-span-4',
+        'md:text-5xl md:col-start-2 md:col-span-6',
+        'lg:text-6xl lg:col-start-2 lg:col-span-8',
+        'xl:text-7xl xl:col-start-2 xl:col-span-7'
       )}
     >
       {children}
@@ -36,10 +37,10 @@ function Bio({ children }: { children: React.ReactNode }) {
       transition={{ duration: 1, ease: 'easeOut' }}
       className={classNames(
         'text-gray-900',
-        'text-xl leading-10 col-start-1 col-span-4',
-        'md:text-2xl md:leading-10 md:col-start-2 md:col-span-6',
-        'lg:text-2xl lg:leading-10 lg:col-start-3 lg:col-span-8',
-        'xl:text-3xl xl:leading-12 xl:col-start-3 xl:col-span-7'
+        'mt-4 text-xl leading-10 col-start-1 col-span-4',
+        'md:mt-4 md:text-2xl md:leading-10 md:col-start-2 md:col-span-6',
+        'lg:mt-8 lg:text-2xl lg:leading-10 lg:col-start-3 lg:col-span-8',
+        'xl:mt-12 xl:text-3xl xl:leading-12 xl:col-start-3 xl:col-span-7'
       )}
     >
       {children}
@@ -48,17 +49,19 @@ function Bio({ children }: { children: React.ReactNode }) {
 }
 
 function About() {
+  const { setCurrentView } = React.useContext(CurrentViewContext);
   const ref = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const hasComeIntoView = useInView(ref, { once: true, amount: 0.8 });
+  const isInView = useInView(ref, { amount: 0.5 });
+
+  React.useEffect(() => {
+    if (isInView) setCurrentView('about');
+  }, [isInView]);
 
   return (
-    <GridContainer
-      ref={ref}
-      className="items-center"
-      style={{ minHeight: '140vh' }}
-    >
+    <GridContainer ref={ref} className="py-80">
       <Title>About Me</Title>
-      {isInView && (
+      {hasComeIntoView && (
         <Bio>
           As a Full Stack Developer, I apply my skills in&nbsp;TypeScript,
           React.js, Node.js, Python, and&nbsp;R to&nbsp;create innovative
