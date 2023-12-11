@@ -4,7 +4,7 @@ import './globals.css';
 import React from 'react';
 import Grid from '@/components/Grid';
 
-const inter = Red_Hat_Text({ subsets: ['latin'] });
+const mainFont = Red_Hat_Text({ subsets: ['latin'] });
 
 const yoe =
   new Date(
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mainFont.className}>
         {/*<Grid />*/}
         <main>{children}</main>
       </body>
