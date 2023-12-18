@@ -8,22 +8,33 @@
 
 :root {
     --gutter: 1rem;
+    --gap: 1rem;
 }
 
 @media (min-width: 768px) {
     :root {
         --gutter: 2rem;
+        --gap: 1rem;
     }
 }
 
 @media (min-width: 1024px) {
     :root {
         --gutter: 3rem;
+        --gap: 1rem;
     }
 }
 
 @media (min-width: 1280px) {
     :root {
         --gutter: 4rem;
+        --gap: 1rem;
+    }
+}
+
+@media (min-width: 1536px) {
+    :root {
+        --gutter: 4rem;
+        --gap: 1.5rem;
     }
 }

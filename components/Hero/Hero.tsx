@@ -2,7 +2,17 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import { motion, LayoutGroup } from 'framer-motion';
+import {
+  motion,
+  LayoutGroup,
+  useScroll,
+  MotionValue,
+  useTransform,
+  HTMLMotionProps,
+  useMotionValueEvent,
+  useAnimate,
+  useSpring,
+} from 'framer-motion';
 import GridContainer from '@/components/GridContainer';
 import { GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
 import { Red_Hat_Display } from 'next/font/google';
@@ -11,10 +21,16 @@ const heroFont = Red_Hat_Display({
   subsets: ['latin'],
 });
 
-function SlidingName({ children }: { children: React.ReactNode }) {
+function SlidingName({
+  children,
+  ...delegated
+}: { children: React.ReactNode } & React.ComponentProps<'div'>) {
   return (
     <div
-      className="relative pointer-events-none select-none"
+      className={classNames(
+        'relative pointer-events-none select-none',
+        delegated.className
+      )}
       style={{ width: 'calc(100vw - 2 * var(--gutter))' }}
     >
       <div
@@ -62,7 +78,6 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="relative pointer-events-none select-none"
-      // style={{ width: 'calc(100vw - 2 * var(--gutter))' }}
       style={{ minWidth: 'min(max-content, calc(100vw - var(--gutter)))' }}
     >
       <div
@@ -103,18 +118,24 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
 const MotionGithubIcon = motion(GithubIcon);
 const MotionLinkedInIcon = motion(LinkedInIcon);
 const MotionMailIcon = motion(MailIcon);
+function useParallax(value: MotionValue<number>, distance: number) {
+  return useTransform(value, [0, 1], [-distance, distance]);
+}
 function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
-  const [hoverClass, setHoverClass] = React.useState('');
-  React.useEffect(() => {
-    setTimeout(() => {
-      setHoverClass(
-        'transition-transform ease-in-out duration-500 hover:rotate-6 hover:translate-x-1 hover:-translate-y-2'
-      );
-    }, 8000);
-  }, []);
+  const { scrollY } = useScroll();
+  const [scope, animate] = useAnimate();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    animate(
+      scope.current,
+      { transform: `translateY(${-latest * 0.1}%)` },
+      { duration: 0 }
+    );
+  });
 
   return (
     <div
+      ref={scope}
       {...delegated}
       className={classNames('flex gap-12', delegated.className)}
     >
@@ -165,17 +186,21 @@ function Hero() {
           'lg:col-span-11'
         )}
       >
-        <SlidingName>Georgy</SlidingName>
-        <SlidingName>Mishurovsky</SlidingName>
+        <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
+          Georgy
+        </SlidingName>
+        <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
+          Mishurovsky
+        </SlidingName>
         <div className="flex flex-wrap">
-          <SlidingRole>Full&nbsp;Stack&nbsp;Developer</SlidingRole>
-          <SlidingRole>&nbsp;･&nbsp;Front‑end&nbsp;Developer</SlidingRole>
+          <SlidingRole>Full&nbsp;Stack&nbsp;</SlidingRole>
+          <SlidingRole>&&nbsp;Frontend&nbsp;Developer</SlidingRole>
         </div>
       </div>
 
       <HeroIcons
         className={classNames(
-          'h-full flex-col justify-center items-center',
+          'h-full flex-col justify-center items-end sm:justify-start',
           'col-start-4',
           'md:col-start-8',
           'lg:col-start-12'
