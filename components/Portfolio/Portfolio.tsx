@@ -23,21 +23,21 @@ type Project = {
 };
 
 const projects: Record<string, Project> = {
-  trialBi: {
-    count: 1,
-    title: 'Trial Bi',
-    role: 'Full Stack Developer • UI/UX Designer',
-    description:
-      'A BI system for clinical trial data, providing capabilities for data selection, filtering, sorting, and aggregation. The system allows users to gain initial insights and prepare data for further analysis in statistical software.',
-    purpose: 'Web App',
-  },
   trivialno: {
-    count: 2,
+    count: 1,
     title: 'Trivialno',
     role: 'Full Stack Developer • System Architect',
     description:
       "An online platform for Math tutors, school students, and their parents. Enables tutors and students to sign up, schedule online lessons, and engage in lessons through the app's integrated video bridge. Comprised of three web apps, a company website, and a microservice backend.",
     purpose: 'SPA & Website',
+  },
+  trialBi: {
+    count: 2,
+    title: 'Trial Bi',
+    role: 'Full Stack Developer • UI/UX Designer',
+    description:
+      'A BI system for clinical trial data, providing capabilities for data selection, filtering, sorting, and aggregation. The system allows users to gain initial insights and prepare data for further analysis in statistical software.',
+    purpose: 'Web App',
   },
   cardio: {
     count: 3,
@@ -207,9 +207,201 @@ function ProjectDescription({ project }: { project: Project }) {
 
 function ProjectImages() {
   return (
-    <div className="flex flex-col p-16" style={{ minHeight: 80 + 'vh' }}>
-      <h2 className="text-4xl text-gray-900 font-bold">My projects</h2>
+    <div
+      style={{ marginBottom: 'var(--gutter)', gap: '80vh' }}
+      className={classNames(
+        'flex flex-col bg-gray-100/50',
+        'col-start-1 col-span-4',
+        'md:col-start-5 md:col-span-4',
+        'lg:col-start-7 lg:col-span-6',
+        'xl:col-start-7 xl:col-span-6'
+      )}
+    >
+      <TrivialnoImages />
+      <TrialBiImages />
+      <CardioImages />
     </div>
+  );
+}
+
+function TrialBiImages() {
+  const { setCurrentView } = React.useContext(CurrentViewContext);
+  const wrapperRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry.isIntersecting) setCurrentView('trialBi');
+      },
+      { threshold: 0.25 }
+    );
+
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+  }, []);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="w-full bg-cyan-200"
+      style={{ height: '160vh' }}
+    ></div>
+  );
+}
+
+function TrivialnoImages() {
+  const { setCurrentView } = React.useContext(CurrentViewContext);
+  const wrapperRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry.isIntersecting) setCurrentView('trivialno');
+      },
+      { threshold: 0.25 }
+    );
+
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+  }, []);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="w-full bg-indigo-200"
+      style={{ height: '160vh' }}
+    ></div>
+  );
+}
+
+function CardioImages() {
+  const { setCurrentView } = React.useContext(CurrentViewContext);
+  const wrapperRef = React.useRef(null);
+  const { scrollY } = useScroll({ target: wrapperRef });
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry.isIntersecting) setCurrentView('cardio');
+      },
+      { threshold: 0 }
+    );
+
+    if (wrapperRef.current) observer.observe(wrapperRef.current);
+  }, []);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (!wrapperRef.current) return;
+
+    const viewHeight = document.documentElement.clientHeight;
+    const container = wrapperRef.current as HTMLDivElement;
+    const rect = container.getBoundingClientRect();
+    const delta = viewHeight * 1.5 - rect.top;
+    const [image1, image2, image3, image4] =
+      container.children as unknown as HTMLElement[];
+    console.log({ latest, top: rect.top, delta });
+    image1.style.transform = `translateY(-${delta * 1}px)`;
+    image2.style.transform = `translateY(-${delta * 0.6}px)`;
+    image3.style.transform = `translateY(-${delta * 0.4}px)`;
+    image4.style.transform = `translateY(-${delta * 0.2125}px)`;
+  });
+
+  const viewHeight = document.documentElement.clientHeight;
+  const viewWidth = document.documentElement.clientWidth;
+  const baseHeight = Math.min(viewHeight * 0.8, viewWidth);
+  const baseWidth = baseHeight / 2.0166;
+  const dims = [
+    [baseHeight, baseWidth],
+    [baseHeight * 0.9, baseWidth * 0.9],
+    [baseHeight * 0.75, baseWidth * 0.75],
+    [baseHeight * 0.65, baseWidth * 0.65],
+  ];
+
+  return (
+    <div
+      ref={wrapperRef}
+      className={classNames('relative w-full bg-cyan-200/50 grid')}
+      style={{ height: '160vh' }}
+    >
+      <Image
+        src="/images/cardio-main.png"
+        alt=""
+        height={dims[0][0]}
+        width={dims[0][1]}
+        className={classNames('absolute')}
+        style={{
+          top: '40vh',
+          left: 0,
+          zIndex: 3,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/cardio-card.png"
+        alt=""
+        height={dims[1][0]}
+        width={dims[1][1]}
+        className={classNames('absolute')}
+        style={{
+          top: 'calc(80vh * 0.2)',
+          right: 0,
+          zIndex: 4,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/cardio-create-test.png"
+        alt=""
+        height={dims[2][0]}
+        width={dims[2][1]}
+        className={classNames('absolute')}
+        style={{
+          top: 'calc(57.5vh + 0rem)',
+          left: 'calc(80vh / 2 * (0.25 - 0.075))',
+          transformOrigin: 'left top',
+          zIndex: 1,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/cardio-test.png"
+        alt=""
+        height={dims[3][0]}
+        width={dims[3][1]}
+        className={classNames('absolute')}
+        style={{
+          top: 'calc(47.5vh + 0rem)',
+          right: 'calc(80vh / 2 * (0.2 - 0.025))',
+          transformOrigin: 'right top',
+          zIndex: 2,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+    </div>
+  );
+}
+
+function Portfolio() {
+  const { currentView } = React.useContext(CurrentViewContext);
+  const [project, setProject] = React.useState(projects['trialBi']);
+
+  useEffect(() => {
+    setProject(projects[currentView]);
+  }, [currentView]);
+
+  return (
+    <GridContainer className="relative flex" style={{ minHeight: '100vh' }}>
+      <ProjectDescription project={project} />
+      <ProjectImages />
+    </GridContainer>
   );
 }
 
