@@ -15,6 +15,8 @@ import classNames from 'classnames';
 import { useEffect } from 'react';
 import Image from 'next/image';
 import useObserver from '@/hooks/UseObserver';
+import useDeviceDims from '@/hooks/UseDeviceDims';
+import { HW_RATIO_PHONE, HW_RATIO_TABLET } from '@/config/variables';
 
 type Project = {
   count: number;
@@ -349,6 +351,7 @@ function TrialBiImages() {
 function CardioImages() {
   const { setCurrentView } = React.useContext(CurrentViewContext);
   const wrapperRef = React.useRef(null);
+  const [height, width] = useDeviceDims(wrapperRef, HW_RATIO_PHONE);
   const { scrollY } = useScroll({ target: wrapperRef });
 
   useObserver(wrapperRef, () => setCurrentView('cardio'), { threshold: 0 });
@@ -370,17 +373,6 @@ function CardioImages() {
     image4.style.transform = `translateY(-${delta * 0.2125}px)`;
   });
 
-  const viewHeight = document.documentElement.clientHeight;
-  const viewWidth = document.documentElement.clientWidth;
-  const baseHeight = Math.min(viewHeight * 0.8, viewWidth);
-  const baseWidth = baseHeight / 2.0166;
-  const dims = [
-    [baseHeight, baseWidth],
-    [baseHeight * 0.9, baseWidth * 0.9],
-    [baseHeight * 0.75, baseWidth * 0.75],
-    [baseHeight * 0.65, baseWidth * 0.65],
-  ];
-
   return (
     <div
       ref={wrapperRef}
@@ -390,8 +382,8 @@ function CardioImages() {
       <Image
         src="/images/cardio-main.png"
         alt=""
-        height={dims[0][0]}
-        width={dims[0][1]}
+        height={height}
+        width={width}
         className={classNames('absolute')}
         style={{
           top: '40vh',
@@ -404,8 +396,8 @@ function CardioImages() {
       <Image
         src="/images/cardio-card.png"
         alt=""
-        height={dims[1][0]}
-        width={dims[1][1]}
+        height={height * 0.9}
+        width={width * 0.9}
         className={classNames('absolute')}
         style={{
           top: 'calc(80vh * 0.2)',
@@ -418,8 +410,8 @@ function CardioImages() {
       <Image
         src="/images/cardio-create-test.png"
         alt=""
-        height={dims[2][0]}
-        width={dims[2][1]}
+        height={height * 0.75}
+        width={width * 0.75}
         className={classNames('absolute')}
         style={{
           top: 'calc(57.5vh + 0rem)',
@@ -433,8 +425,8 @@ function CardioImages() {
       <Image
         src="/images/cardio-test.png"
         alt=""
-        height={dims[3][0]}
-        width={dims[3][1]}
+        height={height * 0.65}
+        width={width * 0.65}
         className={classNames('absolute')}
         style={{
           top: 'calc(47.5vh + 0rem)',
