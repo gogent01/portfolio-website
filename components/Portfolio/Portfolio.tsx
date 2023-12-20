@@ -1,4 +1,5 @@
 'use client';
+
 import * as React from 'react';
 import {
   cubicBezier,
@@ -13,6 +14,7 @@ import GridContainer from '@/components/GridContainer';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import useObserver from '@/hooks/UseObserver';
 
 type Project = {
   count: number;
@@ -233,18 +235,9 @@ function TrivialnoImages() {
   const { setCurrentView } = React.useContext(CurrentViewContext);
   const wrapperRef = React.useRef(null);
 
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-
-        if (entry.isIntersecting) setCurrentView('trivialno');
-      },
-      { threshold: 0.25 }
-    );
-
-    if (wrapperRef.current) observer.observe(wrapperRef.current);
-  }, []);
+  useObserver(wrapperRef, () => setCurrentView('trivialno'), {
+    threshold: 0.25,
+  });
 
   return (
     <div
@@ -290,24 +283,14 @@ function TrialBiImages() {
     image2.style.width = `${nextDims[1][1]}`;
   }
 
+  useObserver(wrapperRef, () => setCurrentView('trialBi'), { threshold: 0 });
+
   React.useEffect(() => {
     recalculateHW();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-
-        if (entry.isIntersecting) setCurrentView('trialBi');
-      },
-      { threshold: 0 }
-    );
-
-    if (wrapperRef.current) observer.observe(wrapperRef.current);
 
     window.addEventListener('resize', recalculateHW);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener('resize', recalculateHW);
     };
   }, []);
@@ -368,20 +351,10 @@ function CardioImages() {
   const wrapperRef = React.useRef(null);
   const { scrollY } = useScroll({ target: wrapperRef });
 
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-
-        if (entry.isIntersecting) setCurrentView('cardio');
-      },
-      { threshold: 0 }
-    );
-
-    if (wrapperRef.current) observer.observe(wrapperRef.current);
-  }, []);
+  useObserver(wrapperRef, () => setCurrentView('cardio'), { threshold: 0 });
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (!document) return;
     if (!wrapperRef.current) return;
 
     const viewHeight = document.documentElement.clientHeight;
