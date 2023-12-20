@@ -215,8 +215,8 @@ function ProjectImages() {
       style={{
         marginBottom: 'var(--gutter)',
         gap: '80vh',
-        paddingTop: '70vh',
-        paddingBottom: '70vh',
+        paddingTop: '100vh',
+        paddingBottom: '100vh',
       }}
       className={classNames(
         'flex flex-col bg-gray-100/50',
@@ -236,66 +236,113 @@ function ProjectImages() {
 function TrivialnoImages() {
   const { setCurrentView } = React.useContext(CurrentViewContext);
   const wrapperRef = React.useRef(null);
+  const [tabletHeight, tabletWidth] = useDeviceDims(
+    wrapperRef,
+    HW_RATIO_TABLET,
+    'landscape'
+  );
+  const [phoneHeight, phoneWidth] = useDeviceDims(wrapperRef, HW_RATIO_PHONE);
+  const { scrollY } = useScroll({ target: wrapperRef });
 
-  useObserver(wrapperRef, () => setCurrentView('trivialno'), {
-    threshold: 0.25,
+  useObserver(wrapperRef, () => setCurrentView('trivialno'), { threshold: 0 });
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (!document) return;
+    if (!wrapperRef.current) return;
+
+    const viewHeight = document.documentElement.clientHeight;
+    const container = wrapperRef.current as HTMLDivElement;
+    const rect = container.getBoundingClientRect();
+    const delta = viewHeight * 1.5 - rect.top;
+    const [image1, image2, image3, image4] =
+      container.children as unknown as HTMLElement[];
+
+    image1.style.transform = `translateY(-${delta * 1.1}px)`;
+    image2.style.transform = `translateY(-${delta * 1.9}px)`;
+    image3.style.transform = `translateY(-${delta * 0.3}px)`;
+    image4.style.transform = `translateY(-${delta * 2.8}px)`;
   });
 
   return (
     <div
       ref={wrapperRef}
-      className="w-full bg-indigo-200"
-      style={{ height: '100vh' }}
-    ></div>
+      className={classNames('relative w-full bg-cyan-200/50 grid')}
+      style={{ height: '25vh' }}
+    >
+      <Image
+        src="/images/trivialno-online-lesson.png"
+        alt=""
+        height={tabletHeight}
+        width={tabletWidth}
+        className={classNames('absolute')}
+        style={{
+          top: '40vh',
+          left: 0,
+          zIndex: 1,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/trivialno-select-tutor.png"
+        alt=""
+        height={phoneHeight * 0.9}
+        width={phoneWidth * 0.9}
+        className={classNames('absolute')}
+        style={{
+          top: tabletHeight * 3 + 'px',
+          right: '1vw',
+          zIndex: 2,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/trivialno-sign-up.png"
+        alt=""
+        height={phoneHeight * 0.75}
+        width={phoneWidth * 0.75}
+        className={classNames('absolute')}
+        style={{
+          top: tabletHeight * 0.25 + 'px',
+          left: '1vw',
+          transformOrigin: 'left top',
+          zIndex: 3,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+      <Image
+        src="/images/trivialno-study-schedule.png"
+        alt=""
+        height={phoneHeight * 0.7}
+        width={phoneWidth * 0.7}
+        className={classNames('absolute')}
+        style={{
+          top: tabletHeight * 5.7 + 'px',
+          right: tabletWidth * 0.4 + 'px',
+          transformOrigin: 'right top',
+          zIndex: 4,
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      ></Image>
+    </div>
   );
 }
 
 function TrialBiImages() {
-  const WH_RATIO_TABLET = 1.3;
-  const viewHeight = document.documentElement.clientHeight;
-  const [dims, setDims] = React.useState<number[][]>([
-    [0, 0],
-    [0, 0],
-  ]);
-
   const { setCurrentView } = React.useContext(CurrentViewContext);
   const wrapperRef = React.useRef(null);
+  const [height, width] = useDeviceDims(
+    wrapperRef,
+    HW_RATIO_TABLET,
+    'landscape'
+  );
+
   const { scrollY } = useScroll({ target: wrapperRef });
 
-  function recalculateHW() {
-    console.log('resizing');
-    const viewHeight = document.documentElement.clientHeight;
-    const container = wrapperRef.current;
-    if (!container) return;
-
-    const rect = (container as HTMLDivElement).getBoundingClientRect();
-    const baseHeight = Math.min(viewHeight * 0.8, rect.width / WH_RATIO_TABLET);
-    const baseWidth = baseHeight * WH_RATIO_TABLET;
-    const nextDims = [
-      [baseHeight, baseWidth],
-      [baseWidth * 0.8, baseHeight * 0.8],
-    ];
-    console.log({ width: rect.width, baseHeight, baseWidth, nextDims });
-    setDims(nextDims);
-    const [image1, image2] = (container as HTMLDivElement)
-      .children as unknown as HTMLElement[];
-    image1.style.height = `${nextDims[0][0]}`;
-    image1.style.width = `${nextDims[0][1]}`;
-    image2.style.height = `${nextDims[1][0]}`;
-    image2.style.width = `${nextDims[1][1]}`;
-  }
-
   useObserver(wrapperRef, () => setCurrentView('trialBi'), { threshold: 0 });
-
-  React.useEffect(() => {
-    recalculateHW();
-
-    window.addEventListener('resize', recalculateHW);
-
-    return () => {
-      window.removeEventListener('resize', recalculateHW);
-    };
-  }, []);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (!wrapperRef.current) return;
@@ -319,8 +366,8 @@ function TrialBiImages() {
       <Image
         src="/images/trial-bi-main-h.png"
         alt=""
-        height={dims[0][0]}
-        width={dims[0][1]}
+        height={height}
+        width={width}
         className={classNames('absolute')}
         style={{
           top: '40vh',
@@ -333,11 +380,11 @@ function TrialBiImages() {
       <Image
         src="/images/trial-bi-query-v.png"
         alt=""
-        height={dims[1][0]}
-        width={dims[1][1]}
+        height={width * 0.8}
+        width={height * 0.8}
         className={classNames('absolute')}
         style={{
-          top: 'calc(80vh * 0.2)',
+          top: height * 0.3 + 'px',
           right: '1vw',
           zIndex: 2,
           transform: 'translateZ(0)',
