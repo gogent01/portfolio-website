@@ -18,7 +18,7 @@ function Title({ children }: { children: React.ReactNode }) {
       origin={'left'}
       stop={true}
       className={classNames(
-        'text-gray-900',
+        'self-end text-gray-900',
         'text-4xl col-start-1 col-span-4',
         'md:text-5xl md:col-start-2 md:col-span-6',
         'lg:text-6xl lg:col-start-2 lg:col-span-8',
@@ -27,23 +27,6 @@ function Title({ children }: { children: React.ReactNode }) {
     >
       {children}
     </SlidingTitle>
-  );
-}
-
-function LabeledGitHubIcon() {
-  return (
-    <div>
-      <GithubIcon
-        className={classNames(
-          'text-gray-900 transition-transform ease-in-out duration-500 hover:scale-110',
-          'h-16 w-16',
-          'md:h-20 md:w-20',
-          'lg:h-24 lg:w-24',
-          'xl:h-28 xl:w-28'
-        )}
-      />
-      <p>Github</p>
-    </div>
   );
 }
 
@@ -61,12 +44,14 @@ function ContactIcon({
     <a
       href={link}
       target="_blank"
+      {...delegated}
       className={classNames(
         'block',
         'h-16 w-16',
         'md:h-20 md:w-20',
         'lg:h-24 lg:w-24',
-        'xl:h-28 xl:w-28'
+        'xl:h-28 xl:w-28',
+        delegated.className
       )}
       onMouseEnter={(event: React.MouseEvent) => {
         (event.currentTarget.children[0] as HTMLAnchorElement).style.transform =
@@ -80,7 +65,6 @@ function ContactIcon({
         (event.currentTarget.children[1] as HTMLAnchorElement).style.transform =
           'translateY(0)';
       }}
-      {...delegated}
     >
       <Icon
         className={classNames(
@@ -103,8 +87,8 @@ function ContactIcons() {
   return (
     <div
       className={classNames(
-        'w-full flex flex-wrap justify-center col-start-1 col-span-full',
-        'mt-16 gap-12',
+        'w-full flex flex-wrap justify-center col-start-1 col-span-full self-start',
+        'mt-16 gap-x-12 gap-y-16',
         'md:mt-24 md:gap-20',
         'lg:mt-28 lg:gap-24',
         'xl:mt-32 xl:gap-28'
@@ -125,11 +109,19 @@ function ContactIcons() {
         link={'mailto:gamishurovskiy@gmail.com'}
         text={'E-mail'}
       />
+
       <ContactIcon
         Icon={CvIcon}
         link={'https://bit.ly/cv-georgy-mishurovsky'}
         text={'CV'}
         style={{ transform: 'translateX(-16.67%)' }}
+        className="hidden sm:block"
+      />
+      <ContactIcon
+        Icon={CvIcon}
+        link={'https://bit.ly/cv-georgy-mishurovsky'}
+        text={'CV'}
+        className="block sm:hidden"
       />
     </div>
   );
@@ -146,7 +138,7 @@ function Contacts() {
   }, [isInView]);
 
   return (
-    <GridContainer ref={ref} className="py-80">
+    <GridContainer ref={ref} className="" style={{ minHeight: '100vh' }}>
       <Title>Contact Me</Title>
       {hasComeIntoView && <ContactIcons />}
     </GridContainer>
