@@ -11,11 +11,11 @@ function Title({ children }: { children: React.ReactNode }) {
   return (
     <SlidingTitle
       level={'h1'}
-      topTarget={0}
-      offsetTop={0.7}
-      pause={0.5}
+      topTarget={-0.5}
+      offsetTop={0.8}
+      pause={0}
       origin={'right'}
-      stop={false}
+      stop={true}
       className={classNames(
         'text-gray-900',
         'text-4xl col-start-1 col-span-4',
