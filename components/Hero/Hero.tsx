@@ -16,6 +16,7 @@ import {
 import GridContainer from '@/components/GridContainer';
 import { GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
 import { Red_Hat_Display } from 'next/font/google';
+import { StyleHTMLAttributes } from 'react';
 
 const heroFont = Red_Hat_Display({
   subsets: ['latin'],
@@ -115,12 +116,38 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
   );
 }
 
-const MotionGithubIcon = motion(GithubIcon);
-const MotionLinkedInIcon = motion(LinkedInIcon);
-const MotionMailIcon = motion(MailIcon);
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
+function HeroIcon({
+  Icon,
+  link,
+  text,
+  delay,
+}: {
+  Icon: React.ComponentType<{ className: string; style: React.CSSProperties }>;
+  link: string;
+  text: string;
+  delay: number;
+}) {
+  return (
+    <motion.a
+      href={link}
+      target="_blank"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2.5, ease: 'easeOut', delay }}
+    >
+      <Icon
+        className={classNames(
+          'text-gray-900 transition-transform ease-in-out duration-500 hover:rotate-6 hover:translate-x-1 hover:-translate-y-2 hover:translate-z-0',
+          'h-16 w-16',
+          'lg:h-auto lg:w-full'
+        )}
+        style={{ maxWidth: '6rem' }}
+      />
+      <span className="sr-only">{text}</span>
+    </motion.a>
+  );
 }
+
 function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
   const { scrollY } = useScroll();
   const [scope, animate] = useAnimate();
@@ -139,38 +166,23 @@ function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
       {...delegated}
       className={classNames('flex gap-12', delegated.className)}
     >
-      <MotionGithubIcon
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.5, ease: 'easeOut', delay: 5 }}
-        className={classNames(
-          'text-gray-900 transition-transform ease-in-out duration-500 hover:rotate-6 hover:translate-x-1 hover:-translate-y-2',
-          'h-16 w-16',
-          'lg:h-auto lg:w-full'
-        )}
-        style={{ maxWidth: '6rem' }}
+      <HeroIcon
+        Icon={GithubIcon}
+        link={'https://github.com/gogent01'}
+        text={'Github'}
+        delay={5}
       />
-      <MotionLinkedInIcon
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.5, ease: 'easeOut', delay: 4.5 }}
-        className={classNames(
-          'text-gray-900 transition-transform ease-in-out duration-500 hover:rotate-6 hover:translate-x-1 hover:-translate-y-2 hover:translate-z-0',
-          'h-16 w-16',
-          'lg:h-auto lg:w-full'
-        )}
-        style={{ maxWidth: '6rem' }}
+      <HeroIcon
+        Icon={LinkedInIcon}
+        link={'https://www.linkedin.com/in/gamishurovsky'}
+        text={'LinkedIn'}
+        delay={4.5}
       />
-      <MotionMailIcon
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2.5, ease: 'easeOut', delay: 4 }}
-        className={classNames(
-          'text-gray-900 transition-transform ease-in-out duration-500 hover:rotate-6 hover:translate-x-1 hover:-translate-y-2',
-          'h-16 w-16',
-          'lg:h-auto lg:w-full'
-        )}
-        style={{ maxWidth: '6rem' }}
+      <HeroIcon
+        Icon={MailIcon}
+        link={'mailto:gamishurovskiy@gmail.com'}
+        text={'E-mail'}
+        delay={4}
       />
     </div>
   );
