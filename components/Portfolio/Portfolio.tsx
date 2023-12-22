@@ -32,7 +32,7 @@ const projects: Record<string, Project> = {
     title: 'Trivialno',
     role: 'Full Stack Developer • System Architect',
     description:
-      "An online platform for Math tutors, school students, and their parents. Enables tutors and students to sign up, schedule online lessons, and engage in lessons through the app's integrated video bridge. Comprised of three web apps, a company website, and a microservice backend.",
+      'An online platform for Math tutors, school students, and their parents. Comprised of three web apps, a company website, and a microservice backend.',
     purpose: 'SPA & Website',
   },
   trialBi: {
@@ -40,7 +40,7 @@ const projects: Record<string, Project> = {
     title: 'Trial Bi',
     role: 'Full Stack Developer • UI/UX Designer',
     description:
-      'A BI system for clinical trial data, providing capabilities for data selection, filtering, sorting, and aggregation. The system allows users to gain initial insights and prepare data for further analysis in statistical software.',
+      'A BI system for clinical trial data, providing extensive capabilities for data processing. Enables researchers to discover initial insights and prepare data for further analysis in statistical software.',
     purpose: 'Web App',
   },
   cardio: {
@@ -48,7 +48,7 @@ const projects: Record<string, Project> = {
     title: 'Cardio',
     role: 'Full Stack Developer • UI Designer',
     description:
-      'A pair of progressive web apps — one tailored for high school students to prepare for state examinations in Biology and Chemistry, and the other for teachers to create study materials and monitor student performance.',
+      'A pair of progressive web apps — one for high school students to prepare for state examinations, and the other for teachers to create study materials and monitor student performance.',
     purpose: 'PWA',
   },
 };
@@ -67,12 +67,16 @@ function TextDiscovery({
       animate([
         ['#black-bar', { x: '-50%', scaleX: 0 }, { duration: 0 }],
         ['#white-bar', { x: '0%', scaleX: 1 }, { duration: 0 }],
-        ['#black-bar', { x: '0%', scaleX: 1 }, { duration: 0.5, ease: easing }],
+        [
+          '#black-bar',
+          { x: '0%', scaleX: 1 },
+          { duration: 0.45, ease: easing },
+        ],
         ['#white-bar', { x: '50%', scaleX: 0 }, { duration: 0 }],
         [
           '#black-bar',
           { x: '50%', scaleX: 0 },
-          { duration: 0.5, ease: easing },
+          { duration: 0.45, ease: easing },
         ],
       ]);
     };
@@ -112,11 +116,11 @@ function ProjectDescription({ project }: { project: Project }) {
           'xl:col-start-1 xl:col-span-6'
         )}
       >
-        <div className="absolute top-0 left-0 ">
+        <div className="absolute top-0 left-0">
           <TextDiscovery
             className={classNames(
-              'text-gray-500 font-bold',
-              'text-4xl',
+              'text-gray-700 font-bold',
+              'text-3xl',
               'lg:text-4xl',
               'xl:text-4xl'
             )}
@@ -195,8 +199,8 @@ function ProjectDescription({ project }: { project: Project }) {
         <div className="absolute bottom-0 left-0">
           <TextDiscovery
             className={classNames(
-              'text-gray-500 font-bold',
-              'text-3xl',
+              'text-gray-700 font-bold',
+              'text-2xl',
               'lg:text-3xl',
               'xl:text-3xl'
             )}
@@ -214,12 +218,12 @@ function ProjectImages() {
     <div
       style={{
         marginBottom: 'var(--gutter)',
-        gap: '80vh',
+        gap: '90vh',
         paddingTop: '100vh',
         paddingBottom: '100vh',
       }}
       className={classNames(
-        'flex flex-col bg-gray-100/50',
+        'flex flex-col',
         'col-start-1 col-span-4',
         'md:col-start-5 md:col-span-4',
         'lg:col-start-7 lg:col-span-6',
@@ -266,7 +270,7 @@ function TrivialnoImages() {
   return (
     <div
       ref={wrapperRef}
-      className={classNames('relative w-full bg-cyan-200/50 grid')}
+      className={classNames('relative w-full grid')}
       style={{ height: '25vh' }}
     >
       <Image
@@ -360,7 +364,7 @@ function TrialBiImages() {
   return (
     <div
       ref={wrapperRef}
-      className={classNames('relative w-full bg-cyan-200/50 grid')}
+      className={classNames('relative w-full grid')}
       style={{ height: '25vh' }}
     >
       <Image
@@ -380,8 +384,8 @@ function TrialBiImages() {
       <Image
         src="/images/trial-bi-query-v.png"
         alt=""
-        height={width * 0.8}
-        width={height * 0.8}
+        height={width * 0.9}
+        width={height * 0.9}
         className={classNames('absolute')}
         style={{
           top: height * 0.3 + 'px',
@@ -423,7 +427,7 @@ function CardioImages() {
   return (
     <div
       ref={wrapperRef}
-      className={classNames('relative w-full bg-cyan-200/50 grid')}
+      className={classNames('relative w-full grid')}
       style={{ height: '25vh' }}
     >
       <Image

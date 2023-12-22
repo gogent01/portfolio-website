@@ -59,7 +59,17 @@ function About() {
   }, [isInView]);
 
   return (
-    <GridContainer ref={ref} className="py-80">
+    <GridContainer
+      ref={ref}
+      className={classNames(
+        'pb-8',
+        'pt-64',
+        'sm:pt-72',
+        'md:pt-80',
+        'lg:pt-88',
+        'xl:pt-86'
+      )}
+    >
       <Title>About Me</Title>
       <Bio>
         As a Full Stack Developer, I apply my skills in&nbsp;TypeScript,
