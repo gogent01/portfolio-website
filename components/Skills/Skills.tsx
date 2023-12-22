@@ -49,10 +49,10 @@ function SkillSet() {
     <GridContainer
       className={classNames(
         '!px-0 grid-flow-col',
-        'mt-4 col-start-1 col-span-4 grid-cols-2 grid-rows-6',
-        'md:mt-4 md:col-start-2 md:col-span-6 md:grid-cols-2 md:grid-rows-6',
-        'lg:mt-8 lg:col-start-3 lg:col-span-9 lg:grid-cols-3 lg:grid-rows-4',
-        'xl:mt-12 xl:col-start-3 xl:col-span-9 xl:grid-cols-3 xl:grid-rows-4'
+        'mt-6 col-start-1 col-span-4 !grid-cols-2 grid-rows-6 gap-0',
+        'md:mt-8 md:col-start-2 md:col-span-6 !md:grid-cols-2 md:grid-rows-6 md:gap-1',
+        'lg:mt-12 lg:col-start-3 lg:col-span-9 !lg:grid-cols-3 lg:grid-rows-4 lg:gap-2',
+        'xl:mt-12 xl:col-start-3 xl:col-span-9 !xl:grid-cols-3 xl:grid-rows-4 xl:gap-2'
       )}
     >
       {skills.map((skill) => (
