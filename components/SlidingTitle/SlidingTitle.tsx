@@ -10,6 +10,7 @@ import {
 import { Red_Hat_Display } from 'next/font/google';
 import classNames from 'classnames';
 import { useEffect } from 'react';
+import { debounce } from '@/utils';
 
 const titleFont = Red_Hat_Display({
   subsets: ['latin'],
@@ -110,7 +111,7 @@ function SlidingTitle({
       <div ref={containerRef}>
         <Tag
           className={classnames(
-            'font-bold tracking-wider transition-transform ease-out',
+            'font-bold tracking-wider',
             titleFont.className
           )}
           style={{

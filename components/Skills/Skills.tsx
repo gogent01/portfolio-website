@@ -12,8 +12,8 @@ function Title({ children }: { children: React.ReactNode }) {
     <SlidingTitle
       level={'h1'}
       topTarget={-0.5}
-      offsetTop={0.8}
-      pause={0}
+      offsetTop={0.9}
+      pause={0.3}
       origin={'right'}
       stop={true}
       className={classNames(
@@ -85,7 +85,7 @@ function Skills() {
   }, [isInView]);
 
   return (
-    <GridContainer ref={ref} className="py-80">
+    <GridContainer ref={ref} className="pt-80">
       <Title>Skills</Title>
       {hasComeIntoView && <SkillSet />}
     </GridContainer>

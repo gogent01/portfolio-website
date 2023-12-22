@@ -12,8 +12,8 @@ function Title({ children }: { children: React.ReactNode }) {
   return (
     <SlidingTitle
       level={'h1'}
-      topTarget={0}
-      offsetTop={1}
+      topTarget={0.7}
+      offsetTop={0.95}
       pause={0.5}
       origin={'left'}
       stop={true}
