@@ -87,7 +87,7 @@ function Skills() {
   return (
     <GridContainer ref={ref} className="pt-80">
       <Title>Skills</Title>
-      {hasComeIntoView && <SkillSet />}
+      <SkillSet />
     </GridContainer>
   );
 }

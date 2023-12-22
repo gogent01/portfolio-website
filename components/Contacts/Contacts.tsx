@@ -140,7 +140,7 @@ function Contacts() {
   return (
     <GridContainer ref={ref} className="" style={{ minHeight: '100vh' }}>
       <Title>Contact Me</Title>
-      {hasComeIntoView && <ContactIcons />}
+      <ContactIcons />
     </GridContainer>
   );
 }

@@ -61,20 +61,18 @@ function About() {
   return (
     <GridContainer ref={ref} className="py-80">
       <Title>About Me</Title>
-      {hasComeIntoView && (
-        <Bio>
-          As a Full Stack Developer, I apply my skills in&nbsp;TypeScript,
-          React.js, Node.js, Python, and&nbsp;R to&nbsp;create innovative
-          solutions for&nbsp;healthcare and&nbsp;education sectors.
-          I&nbsp;developed an&nbsp;AI chatbot that&nbsp;helps breast cancer
-          patients navigate the&nbsp;state healthcare system,
-          and&nbsp;a&nbsp;flexible BI system for&nbsp;an&nbsp;analysis
-          of&nbsp;complex clinical trial data. Also participated
-          in&nbsp;the&nbsp;development and&nbsp;integration of&nbsp;a&nbsp;Real
-          World Evidence trial database that&nbsp;contains extensive clinical
-          data of&nbsp;3,000&nbsp;melanoma and&nbsp;breast cancer patients.
-        </Bio>
-      )}
+      <Bio>
+        As a Full Stack Developer, I apply my skills in&nbsp;TypeScript,
+        React.js, Node.js, Python, and&nbsp;R to&nbsp;create innovative
+        solutions for&nbsp;healthcare and&nbsp;education sectors.
+        I&nbsp;developed an&nbsp;AI chatbot that&nbsp;helps breast cancer
+        patients navigate the&nbsp;state healthcare system,
+        and&nbsp;a&nbsp;flexible BI system for&nbsp;an&nbsp;analysis
+        of&nbsp;complex clinical trial data. Also participated
+        in&nbsp;the&nbsp;development and&nbsp;integration of&nbsp;a&nbsp;Real
+        World Evidence trial database that&nbsp;contains extensive clinical data
+        of&nbsp;3,000&nbsp;melanoma and&nbsp;breast cancer patients.
+      </Bio>
     </GridContainer>
   );
 }
