@@ -72,4 +72,27 @@ const MailIcon = React.forwardRef(function MailIcon(
   );
 });
 
-export { GithubIcon, LinkedInIcon, MailIcon };
+const CvIcon = React.forwardRef(function CvIcon(
+  props: ComponentProps<'a'>,
+  ref: React.Ref<HTMLAnchorElement>
+) {
+  return (
+    <a
+      ref={ref}
+      href="https://bit.ly/cv-georgy-mishurovsky"
+      {...props}
+      className={classNames('', props.className)}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 512 512"
+        style={{ transform: 'translate3d(0, 0, 0)' }}
+      >
+        <path d="M0 64C0 28.7 28.7 0 64 0h160v128c0 17.7 14.3 32 32 32h128v288c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0l128 128z" />
+      </svg>
+    </a>
+  );
+});
+
+export { GithubIcon, LinkedInIcon, MailIcon, CvIcon };
