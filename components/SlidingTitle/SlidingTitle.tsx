@@ -108,10 +108,10 @@ function SlidingTitle({
 
   return (
     <div className={classNames('flex', classNames(delegated.className))}>
-      <div ref={containerRef} className="w-full overflow-hidden">
+      <div ref={containerRef} className="relative w-full h-12">
         <Tag
           className={classnames(
-            'font-bold tracking-wider',
+            'absolute font-bold tracking-wider',
             titleFont.className
           )}
           style={{

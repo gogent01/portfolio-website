@@ -138,7 +138,11 @@ function Contacts() {
   }, [isInView]);
 
   return (
-    <GridContainer ref={ref} className="" style={{ minHeight: '100vh' }}>
+    <GridContainer
+      ref={ref}
+      className="overflow-hidden"
+      style={{ minHeight: '100vh' }}
+    >
       <Title>Contact Me</Title>
       <ContactIcons />
     </GridContainer>

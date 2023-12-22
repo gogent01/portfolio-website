@@ -85,7 +85,11 @@ function Skills() {
   }, [isInView]);
 
   return (
-    <GridContainer ref={ref} className="pt-80">
+    <GridContainer
+      ref={ref}
+      className="pt-80 overflow-hidden"
+      style={{ maxWidth: '100vw' }}
+    >
       <Title>Skills</Title>
       <SkillSet />
     </GridContainer>

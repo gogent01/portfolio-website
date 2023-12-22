@@ -62,7 +62,7 @@ function About() {
     <GridContainer
       ref={ref}
       className={classNames(
-        'pb-8',
+        'pb-8 overflow-hidden',
         'pt-64',
         'sm:pt-72',
         'md:pt-80',
