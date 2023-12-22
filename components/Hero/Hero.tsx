@@ -30,14 +30,21 @@ function SlidingName({
     <div
       className={classNames(
         'relative pointer-events-none select-none',
+        'translate-y-12',
+        'sm:translate-y-12',
+        'md:translate-y-12',
+        'lg:translate-y-8',
+        'xl:translate-y-4',
         delegated.className
       )}
-      style={{ width: 'calc(100vw - 2 * var(--gutter))' }}
+      style={{
+        width: 'calc(100vw - 2 * var(--gutter))',
+      }}
     >
       <div
         className={classNames(
           'w-full select-auto',
-          'h-16',
+          'h-13',
           'sm:h-19.5',
           'md:h-26',
           'lg:h-35',
@@ -50,7 +57,7 @@ function SlidingName({
           transition={{ duration: 1.5, ease: 'easeOut', delay: 0.75 }}
           className={classNames(
             'text-gray-900 font-bold tracking-wide',
-            'text-6xl',
+            'text-5xl',
             'sm:text-7xl',
             'md:text-8xl',
             'lg:text-9xl',
@@ -78,8 +85,17 @@ function SlidingName({
 function SlidingRole({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="relative pointer-events-none select-none"
-      style={{ minWidth: 'min(max-content, calc(100vw - var(--gutter)))' }}
+      className={classNames(
+        'relative pointer-events-none select-none',
+        'translate-y-14',
+        'sm:translate-y-14',
+        'md:translate-y-12',
+        'lg:translate-y-8',
+        'xl:translate-y-4'
+      )}
+      style={{
+        minWidth: 'min(max-content, calc(100vw - var(--gutter)))',
+      }}
     >
       <div
         className={classNames(
@@ -121,12 +137,13 @@ function HeroIcon({
   link,
   text,
   delay,
+  ...delegated
 }: {
   Icon: React.ComponentType<{ className: string; style: React.CSSProperties }>;
   link: string;
   text: string;
   delay: number;
-}) {
+} & React.ComponentProps<'a'>) {
   return (
     <motion.a
       href={link}
@@ -134,6 +151,7 @@ function HeroIcon({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2.5, ease: 'easeOut', delay }}
+      className={classNames(delegated.className)}
     >
       <Icon
         className={classNames(
@@ -183,6 +201,7 @@ function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
         link={'mailto:gamishurovskiy@gmail.com'}
         text={'E-mail'}
         delay={4}
+        className="-mt-1.5"
       />
     </div>
   );
@@ -212,7 +231,7 @@ function Hero() {
 
       <HeroIcons
         className={classNames(
-          'h-full flex-col justify-center items-end sm:justify-start',
+          'h-full flex-col justify-start items-end',
           'col-start-4',
           'md:col-start-8',
           'lg:col-start-12'
