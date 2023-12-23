@@ -40,7 +40,7 @@ function Bio({ children }: { children: React.ReactNode }) {
         'mt-4 text-xl leading-10 col-start-1 col-span-4',
         'md:mt-4 md:text-2xl md:leading-10 md:col-start-2 md:col-span-6',
         'lg:mt-8 lg:text-2xl lg:leading-10 lg:col-start-3 lg:col-span-8',
-        'xl:mt-12 xl:text-3xl xl:leading-12 xl:col-start-3 xl:col-span-7'
+        'xl:mt-16 xl:text-3xl xl:leading-12 xl:col-start-3 xl:col-span-7'
       )}
     >
       {children}
@@ -72,16 +72,10 @@ function About() {
     >
       <Title>About Me</Title>
       <Bio>
-        As a Full Stack Developer, I apply my skills in&nbsp;TypeScript,
-        React.js, Node.js, Python, and&nbsp;R to&nbsp;create innovative
-        solutions for&nbsp;healthcare and&nbsp;education sectors.
-        I&nbsp;developed an&nbsp;AI chatbot that&nbsp;helps breast cancer
-        patients navigate the&nbsp;state healthcare system,
-        and&nbsp;a&nbsp;flexible BI system for&nbsp;an&nbsp;analysis
-        of&nbsp;complex clinical trial data. Also participated
-        in&nbsp;the&nbsp;development and&nbsp;integration of&nbsp;a&nbsp;Real
-        World Evidence trial database that&nbsp;contains extensive clinical data
-        of&nbsp;3,000&nbsp;melanoma and&nbsp;breast cancer patients.
+        Full Stack Developer with&nbsp;medical background from&nbsp;Montenegro.
+        Passionate about&nbsp;creating innovative solutions for&nbsp;healthcare
+        and&nbsp;education by&nbsp;means of&nbsp;TypeScript, Vue, React
+        and&nbsp;Node&nbsp;JS, from design to server infrastructure.
       </Bio>
     </GridContainer>
   );

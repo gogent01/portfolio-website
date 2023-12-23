@@ -281,7 +281,7 @@ function TrivialnoImages() {
         width={tabletWidth}
         className={classNames('absolute')}
         style={{
-          top: -tabletHeight * 0.15 + 'px',
+          top: -tabletHeight * 0.05 + 'px',
           left: 0,
           zIndex: 1,
           transform: 'translateZ(0)',
