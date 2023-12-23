@@ -99,117 +99,117 @@ function TextDiscovery({
 }
 
 function ProjectDescription({ project }: { project: Project }) {
-  const { currentView } = React.useContext(CurrentViewContext);
-
   return (
-    project && (
-      <div
-        style={{
-          height: 'calc(100vh - 2 * var(--gutter))',
-          top: 'var(--gutter)',
-        }}
-        className={classNames(
-          'sticky',
-          'col-start-1 col-span-4',
-          'md:col-start-1 md:col-span-4',
-          'lg:col-start-1 lg:col-span-6',
-          'xl:col-start-1 xl:col-span-6'
-        )}
-      >
-        <div className="absolute top-0 left-0">
-          <TextDiscovery
-            className={classNames(
-              'text-gray-700 font-bold',
-              'text-3xl',
-              'lg:text-4xl',
-              'xl:text-4xl'
-            )}
-          >
-            {project.count.toString().padStart(2, '0')}
-          </TextDiscovery>
-        </div>
-
-        <div
-          className={classNames(
-            'h-full grid',
-            'grid-cols-4 gap-x-4',
-            'md:grid-cols-4',
-            'lg:grid-cols-6',
-            '2xl:gap-x-6'
-          )}
-        >
-          <div
-            className={classNames(
-              'flex flex-col',
-              'mt-20 col-start-1 col-span-4',
-              'md:mt-40',
-              'lg:col-start-2 lg:col-span-5'
-            )}
-          >
-            <div>
-              <TextDiscovery
-                className={classNames(
-                  'text-gray-900 font-semibold',
-                  'text-3xl',
-                  'lg:text-5xl',
-                  'xl:text-6xl'
-                )}
-              >
-                {project.title}
-              </TextDiscovery>
-            </div>
-
-            <div
+    <div
+      style={{
+        height: 'calc(100vh - 2 * var(--gutter))',
+        top: 'var(--gutter)',
+      }}
+      className={classNames(
+        'sticky',
+        'col-start-1 col-span-4',
+        'md:col-start-1 md:col-span-8',
+        'lg:col-start-1 lg:col-span-12',
+        'xl:col-start-1 xl:col-span-12'
+      )}
+    >
+      {project && (
+        <>
+          <div className="absolute top-0 left-0">
+            <TextDiscovery
               className={classNames(
-                'mt-12',
-                'lg:mt-10',
-                'xl:mt-24',
-                '2xl:mt-24'
+                'text-gray-700 font-bold',
+                'text-3xl',
+                'lg:text-4xl',
+                'xl:text-4xl'
               )}
             >
-              <TextDiscovery
-                className={classNames(
-                  'text-gray-900 font-semibold',
-                  ' text-xl leading-relaxed',
-                  ' lg:text-2xl lg:leading-relaxed',
-                  ' xl:text-2xl xl:leading-relaxed',
-                  ' 2xl:text-3xl 2xl:leading-relaxed'
-                )}
-              >
-                {project.role}
-              </TextDiscovery>
-            </div>
-
-            <div className={classNames('mt-3', 'lg:mt-5', 'xl:mt-6')}>
-              <TextDiscovery
-                className={classNames(
-                  'text-gray-900',
-                  'text-xl leading-relaxed',
-                  'lg:text-2xl lg:leading-relaxed',
-                  'xl:text-2xl xl:leading-relaxed',
-                  '2xl:text-3xl 2xl:leading-relaxed'
-                )}
-              >
-                {project.description}
-              </TextDiscovery>
-            </div>
+              {project.count.toString().padStart(2, '0')}
+            </TextDiscovery>
           </div>
-        </div>
 
-        <div className="absolute bottom-0 left-0">
-          <TextDiscovery
+          <div
             className={classNames(
-              'text-gray-700 font-bold',
-              'text-2xl',
-              'lg:text-3xl',
-              'xl:text-3xl'
+              'h-full grid',
+              'w-full grid-cols-4 gap-x-4',
+              'md:w-1/2 md:grid-cols-4',
+              'lg:w-1/2 lg:grid-cols-6',
+              '2xl:w-1/2 2xl:gap-x-6'
             )}
           >
-            {project.purpose.toUpperCase()}
-          </TextDiscovery>
-        </div>
-      </div>
-    )
+            <div
+              className={classNames(
+                'flex flex-col',
+                'mt-20 col-start-1 col-span-4',
+                'md:mt-40',
+                'lg:col-start-2 lg:col-span-5'
+              )}
+            >
+              <div>
+                <TextDiscovery
+                  className={classNames(
+                    'text-gray-900 font-semibold',
+                    'text-3xl',
+                    'lg:text-5xl',
+                    'xl:text-6xl'
+                  )}
+                >
+                  {project.title}
+                </TextDiscovery>
+              </div>
+
+              <div
+                className={classNames(
+                  'mt-12',
+                  'lg:mt-10',
+                  'xl:mt-24',
+                  '2xl:mt-24'
+                )}
+              >
+                <TextDiscovery
+                  className={classNames(
+                    'text-gray-900 font-semibold',
+                    ' text-xl leading-relaxed',
+                    ' lg:text-2xl lg:leading-relaxed',
+                    ' xl:text-2xl xl:leading-relaxed',
+                    ' 2xl:text-3xl 2xl:leading-relaxed'
+                  )}
+                >
+                  {project.role}
+                </TextDiscovery>
+              </div>
+
+              <div className={classNames('mt-3', 'lg:mt-5', 'xl:mt-6')}>
+                <TextDiscovery
+                  className={classNames(
+                    'text-gray-900',
+                    'text-xl leading-relaxed',
+                    'lg:text-2xl lg:leading-relaxed',
+                    'xl:text-2xl xl:leading-relaxed',
+                    '2xl:text-3xl 2xl:leading-relaxed'
+                  )}
+                >
+                  {project.description}
+                </TextDiscovery>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 left-0">
+            <TextDiscovery
+              className={classNames(
+                'text-gray-700 font-bold',
+                'text-2xl',
+                'lg:text-3xl',
+                'xl:text-3xl'
+              )}
+            >
+              {project.purpose.toUpperCase()}
+            </TextDiscovery>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
@@ -217,9 +217,10 @@ function ProjectImages() {
   return (
     <div
       style={{
+        marginTop: 'var(--gutter)',
         marginBottom: 'var(--gutter)',
-        gap: '90vh',
-        paddingTop: '100vh',
+        gap: '100vh',
+        paddingTop: '0vh',
         paddingBottom: '100vh',
       }}
       className={classNames(
@@ -261,10 +262,10 @@ function TrivialnoImages() {
     const [image1, image2, image3, image4] =
       container.children as unknown as HTMLElement[];
 
-    image1.style.transform = `translateY(-${delta * 1.1}px)`;
-    image2.style.transform = `translateY(-${delta * 1.9}px)`;
-    image3.style.transform = `translateY(-${delta * 0.3}px)`;
-    image4.style.transform = `translateY(-${delta * 2.8}px)`;
+    image1.style.transform = `translateY(-${delta * 0.5}px)`;
+    image2.style.transform = `translateY(-${delta * 2.5}px)`;
+    image3.style.transform = `translateY(-${delta * 1.25}px)`;
+    image4.style.transform = `translateY(-${delta * 1.9}px)`;
   });
 
   return (
@@ -280,7 +281,7 @@ function TrivialnoImages() {
         width={tabletWidth}
         className={classNames('absolute')}
         style={{
-          top: '40vh',
+          top: -tabletHeight * 0.15 + 'px',
           left: 0,
           zIndex: 1,
           transform: 'translateZ(0)',
@@ -294,7 +295,7 @@ function TrivialnoImages() {
         width={phoneWidth * 0.9}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 3 + 'px',
+          top: tabletHeight * 3.5 + 'px',
           right: '1vw',
           zIndex: 2,
           transform: 'translateZ(0)',
@@ -302,14 +303,14 @@ function TrivialnoImages() {
         }}
       ></Image>
       <Image
-        src="/images/trivialno-sign-up.png"
+        src="/images/trivialno-study-schedule.png"
         alt=""
         height={phoneHeight * 0.75}
         width={phoneWidth * 0.75}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 0.25 + 'px',
-          left: '1vw',
+          top: tabletHeight * 2 + 'px',
+          left: '2vw',
           transformOrigin: 'left top',
           zIndex: 3,
           transform: 'translateZ(0)',
@@ -317,14 +318,14 @@ function TrivialnoImages() {
         }}
       ></Image>
       <Image
-        src="/images/trivialno-study-schedule.png"
+        src="/images/trivialno-sign-up.png"
         alt=""
         height={phoneHeight * 0.7}
         width={phoneWidth * 0.7}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 5.7 + 'px',
-          right: tabletWidth * 0.4 + 'px',
+          top: tabletHeight * 3.75 + 'px',
+          right: tabletWidth * 0.15 + 'px',
           transformOrigin: 'right top',
           zIndex: 4,
           transform: 'translateZ(0)',

@@ -80,9 +80,9 @@ function Skills() {
   const hasComeIntoView = useInView(ref, { once: true, amount: 0.8 });
   const isInView = useInView(ref, { amount: 0.5 });
 
-  React.useEffect(() => {
-    if (isInView) setCurrentView('skills');
-  }, [isInView]);
+  // React.useEffect(() => {
+  //   if (isInView) setCurrentView('skills');
+  // }, [isInView]);
 
   return (
     <GridContainer

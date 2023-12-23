@@ -133,9 +133,9 @@ function Contacts() {
   const hasComeIntoView = useInView(ref, { once: true, amount: 0.8 });
   const isInView = useInView(ref, { amount: 0.5 });
 
-  React.useEffect(() => {
-    if (isInView) setCurrentView('contacts');
-  }, [isInView]);
+  // React.useEffect(() => {
+  //   if (isInView) setCurrentView('contacts');
+  // }, [isInView]);
 
   return (
     <GridContainer
