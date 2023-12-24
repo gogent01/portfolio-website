@@ -2,10 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import { motion, useInView } from 'framer-motion';
 import SlidingTitle from '@/components/SlidingTitle';
 import GridContainer from '@/components/GridContainer';
-import { CurrentViewContext } from '@/components/CurrentViewProvider';
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
@@ -75,14 +73,7 @@ function SkillSet() {
 }
 
 function Skills() {
-  const { setCurrentView } = React.useContext(CurrentViewContext);
   const ref = React.useRef<HTMLDivElement>(null);
-  const hasComeIntoView = useInView(ref, { once: true, amount: 0.8 });
-  const isInView = useInView(ref, { amount: 0.5 });
-
-  // React.useEffect(() => {
-  //   if (isInView) setCurrentView('skills');
-  // }, [isInView]);
 
   return (
     <GridContainer

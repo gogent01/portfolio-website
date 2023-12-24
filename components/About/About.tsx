@@ -51,7 +51,6 @@ function Bio({ children }: { children: React.ReactNode }) {
 function About() {
   const { setCurrentView } = React.useContext(CurrentViewContext);
   const ref = React.useRef<HTMLDivElement>(null);
-  const hasComeIntoView = useInView(ref, { once: true, amount: 0.8 });
   const isInView = useInView(ref, { amount: 0.5 });
 
   React.useEffect(() => {
