@@ -7,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
   useAnimate,
+  useSpring,
 } from 'framer-motion';
 import GridContainer from '@/components/GridContainer';
 import { GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';

@@ -11,7 +11,7 @@ function Title({ children }: { children: React.ReactNode }) {
   return (
     <SlidingTitle
       level={'h1'}
-      topTarget={0.7}
+      topTarget={0.5}
       offsetTop={0.95}
       pause={0.5}
       origin={'left'}
@@ -82,7 +82,7 @@ function Contacts() {
       className="overflow-hidden"
       style={{ minHeight: '100vh' }}
     >
-      <Title>Contact Me</Title>
+      <Title>Get in Touch</Title>
       <ContactIcons />
     </GridContainer>
   );

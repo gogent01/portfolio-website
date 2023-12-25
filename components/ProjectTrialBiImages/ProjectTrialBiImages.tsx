@@ -30,7 +30,7 @@ function ProjectTrialBiImages() {
     const [image1, image2] = container.children as unknown as HTMLElement[];
     // console.log({ latest, top: rect.top, delta });
     image1.style.transform = `translateY(-${delta * 1.25}px)`;
-    image2.style.transform = `translateY(-${delta * 0.5}px)`;
+    image2.style.transform = `translateY(-${delta * 0.45}px)`;
   });
 
   return (

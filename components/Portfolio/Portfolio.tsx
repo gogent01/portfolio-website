@@ -1,22 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import {
-  cubicBezier,
-  motion,
-  useAnimate,
-  useInView,
-  useMotionValueEvent,
-  useScroll,
-} from 'framer-motion';
 import { CurrentViewContext } from '@/components/CurrentViewProvider';
 import GridContainer from '@/components/GridContainer';
 import classNames from 'classnames';
 import { useEffect } from 'react';
-import Image from 'next/image';
-import useObserver from '@/hooks/UseObserver';
-import useDeviceDims from '@/hooks/UseDeviceDims';
-import { HW_RATIO_PHONE, HW_RATIO_TABLET } from '@/config/variables';
 import TextDiscovery from '@/components/TextDiscovery';
 import ProjectTrivialnoImages from '@/components/ProjectTrivialnoImages';
 import ProjectTrialBiImages from '@/components/ProjectTrialBiImages';
@@ -76,9 +64,11 @@ function ProjectDescription({ project }: { project: Project }) {
         <>
           <div className="absolute top-0 left-0">
             <TextDiscovery
+              fgBarClassName="bg-gray-300 sm:bg-gray-700"
               className={classNames(
-                'text-gray-700 font-bold',
-                'text-3xl',
+                'font-bold',
+                'text-3xl text-gray-300',
+                'sm:text-gray-700',
                 'lg:text-4xl',
                 'xl:text-4xl'
               )}
@@ -87,11 +77,25 @@ function ProjectDescription({ project }: { project: Project }) {
             </TextDiscovery>
           </div>
 
+          <div className="block absolute top-0 right-0 sm:hidden">
+            <TextDiscovery
+              fgBarClassName="bg-gray-300"
+              className={classNames(
+                'text-gray-300 font-bold',
+                'text-3xl',
+                'lg:text-4xl',
+                'xl:text-4xl'
+              )}
+            >
+              {project.purpose.toUpperCase()}
+            </TextDiscovery>
+          </div>
+
           <div
             className={classNames(
               'h-full grid',
-              'w-full grid-cols-4 gap-x-4',
-              'md:w-1/2 md:grid-cols-4',
+              'w-full grid-cols-4 gap-x-4 pr-0',
+              'md:w-1/2 md:grid-cols-4 md:pr-1.5',
               'lg:w-1/2 lg:grid-cols-6',
               '2xl:w-1/2 2xl:gap-x-6'
             )}
@@ -154,8 +158,9 @@ function ProjectDescription({ project }: { project: Project }) {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0">
+          <div className="hidden absolute bottom-0 left-0 sm:block">
             <TextDiscovery
+              fgBarClassName="bg-gray-700"
               className={classNames(
                 'text-gray-700 font-bold',
                 'text-2xl',

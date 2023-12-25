@@ -31,10 +31,10 @@ function ProjectTrivialnoImages() {
     const [image1, image2, image3, image4] =
       container.children as unknown as HTMLElement[];
 
-    image1.style.transform = `translateY(-${delta * 0.5}px)`;
-    image2.style.transform = `translateY(-${delta * 2.5}px)`;
-    image3.style.transform = `translateY(-${delta * 1.25}px)`;
-    image4.style.transform = `translateY(-${delta * 1.9}px)`;
+    image1.style.transform = `translateY(-${delta * 1.75}px)`;
+    image2.style.transform = `translateY(-${delta * 2.625}px)`;
+    image3.style.transform = `translateY(-${delta * 1.65}px)`;
+    image4.style.transform = `translateY(-${delta * 1.25}px)`;
   });
 
   return (
@@ -50,7 +50,7 @@ function ProjectTrivialnoImages() {
         width={tabletWidth}
         className={classNames('absolute')}
         style={{
-          top: -tabletHeight * 0.05 + 'px',
+          top: tabletHeight * 1.5 + 'px',
           left: 0,
           zIndex: 1,
           transform: 'translateZ(0)',
@@ -60,13 +60,13 @@ function ProjectTrivialnoImages() {
       <Image
         src="/images/trivialno-select-tutor.png"
         alt=""
-        height={phoneHeight * 0.9}
-        width={phoneWidth * 0.9}
+        height={phoneHeight * 0.85}
+        width={phoneWidth * 0.85}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 3.5 + 'px',
+          top: tabletHeight * 3.625 + 'px',
           right: '1vw',
-          zIndex: 2,
+          zIndex: 4,
           transform: 'translateZ(0)',
           WebkitTransform: 'translateZ(0)',
         }}
@@ -78,7 +78,7 @@ function ProjectTrivialnoImages() {
         width={phoneWidth * 0.75}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 2 + 'px',
+          top: tabletHeight * 2.8 + 'px',
           left: '2vw',
           transformOrigin: 'left top',
           zIndex: 3,
@@ -93,10 +93,10 @@ function ProjectTrivialnoImages() {
         width={phoneWidth * 0.7}
         className={classNames('absolute')}
         style={{
-          top: tabletHeight * 3.75 + 'px',
-          right: tabletWidth * 0.15 + 'px',
+          top: tabletHeight * 2.625 + 'px',
+          right: tabletWidth * 0.1 + 'px',
           transformOrigin: 'right top',
-          zIndex: 4,
+          zIndex: 2,
           transform: 'translateZ(0)',
           WebkitTransform: 'translateZ(0)',
         }}
