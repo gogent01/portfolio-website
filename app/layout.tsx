@@ -12,7 +12,7 @@ const yoe =
   ).getFullYear() - new Date(0).getFullYear();
 export const metadata: Metadata = {
   title: 'Georgy Mishurovsky | Full Stack Developer',
-  description: `Georgy Mishurovsky is a Full Stack Developer with ${yoe} years of lives, passionate about building web applications that improve peoples' experience, while achieving business goals.`,
+  description: `Georgy Mishurovsky is a Full Stack Developer with ${yoe} years of experience, passionate about building web applications that improve peoples' experience, while achieving business goals.`,
 };
 
 export default function RootLayout({

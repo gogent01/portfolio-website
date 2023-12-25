@@ -73,8 +73,8 @@ function About() {
       <Bio>
         Full Stack Developer with&nbsp;medical background from&nbsp;Montenegro.
         Passionate about&nbsp;creating innovative solutions for&nbsp;healthcare
-        and&nbsp;education by&nbsp;means of&nbsp;TypeScript, Vue, React
-        and&nbsp;Node&nbsp;JS, from design to server infrastructure.
+        and&nbsp;education, from&nbsp;design to&nbsp;infrastructure,
+        by&nbsp;means of&nbsp;TypeScript, Vue, React and&nbsp;Node&nbsp;JS.
       </Bio>
     </GridContainer>
   );

@@ -31,26 +31,32 @@ function SkillSet() {
   const skills: string[] = [
     'JavaScript',
     'TypeScript',
-    'HTML & CSS',
+    'HTML & CSS',
     'Vue JS',
     'React JS',
     'Tailwind CSS',
-    'REST & GraphQL',
+    'REST API',
+    'GraphQL API',
     'Node JS',
+    'Next JS',
     'SQL (PostgreSQL)',
     'NoSQL (MongoDB)',
+    'Sequelize',
+    'Jest & Playwright',
     'Linux',
+    'Docker',
     'AWS',
+    'Python',
   ];
 
   return (
     <GridContainer
       className={classNames(
-        '!px-0 grid-flow-col',
-        'mt-6 col-start-1 col-span-4 !grid-cols-2 grid-rows-6 gap-0',
-        'md:mt-8 md:col-start-2 md:col-span-6 !md:grid-cols-2 md:grid-rows-6 md:gap-1',
-        'lg:mt-12 lg:col-start-3 lg:col-span-9 !lg:grid-cols-3 lg:grid-rows-4 lg:gap-2',
-        'xl:mt-12 xl:col-start-3 xl:col-span-9 !xl:grid-cols-3 xl:grid-rows-4 xl:gap-2'
+        '!px-0 grid-flow-col grid-row-subgrid',
+        'mt-6 col-start-1 col-span-4 !grid-cols-2 grid-rows-9 gap-0',
+        'md:mt-8 md:col-start-2 md:col-span-6 !md:grid-cols-2 md:grid-rows-9 md:gap-1',
+        'lg:mt-14 lg:col-start-3 lg:col-span-9 !lg:grid-cols-3 lg:grid-rows-6 lg:gap-2',
+        'xl:mt-20 xl:col-start-3 xl:col-span-9 !xl:grid-cols-3 xl:grid-rows-6 xl:gap-2'
       )}
     >
       {skills.map((skill) => (

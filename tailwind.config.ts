@@ -33,6 +33,10 @@ const config: Config = {
       lineHeight: {
         '12': '3rem',
       },
+      gridTemplateRows: {
+        '6': 'repeat(6, minmax(0, 1fr))',
+        '9': 'repeat(9, minmax(0, 1fr))',
+      },
     },
   },
   plugins: [],
