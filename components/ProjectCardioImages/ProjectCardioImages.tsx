@@ -28,7 +28,7 @@ function ProjectCardioImages() {
 
     image1.style.transform = `translateY(-${delta * 1}px)`;
     image2.style.transform = `translateY(-${delta * 0.6}px)`;
-    image3.style.transform = `translateY(-${delta * 0.4}px)`;
+    image3.style.transform = `translateY(-${delta * 0.375}px)`;
     image4.style.transform = `translateY(-${delta * 0.2125}px)`;
   });
 
@@ -74,7 +74,7 @@ function ProjectCardioImages() {
         className={classNames('absolute')}
         style={{
           top: 'calc(57.5vh + 0rem)',
-          left: 'calc(80vh / 2 * (0.25 - 0.075))',
+          left: '4vw',
           transformOrigin: 'left top',
           zIndex: 1,
           transform: 'translateZ(0)',
@@ -88,8 +88,8 @@ function ProjectCardioImages() {
         width={width * 0.65}
         className={classNames('absolute')}
         style={{
-          top: 'calc(47.5vh + 0rem)',
-          right: 'calc(80vh / 2 * (0.2 - 0.025))',
+          top: 'calc(50vh + 0rem)',
+          right: '4vw',
           transformOrigin: 'right top',
           zIndex: 2,
           transform: 'translateZ(0)',

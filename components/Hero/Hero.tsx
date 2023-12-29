@@ -22,6 +22,8 @@ function SlidingName({
   children,
   ...delegated
 }: { children: React.ReactNode } & React.ComponentProps<'div'>) {
+  const ease = [0.33, 1, 0.68, 1];
+
   return (
     <div
       className={classNames(
@@ -50,7 +52,7 @@ function SlidingName({
         <motion.h1
           initial={{ transform: 'translateY(100%)' }}
           animate={{ transform: 'translateY(0%)' }}
-          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.75 }}
+          transition={{ duration: 2.25, ease, delay: 0.75 }}
           className={classNames(
             'text-gray-900 font-bold tracking-wide',
             'text-5xl',
@@ -79,6 +81,8 @@ function SlidingName({
 }
 
 function SlidingRole({ children }: { children: React.ReactNode }) {
+  const ease = [0.33, 1, 0.68, 1];
+
   return (
     <div
       className={classNames(
@@ -104,7 +108,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
         <motion.h2
           initial={{ transform: 'translateY(100%)' }}
           animate={{ transform: 'translateY(0%)' }}
-          transition={{ duration: 1.5, ease: 'easeOut', delay: 2.25 }}
+          transition={{ duration: 1.75, ease, delay: 2 }}
           className={classNames(
             'text-gray-900 font-light',
             'text-3xl',
@@ -150,19 +154,19 @@ function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
         Icon={GithubIcon}
         link={'https://github.com/gogent01'}
         text={'Github'}
-        delay={5}
+        delay={4.25}
       />
       <HeroIcon
         Icon={LinkedInIcon}
         link={'https://www.linkedin.com/in/gamishurovsky'}
         text={'LinkedIn'}
-        delay={4.5}
+        delay={3.75}
       />
       <HeroIcon
         Icon={MailIcon}
         link={'mailto:gamishurovskiy@gmail.com'}
         text={'E-mail'}
-        delay={4}
+        delay={3.25}
         className="-mt-1.5"
       />
     </div>

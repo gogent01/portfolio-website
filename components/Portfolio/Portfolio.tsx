@@ -123,7 +123,7 @@ function ProjectDescription({ project }: { project: Project }) {
 
               <div
                 className={classNames(
-                  'mt-12',
+                  'mt-9',
                   'lg:mt-10',
                   'xl:mt-24',
                   '2xl:mt-24'
@@ -132,10 +132,10 @@ function ProjectDescription({ project }: { project: Project }) {
                 <TextDiscovery
                   className={classNames(
                     'text-gray-900 font-semibold',
-                    ' text-xl leading-relaxed',
-                    ' lg:text-2xl lg:leading-relaxed',
-                    ' xl:text-2xl xl:leading-relaxed',
-                    ' 2xl:text-3xl 2xl:leading-relaxed'
+                    'text-lg leading-relaxed',
+                    'lg:text-2xl lg:leading-relaxed',
+                    'xl:text-2xl xl:leading-relaxed',
+                    '2xl:text-3xl 2xl:leading-relaxed'
                   )}
                 >
                   {project.role}
@@ -146,7 +146,7 @@ function ProjectDescription({ project }: { project: Project }) {
                 <TextDiscovery
                   className={classNames(
                     'text-gray-900',
-                    'text-xl leading-relaxed',
+                    'text-lg leading-relaxed',
                     'lg:text-2xl lg:leading-relaxed',
                     'xl:text-2xl xl:leading-relaxed',
                     '2xl:text-3xl 2xl:leading-relaxed'

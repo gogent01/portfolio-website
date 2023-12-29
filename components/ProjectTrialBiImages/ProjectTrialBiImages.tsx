@@ -29,8 +29,8 @@ function ProjectTrialBiImages() {
     const delta = viewHeight * 1.5 - rect.top;
     const [image1, image2] = container.children as unknown as HTMLElement[];
     // console.log({ latest, top: rect.top, delta });
-    image1.style.transform = `translateY(-${delta * 1.25}px)`;
-    image2.style.transform = `translateY(-${delta * 0.45}px)`;
+    image1.style.transform = `translateY(-${delta * 1.2}px)`;
+    image2.style.transform = `translateY(-${delta * 0.4}px)`;
   });
 
   return (

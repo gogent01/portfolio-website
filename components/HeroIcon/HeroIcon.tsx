@@ -14,13 +14,15 @@ function HeroIcon({
   text: string;
   delay: number;
 } & React.ComponentProps<'a'>) {
+  const ease = [0.33, 1, 0.68, 1];
+
   return (
     <motion.a
       href={link}
       target="_blank"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2.5, ease: 'easeOut', delay }}
+      transition={{ duration: 4, ease, delay }}
       className={classNames(delegated.className)}
     >
       <Icon
