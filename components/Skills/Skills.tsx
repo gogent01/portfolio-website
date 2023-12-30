@@ -84,7 +84,7 @@ function Skills() {
   return (
     <GridContainer
       ref={ref}
-      className="pt-24 overflow-hidden sm:pt-80"
+      className="pt-24 pb-16 overflow-hidden sm:pt-80"
       style={{ maxWidth: '100vw' }}
     >
       <Title>Skills</Title>

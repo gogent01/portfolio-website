@@ -79,7 +79,7 @@ function Contacts() {
   return (
     <GridContainer
       ref={ref}
-      className="overflow-hidden"
+      className="overflow-hidden pb-8 sm:pb-32"
       style={{ minHeight: '100vh' }}
     >
       <Title>Get in Touch</Title>

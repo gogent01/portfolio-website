@@ -22,15 +22,15 @@ const projects: Record<string, Project> = {
   trivialno: {
     count: 1,
     title: 'Trivialno',
-    role: 'Full Stack Developer • System Architect',
+    role: 'Technical Architect • Full Stack Developer',
     description:
       'An online platform for Math tutors, school students, and their parents. Comprised of three web apps, a company website, and a microservice backend.',
-    purpose: 'SPA & Website',
+    purpose: 'Platform',
   },
   trialBi: {
     count: 2,
     title: 'Trial Bi',
-    role: 'Full Stack Developer • UI/UX Designer',
+    role: 'Team Lead • Full Stack Developer',
     description:
       'A BI system for clinical trial data, providing extensive capabilities for data processing. Enables researchers to discover initial insights and prepare data for further analysis in statistical software.',
     purpose: 'Web App',
