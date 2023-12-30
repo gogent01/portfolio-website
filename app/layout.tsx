@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Red_Hat_Text } from 'next/font/google';
 import './globals.css';
 import React from 'react';
-import Grid from '@/components/Grid';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const mainFont = Red_Hat_Text({ subsets: ['latin'] });
 
@@ -25,6 +26,8 @@ export default function RootLayout({
       <body className={mainFont.className}>
         {/*<Grid />*/}
         <main>{children}</main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
