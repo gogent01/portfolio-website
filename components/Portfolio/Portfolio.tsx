@@ -9,6 +9,9 @@ import TextDiscovery from '@/components/TextDiscovery';
 import ProjectTrivialnoImages from '@/components/ProjectTrivialnoImages';
 import ProjectTrialBiImages from '@/components/ProjectTrialBiImages';
 import ProjectCardioImages from '@/components/ProjectCardioImages';
+import CaseStudyLink from '@/components/CaseStudyLink';
+import GithubLink from '@/components/GithubLink';
+import DemoLink from '@/components/DemoLink';
 
 type Project = {
   count: number;
@@ -16,6 +19,9 @@ type Project = {
   role: string;
   description: string;
   purpose: string;
+  caseStudy?: string;
+  github?: string;
+  demo?: string;
 };
 
 const projects: Record<string, Project> = {
@@ -34,6 +40,8 @@ const projects: Record<string, Project> = {
     description:
       'A BI system for clinical trial data, providing extensive capabilities for data processing. Enables researchers to discover initial insights and prepare data for further analysis in statistical software.',
     purpose: 'Web App',
+    github: 'https://github.com/gogent01/trial-bi-client',
+    demo: 'https://trial-bi-client.vercel.app/',
   },
   cardio: {
     count: 3,
@@ -133,7 +141,7 @@ function ProjectDescription({ project }: { project: Project }) {
                   className={classNames(
                     'text-gray-900 font-semibold',
                     'text-lg leading-relaxed',
-                    'lg:text-2xl lg:leading-relaxed',
+                    'lg:text-xl lg:leading-relaxed',
                     'xl:text-2xl xl:leading-relaxed',
                     '2xl:text-3xl 2xl:leading-relaxed'
                   )}
@@ -147,12 +155,37 @@ function ProjectDescription({ project }: { project: Project }) {
                   className={classNames(
                     'text-gray-900',
                     'text-lg leading-relaxed',
-                    'lg:text-2xl lg:leading-relaxed',
+                    'lg:text-xl lg:leading-relaxed',
                     'xl:text-2xl xl:leading-relaxed',
                     '2xl:text-3xl 2xl:leading-relaxed'
                   )}
                 >
                   {project.description}
+                </TextDiscovery>
+              </div>
+
+              <div
+                className={classNames(
+                  'mt-4',
+                  'sm:mt-5',
+                  'md:mt-5',
+                  'lg:mt-6',
+                  'xl:mt-8'
+                )}
+              >
+                <TextDiscovery
+                  fgBarClassName="bg-gray-700"
+                  className={classNames(
+                    'flex gap-4',
+                    'sm:gap-5',
+                    'md:gap-5',
+                    'lg:gap-6',
+                    'xl:gap-6'
+                  )}
+                >
+                  <CaseStudyLink href={project.caseStudy} />
+                  <GithubLink href={project.github} />
+                  <DemoLink href={project.demo} />
                 </TextDiscovery>
               </div>
             </div>

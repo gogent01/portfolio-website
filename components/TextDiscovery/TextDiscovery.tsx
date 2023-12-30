@@ -35,11 +35,14 @@ function TextDiscovery({
     <div ref={scope} className={classNames('relative max-w-max')}>
       <div
         id="fg-bar"
-        className={classNames('absolute w-full h-full scale-0', fgBarClassName)}
+        className={classNames(
+          'absolute w-full h-full scale-0 z-20',
+          fgBarClassName
+        )}
       ></div>
       <div
         id="bg-bar"
-        className={classNames('absolute w-full h-full', bgBarClassName)}
+        className={classNames('absolute w-full h-full z-10', bgBarClassName)}
       ></div>
       <p {...delegated}>{children}</p>
     </div>
