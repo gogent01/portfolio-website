@@ -64,8 +64,7 @@ function ProjectDescription({ project }: { project: Project }) {
         'sticky',
         'col-start-1 col-span-4',
         'md:col-start-1 md:col-span-8',
-        'lg:col-start-1 lg:col-span-12',
-        'xl:col-start-1 xl:col-span-12'
+        'lg:col-start-1 lg:col-span-12'
       )}
     >
       {project && (
@@ -77,8 +76,7 @@ function ProjectDescription({ project }: { project: Project }) {
                 'font-bold',
                 'text-3xl text-gray-300',
                 'sm:text-gray-700',
-                'lg:text-4xl',
-                'xl:text-4xl'
+                'lg:text-4xl'
               )}
             >
               {project.count.toString().padStart(2, '0')}
@@ -91,8 +89,7 @@ function ProjectDescription({ project }: { project: Project }) {
               className={classNames(
                 'text-gray-300 font-bold',
                 'text-3xl',
-                'lg:text-4xl',
-                'xl:text-4xl'
+                'lg:text-4xl'
               )}
             >
               {project.purpose.toUpperCase()}
@@ -103,18 +100,18 @@ function ProjectDescription({ project }: { project: Project }) {
             className={classNames(
               'h-full grid',
               'w-full grid-cols-4 gap-x-4 pr-0',
-              'md:w-1/2 md:grid-cols-4 md:pr-1.5',
-              'lg:w-1/2 lg:grid-cols-6',
-              '2xl:w-1/2 2xl:gap-x-6'
+              'md:w-1/2 md:grid-cols-4 md:pr-4',
+              'lg:w-1/2 lg:grid-cols-6 lg:pr-8',
+              '2xl:w-1/2 2xl:gap-x-6 2xl:pr-12'
             )}
           >
             <div
               className={classNames(
                 'flex flex-col',
-                'mt-20 col-start-1 col-span-4',
-                'md:mt-40',
+                'col-start-1 col-span-4',
                 'lg:col-start-2 lg:col-span-5'
               )}
+              style={{ marginTop: 'calc(100vh * 0.175)' }}
             >
               <div>
                 <TextDiscovery
@@ -122,7 +119,7 @@ function ProjectDescription({ project }: { project: Project }) {
                     'text-gray-900 font-semibold',
                     'text-3xl',
                     'lg:text-5xl',
-                    'xl:text-6xl'
+                    '2xl:text-6xl'
                   )}
                 >
                   {project.title}
@@ -133,7 +130,7 @@ function ProjectDescription({ project }: { project: Project }) {
                 className={classNames(
                   'mt-9',
                   'lg:mt-10',
-                  'xl:mt-24',
+                  'xl:mt-16',
                   '2xl:mt-24'
                 )}
               >
@@ -170,7 +167,7 @@ function ProjectDescription({ project }: { project: Project }) {
                   'sm:mt-5',
                   'md:mt-5',
                   'lg:mt-6',
-                  'xl:mt-8'
+                  '2xl:mt-8'
                 )}
               >
                 <TextDiscovery
@@ -179,8 +176,7 @@ function ProjectDescription({ project }: { project: Project }) {
                     'flex gap-4',
                     'sm:gap-5',
                     'md:gap-5',
-                    'lg:gap-6',
-                    'xl:gap-6'
+                    'lg:gap-6'
                   )}
                 >
                   <CaseStudyLink href={project.caseStudy} />
@@ -197,8 +193,7 @@ function ProjectDescription({ project }: { project: Project }) {
               className={classNames(
                 'text-gray-700 font-bold',
                 'text-2xl',
-                'lg:text-3xl',
-                'xl:text-3xl'
+                'lg:text-3xl'
               )}
             >
               {project.purpose.toUpperCase()}
@@ -224,8 +219,7 @@ function ProjectImages() {
         'flex flex-col',
         'col-start-1 col-span-4',
         'md:col-start-5 md:col-span-4',
-        'lg:col-start-7 lg:col-span-6',
-        'xl:col-start-7 xl:col-span-6'
+        'lg:col-start-7 lg:col-span-6'
       )}
     >
       <ProjectTrivialnoImages />

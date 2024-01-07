@@ -21,7 +21,7 @@ function LinkButton({
       'gap-1 px-5 py-3 text-base',
       'sm:gap-2 sm:px-5 sm:py-3 sm:text-base',
       'md:gap-2 md:px-5 md:py-2.5 md:text-base',
-      'lg:gap-2 lg:px-6 lg:py-3 lg:text-xl',
+      'lg:gap-2 lg:px-6 lg:py-3 lg:text-lg',
       'xl:gap-2 xl:px-6 xl:py-3 xl:text-xl'
     ),
     secondary: classnames(

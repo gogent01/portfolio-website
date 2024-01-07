@@ -19,9 +19,9 @@ function Title({ children }: { children: React.ReactNode }) {
       className={classNames(
         'self-end text-gray-900',
         'text-4xl col-start-1 col-span-4',
-        'md:text-5xl md:col-start-2 md:col-span-6',
-        'lg:text-6xl lg:col-start-2 lg:col-span-8',
-        'xl:text-7xl xl:col-start-2 xl:col-span-7'
+        'md:text-5xl md:col-start-2 md:col-span-7',
+        'lg:text-6xl lg:col-start-2 lg:col-span-11',
+        '2xl:text-7xl 2xl:col-start-2 2xl:col-span-11'
       )}
     >
       {children}
@@ -37,7 +37,8 @@ function ContactIcons() {
         'mt-16 gap-x-12 gap-y-16',
         'md:mt-24 md:gap-20',
         'lg:mt-28 lg:gap-24',
-        'xl:mt-32 xl:gap-28'
+        'xl:mt-28 xl:gap-24',
+        '2xl:mt-32 2xl:gap-28'
       )}
     >
       <ContactIcon
@@ -79,7 +80,7 @@ function Contacts() {
   return (
     <GridContainer
       ref={ref}
-      className="overflow-hidden pb-8 sm:pb-32"
+      className="overflow-hidden pb-16 sm:pb-32"
       style={{ minHeight: '100vh' }}
     >
       <Title>Get in Touch</Title>

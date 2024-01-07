@@ -32,7 +32,7 @@ function SlidingName({
         'sm:translate-y-12',
         'md:translate-y-12',
         'lg:translate-y-8',
-        'xl:translate-y-4',
+        '2xl:translate-y-4',
         delegated.className
       )}
       style={{
@@ -46,7 +46,7 @@ function SlidingName({
           'sm:h-19.5',
           'md:h-26',
           'lg:h-35',
-          'xl:h-44'
+          '2xl:h-44'
         )}
       >
         <motion.h1
@@ -59,7 +59,7 @@ function SlidingName({
             'sm:text-7xl',
             'md:text-8xl',
             'lg:text-9xl',
-            'xl:text-10xl',
+            '2xl:text-10xl',
             heroFont.className
           )}
         >
@@ -73,7 +73,7 @@ function SlidingName({
           'sm:-bottom-19.5 sm:h-19.5',
           'md:-bottom-26 md:h-26',
           'lg:-bottom-35 lg:h-35',
-          'xl:-bottom-44 xl:h-44'
+          '2xl:-bottom-44 2xl:h-44'
         )}
       ></div>
     </div>
@@ -91,7 +91,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
         'sm:translate-y-14',
         'md:translate-y-12',
         'lg:translate-y-8',
-        'xl:translate-y-4'
+        '2xl:translate-y-4'
       )}
       style={{
         minWidth: 'min(max-content, calc(100vw - var(--gutter)))',
@@ -102,7 +102,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
           'w-full select-auto',
           'h-10',
           'sm:h-12',
-          'xl:h-16'
+          '2xl:h-16'
         )}
       >
         <motion.h2
@@ -113,7 +113,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
             'text-gray-900 font-light',
             'text-3xl',
             'sm:text-4xl sm:leading-tight',
-            'xl:text-5xl xl:leading-tight',
+            '2xl:text-5xl 2xl:leading-tight',
             heroFont.className
           )}
         >
@@ -125,7 +125,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
           'absolute w-full bg-white',
           '-bottom-10 h-10',
           'sm:-bottom-12 sm:h-12',
-          'xl:-bottom-16 xl:h-16'
+          '2xl:-bottom-16 2xl:h-16'
         )}
       ></div>
     </div>

@@ -19,7 +19,7 @@ function Title({ children }: { children: React.ReactNode }) {
         'text-4xl col-start-1 col-span-4',
         'md:text-5xl md:col-start-2 md:col-span-6',
         'lg:text-6xl lg:col-start-2 lg:col-span-8',
-        'xl:text-7xl xl:col-start-2 xl:col-span-7'
+        '2xl:text-7xl 2xl:col-start-2 2xl:col-span-7'
       )}
     >
       {children}
@@ -56,7 +56,8 @@ function SkillSet() {
         'mt-6 col-start-1 col-span-4 !grid-cols-2 grid-rows-9 gap-0',
         'md:mt-8 md:col-start-2 md:col-span-6 !md:grid-cols-2 md:grid-rows-9 md:gap-1',
         'lg:mt-14 lg:col-start-3 lg:col-span-9 !lg:grid-cols-3 lg:grid-rows-6 lg:gap-2',
-        'xl:mt-20 xl:col-start-3 xl:col-span-9 !xl:grid-cols-3 xl:grid-rows-6 xl:gap-2'
+        'xl:mt-16',
+        '2xl:mt-20'
       )}
     >
       {skills.map((skill) => (

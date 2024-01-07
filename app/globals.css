@@ -27,7 +27,7 @@
 
 @media (min-width: 1280px) {
     :root {
-        --gutter: 4rem;
+        --gutter: 3rem;
         --gap: 1rem;
     }
 }

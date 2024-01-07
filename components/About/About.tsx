@@ -21,7 +21,7 @@ function Title({ children }: { children: React.ReactNode }) {
         'text-4xl col-start-1 col-span-4',
         'md:text-5xl md:col-start-2 md:col-span-6',
         'lg:text-6xl lg:col-start-2 lg:col-span-8',
-        'xl:text-7xl xl:col-start-2 xl:col-span-7'
+        '2xl:text-7xl 2xl:col-start-2 2xl:col-span-7'
       )}
     >
       {children}
@@ -39,8 +39,8 @@ function Bio({ children }: { children: React.ReactNode }) {
         'text-gray-900',
         'mt-4 text-lg leading-9 col-start-1 col-span-4',
         'md:mt-8 md:text-2xl md:leading-10 md:col-start-2 md:col-span-6',
-        'lg:mt-12 lg:text-2xl lg:leading-10 lg:col-start-3 lg:col-span-8',
-        'xl:mt-16 xl:text-3xl xl:leading-12 xl:col-start-3 xl:col-span-7'
+        'lg:mt-12 lg:text-2xl lg:leading-10 lg:tracking-wide lg:col-start-3 lg:col-span-8',
+        'xl:mt-16 xl:text-3xl xl:leading-12 xl:tracking-wide xl:col-start-3 xl:col-span-7'
       )}
       style={{ transform: 'translateZ(0)' }}
     >
@@ -73,7 +73,7 @@ function About() {
       <Title>About Me</Title>
       {isInView && (
         <Bio>
-          Full Stack Developer with&nbsp;medical background, living
+          Full Stack Developer with&nbsp;medical background, based
           in&nbsp;Montenegro. Passionate about&nbsp;creating innovative
           solutions for&nbsp;healthcare and&nbsp;education, from&nbsp;design
           to&nbsp;infrastructure, by&nbsp;means of&nbsp;TypeScript, Vue, React
