@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Georgy Mishurovsky's Personal Portfolio Website
 
-## Getting Started
+Website link: [https://mishurovsky.com](https://mishurovsky.com)
 
-First, run the development server:
+![Portfolio Website Preview](https://mishurovsky.com/images/portfolio-website-preview.gif)
+
+## How to deploy?
+
+This is a Next 13 project. You'll first need to install NPM dependencies, and then run a local development server. Here are the relevant terminal commands:
 
 ```bash
+# Install dependencies:
+npm install
+
+# Run a development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will launch on http://localhost:3000, and any changes in code will be reflected live. To deploy changes to a production environment, you can use specialized tools, such as Vercel, or create a production-optimized `build` folder using a command:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Build a production version:
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Test a production version locally:
+npm run start
+```
 
-## Learn More
+If the site works correctly, you can then deploy it using a preferred method using the contents of `build` folder.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Troubleshooting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Please make sure you're using Node.js version 16.14 or higher. This is the minimum Node version required by Next.js.
 
-## Deploy on Vercel
+- When you run a dev server, you may notice a warning: _You have enabled experimental feature (outputFileTracingIncludes)_. This warning can safely be ignored. `outputFileTracingIncludes` is a configuration option required to make sure that MDX files are included when deploying the application to Vercel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- If the dev server seems to be stuck on a stale error, and restarting the dev server doesn't help, you can clear Next's cache by deleting the `.next/cache` subdirectory. Also, clearing a browser's cache may help.
