@@ -44,7 +44,7 @@ function ContactIcon({
       />
       <span
         className={classNames(
-          'block w-full pt-2 text-center cursor-pointer transition-transform ease-in-out duration-700 delay-75',
+          'block w-full pt-2 text-center text-gray-900 cursor-pointer transition-transform ease-in-out duration-700 delay-75',
           'text-lg',
           '2xl:text-xl'
         )}

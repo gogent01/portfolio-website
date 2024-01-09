@@ -173,7 +173,7 @@ function ProjectDescription({ project }: { project: Project }) {
                 <TextDiscovery
                   fgBarClassName="bg-gray-700"
                   className={classNames(
-                    'flex gap-4',
+                    'flex gap-4 pr-px',
                     'sm:gap-5',
                     'md:gap-5',
                     'lg:gap-6'

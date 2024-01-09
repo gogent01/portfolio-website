@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import { motion, useInView, LayoutGroup, stagger } from 'framer-motion';
 import SlidingTitle from '@/components/SlidingTitle';
 import GridContainer from '@/components/GridContainer';
 
@@ -9,11 +10,11 @@ function Title({ children }: { children: React.ReactNode }) {
   return (
     <SlidingTitle
       level={'h1'}
-      topTarget={-0.5}
-      offsetTop={0.9}
-      pause={0.3}
-      origin={'right'}
-      stop={true}
+      topTarget={0.5}
+      offsetTop={0.95}
+      pause={0.5}
+      origin={'left'}
+      stop={false}
       className={classNames(
         'text-gray-900',
         'text-4xl col-start-1 col-span-4',
@@ -49,8 +50,14 @@ function SkillSet() {
     'Python',
   ];
 
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(wrapperRef, { amount: 0, once: true });
+  const easeInOutSine = [0.37, 0, 0.63, 1];
+  const staggerDelay = stagger(0.04);
+
   return (
     <GridContainer
+      ref={wrapperRef}
       className={classNames(
         '!px-0 grid-flow-col grid-row-subgrid',
         'mt-6 col-start-1 col-span-4 !grid-cols-2 grid-rows-9 gap-0',
@@ -60,21 +67,35 @@ function SkillSet() {
         '2xl:mt-20'
       )}
     >
-      {skills.map((skill) => (
-        <p
-          key={skill}
-          className={classNames(
-            'text-gray-900',
-            'text-lg leading-10',
-            'md:text-xl md:leading-10',
-            'lg:text-2xl lg:leading-10',
-            'xl:text-2xl xl:leading-12',
-            '2xl:text-3xl 2xl:leading-12'
-          )}
-        >
-          {skill}
-        </p>
-      ))}
+      <LayoutGroup>
+        {isInView &&
+          skills.map((skill, idx) => {
+            const delay = staggerDelay(idx, skills.length);
+            return (
+              <motion.p
+                key={skill}
+                layoutId={skill}
+                initial={{ opacity: 0, transform: 'translateY(1.5rem)' }}
+                animate={{ opacity: 1, transform: 'translateY(0rem)' }}
+                transition={{
+                  duration: 0.75,
+                  ease: easeInOutSine,
+                  delay,
+                }}
+                className={classNames(
+                  'text-gray-900',
+                  'text-lg leading-10',
+                  'md:text-xl md:leading-10',
+                  'lg:text-2xl lg:leading-10',
+                  'xl:text-2xl xl:leading-12',
+                  '2xl:text-3xl 2xl:leading-12'
+                )}
+              >
+                {skill}
+              </motion.p>
+            );
+          })}
+      </LayoutGroup>
     </GridContainer>
   );
 }
