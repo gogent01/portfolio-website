@@ -7,7 +7,6 @@ import {
   useScroll,
   useMotionValueEvent,
   useAnimate,
-  useSpring,
 } from 'framer-motion';
 import GridContainer from '@/components/GridContainer';
 import { GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
@@ -50,8 +49,8 @@ function SlidingName({
         )}
       >
         <motion.h1
-          initial={{ transform: 'translateY(100%)' }}
-          animate={{ transform: 'translateY(0%)' }}
+          initial={{ y: '100%' }}
+          animate={{ y: '0' }}
           transition={{ duration: 1.5, ease: easeOutCubic, delay: 0.5 }}
           className={classNames(
             'text-gray-900 font-bold tracking-wide',
@@ -62,6 +61,7 @@ function SlidingName({
             '2xl:text-10xl',
             heroFont.className
           )}
+          style={{ transform: 'translateZ(0)' }}
         >
           {children}
         </motion.h1>
@@ -106,8 +106,8 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
         )}
       >
         <motion.h2
-          initial={{ transform: 'translateY(100%)' }}
-          animate={{ transform: 'translateY(0%)' }}
+          initial={{ y: '100%' }}
+          animate={{ y: '0' }}
           transition={{ duration: 1.375, ease: easeOutCubic, delay: 1.375 }}
           className={classNames(
             'text-gray-900 font-light',
@@ -116,6 +116,7 @@ function SlidingRole({ children }: { children: React.ReactNode }) {
             '2xl:text-5xl 2xl:leading-tight',
             heroFont.className
           )}
+          style={{ transform: 'translateZ(0)' }}
         >
           {children}
         </motion.h2>

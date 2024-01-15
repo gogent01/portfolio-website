@@ -31,8 +31,7 @@ function Title({ children }: { children: React.ReactNode }) {
 
 function Bio({ children }: { children: React.ReactNode }) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(wrapperRef, { amount: 0, once: true });
-  const easeInOutSine = [0.37, 0, 0.63, 1];
+  const isInView = useInView(wrapperRef, { amount: 0, once: false });
 
   return (
     <div
@@ -47,9 +46,14 @@ function Bio({ children }: { children: React.ReactNode }) {
     >
       {isInView && (
         <motion.p
-          initial={{ opacity: 0, transform: 'translateY(2rem)' }}
-          animate={{ opacity: 1, transform: 'translateY(0rem)' }}
-          transition={{ duration: 0.75, ease: easeInOutSine }}
+          initial={{ opacity: 0, translateY: '2rem' }}
+          animate={{ opacity: 1, translateY: '0rem' }}
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+            stiffness: 70,
+            damping: 25,
+          }}
           className={classNames(
             'text-gray-900',
             'text-lg leading-9',
@@ -57,7 +61,6 @@ function Bio({ children }: { children: React.ReactNode }) {
             'lg:text-2xl lg:leading-10',
             'xl:text-3xl xl:leading-12'
           )}
-          style={{ transform: 'translateZ(0)' }}
         >
           {children}
         </motion.p>

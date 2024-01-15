@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import { motion, useInView, LayoutGroup, stagger } from 'framer-motion';
+import { motion, useInView, LayoutGroup } from 'framer-motion';
 import SlidingTitle from '@/components/SlidingTitle';
 import GridContainer from '@/components/GridContainer';
 
@@ -14,7 +14,7 @@ function Title({ children }: { children: React.ReactNode }) {
       offsetTop={0.95}
       pause={0.5}
       origin={'left'}
-      stop={false}
+      stop={true}
       className={classNames(
         'text-gray-900',
         'text-4xl col-start-1 col-span-4',
@@ -52,8 +52,6 @@ function SkillSet() {
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(wrapperRef, { amount: 0, once: true });
-  const easeInOutSine = [0.37, 0, 0.63, 1];
-  const staggerDelay = stagger(0.04);
 
   return (
     <GridContainer
@@ -68,19 +66,20 @@ function SkillSet() {
       )}
     >
       <LayoutGroup>
-        {isInView &&
-          skills.map((skill, idx) => {
-            const delay = staggerDelay(idx, skills.length);
-            return (
+        {skills.map((skill, idx) => {
+          return (
+            isInView && (
               <motion.p
                 key={skill}
                 layoutId={skill}
-                initial={{ opacity: 0, transform: 'translateY(1.5rem)' }}
-                animate={{ opacity: 1, transform: 'translateY(0rem)' }}
+                initial={{ opacity: 0, translateY: '1.5rem' }}
+                animate={{ opacity: 1, translateY: '0rem' }}
                 transition={{
                   duration: 0.75,
-                  ease: easeInOutSine,
-                  delay,
+                  delay: 0.05 * idx,
+                  type: 'spring',
+                  stiffness: 70,
+                  damping: 25,
                 }}
                 className={classNames(
                   'text-gray-900',
@@ -93,8 +92,9 @@ function SkillSet() {
               >
                 {skill}
               </motion.p>
-            );
-          })}
+            )
+          );
+        })}
       </LayoutGroup>
     </GridContainer>
   );
