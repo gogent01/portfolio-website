@@ -92,11 +92,12 @@ function About() {
     >
       <Title>About Me</Title>
       <Bio>
-        Full Stack Developer with&nbsp;medical background, based
-        in&nbsp;Montenegro. Passionate about&nbsp;creating innovative solutions
-        for&nbsp;healthcare and&nbsp;education, from&nbsp;design
-        to&nbsp;infrastructure, by&nbsp;means of&nbsp;TypeScript, Vue, React
-        and&nbsp;Node&nbsp;JS.
+        Full Stack Developer from&nbsp;Montenegro with&nbsp;a&nbsp;focus
+        on&nbsp;Frontend development and&nbsp;Technical Leadership. Passionate
+        about&nbsp;creating user-friendly and&nbsp;performant data-rich web
+        applications. Experienced in&nbsp;developing software from&nbsp;solution
+        architecture to&nbsp;UX&nbsp;motion design, by&nbsp;means
+        of&nbsp;TypeScript, React, Vue and&nbsp;Node&nbsp;JS.
       </Bio>
     </GridContainer>
   );
