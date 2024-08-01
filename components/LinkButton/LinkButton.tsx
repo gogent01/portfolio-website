@@ -33,7 +33,7 @@ function LinkButton({
       'xl:gap-2 xl:px-6 xl:py-3 xl:text-xl'
     ),
     tertiary: classnames(
-      'flex items-center rounded-md text-gray-800 underline transition-colors hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700',
+      'flex items-center rounded-md text-gray-800 underline transition-colors font-light decoration-1 underline-offset-2 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700',
       'gap-1 text-base',
       'sm:gap-1.5 sm:text-base',
       'md:gap-2 md:text-base',

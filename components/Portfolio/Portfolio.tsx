@@ -28,7 +28,7 @@ const projects: Record<string, Project> = {
   trivialno: {
     count: 1,
     title: 'Trivialno',
-    role: 'Technical Architect • Full Stack Developer',
+    role: 'Tech Lead • Solution Architect',
     description:
       'An online platform for Math tutors, school students, and their parents. Comprised of three web apps, a company website, and a microservice backend.',
     purpose: 'Platform',
@@ -36,7 +36,7 @@ const projects: Record<string, Project> = {
   trialBi: {
     count: 2,
     title: 'Trial Bi',
-    role: 'Team Lead • Full Stack Developer',
+    role: 'Frontend Developer • UI Designer',
     description:
       'A BI system for clinical trial data, providing extensive capabilities for data processing. Enables researchers to discover initial insights and prepare data for further analysis in statistical software.',
     purpose: 'Web App',
@@ -48,7 +48,7 @@ const projects: Record<string, Project> = {
     title: 'Cardio',
     role: 'Full Stack Developer • UI Designer',
     description:
-      'A pair of progressive web apps — one for high school students to prepare for state examinations, and the other for teachers to create study materials and monitor student performance.',
+      'A pair of progressive web apps — one for high school students to prepare for state examinations, and another for teachers to create study materials and monitor student performance.',
     purpose: 'PWA',
   },
 };
@@ -150,7 +150,7 @@ function ProjectDescription({ project }: { project: Project }) {
               <div className={classNames('mt-3', 'lg:mt-5', 'xl:mt-6')}>
                 <TextDiscovery
                   className={classNames(
-                    'text-gray-900',
+                    'text-gray-900 font-light',
                     'text-lg leading-relaxed',
                     'lg:text-xl lg:leading-relaxed',
                     'xl:text-2xl xl:leading-relaxed',

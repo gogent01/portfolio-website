@@ -31,7 +31,7 @@ function Title({ children }: { children: React.ReactNode }) {
 
 function Bio({ children }: { children: React.ReactNode }) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(wrapperRef, { amount: 0, once: false });
+  const isInView = useInView(wrapperRef, { amount: 0, once: true });
 
   return (
     <div
@@ -41,7 +41,8 @@ function Bio({ children }: { children: React.ReactNode }) {
         'mt-4 col-start-1 col-span-4',
         'md:mt-8 md:col-start-2 md:col-span-6',
         'lg:mt-12 lg:col-start-3 lg:col-span-8',
-        'xl:mt-16 xl:col-start-3 xl:col-span-7'
+        'xl:mt-16 xl:col-start-3 xl:col-span-8',
+        '2xl:mt-16 2xl:col-start-3 2xl:col-span-7'
       )}
     >
       {isInView && (
@@ -55,8 +56,8 @@ function Bio({ children }: { children: React.ReactNode }) {
             damping: 25,
           }}
           className={classNames(
-            'text-gray-900',
-            'text-lg leading-9',
+            'text-gray-900 font-light',
+            'text-lg leading-relaxed',
             'md:text-2xl md:leading-10',
             'lg:text-2xl lg:leading-10',
             'xl:text-3xl xl:leading-12'
@@ -78,6 +79,10 @@ function About() {
     if (isInView) setCurrentView('about');
   }, [isInView]);
 
+  const title = 'About Me';
+  const bio =
+    'Full Stack Engineer from Montenegro with a focus on Frontend development and Technical Leadership. I create user‑friendly, high‑performance, data‑rich web applications. Proficient in all stages of software development, from solution architecture to UX motion design, using TypeScript, React, Vue, and Node.js.';
+
   return (
     <GridContainer
       ref={ref}
@@ -90,15 +95,8 @@ function About() {
         'xl:pt-88 xl:pb-48'
       )}
     >
-      <Title>About Me</Title>
-      <Bio>
-        Full Stack Developer from&nbsp;Montenegro with&nbsp;a&nbsp;focus
-        on&nbsp;Frontend development and&nbsp;Technical Leadership. Passionate
-        about&nbsp;creating user-friendly and&nbsp;performant data-rich web
-        applications. Experienced in&nbsp;developing software from&nbsp;solution
-        architecture to&nbsp;UX&nbsp;motion design, by&nbsp;means
-        of&nbsp;TypeScript, React, Vue and&nbsp;Node&nbsp;JS.
-      </Bio>
+      <Title>{title}</Title>
+      <Bio>{bio}</Bio>
     </GridContainer>
   );
 }
