@@ -150,9 +150,9 @@ function ProjectDescription({ project }: { project: Project }) {
               <div className={classNames('mt-3', 'lg:mt-5', 'xl:mt-6')}>
                 <TextDiscovery
                   className={classNames(
-                    'text-gray-900 font-light',
-                    'text-lg leading-relaxed',
-                    'lg:text-xl lg:leading-relaxed',
+                    'text-gray-900',
+                    'text-lg leading-relaxed font-normal',
+                    'lg:text-xl lg:leading-relaxed lg:font-light',
                     'xl:text-2xl xl:leading-relaxed',
                     '2xl:text-3xl 2xl:leading-relaxed'
                   )}

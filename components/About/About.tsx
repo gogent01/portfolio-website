@@ -56,9 +56,9 @@ function Bio({ children }: { children: React.ReactNode }) {
             damping: 25,
           }}
           className={classNames(
-            'text-gray-900 font-light',
-            'text-lg leading-relaxed',
-            'md:text-2xl md:leading-10',
+            'text-gray-900',
+            'text-lg leading-8 font-normal',
+            'md:text-2xl md:leading-10 md:font-light',
             'lg:text-2xl lg:leading-10',
             'xl:text-3xl xl:leading-12'
           )}

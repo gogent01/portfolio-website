@@ -33,8 +33,9 @@ function ContactIcons() {
   return (
     <div
       className={classNames(
-        'w-full flex flex-wrap justify-center col-start-1 col-span-full self-start',
-        'mt-16 gap-x-12 gap-y-16',
+        'w-full flex flex-wrap col-start-1 col-span-full self-start',
+        'mt-16 justify-between gap-x-4 gap-y-16 px-2',
+        'sm:mt-16 sm:justify-center sm:gap-16 sm:px-0',
         'md:mt-24 md:gap-20',
         'lg:mt-28 lg:gap-24',
         'xl:mt-28 xl:gap-24',
