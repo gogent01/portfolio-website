@@ -36,7 +36,7 @@ const projects: Record<string, Project> = {
   trialBi: {
     count: 2,
     title: 'Trial Bi',
-    role: 'Frontend Developer • UI Designer',
+    role: 'Frontend Lead • UI Designer',
     description:
       'A BI system for clinical trial data, providing extensive capabilities for data processing. Enables researchers to discover initial insights and prepare data for further analysis in statistical software.',
     purpose: 'Web App',

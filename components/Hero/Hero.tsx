@@ -149,7 +149,7 @@ function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
     <div
       ref={scope}
       {...delegated}
-      className={classNames('flex gap-12', delegated.className)}
+      className={classNames('flex gap-8', 'sm:gap-12', delegated.className)}
     >
       <HeroIcon
         Icon={GithubIcon}
@@ -176,7 +176,10 @@ function HeroIcons({ ...delegated }: React.ComponentProps<'div'>) {
 
 function Hero() {
   return (
-    <GridContainer className="py-16 items-end" style={{ minHeight: '100svh' }}>
+    <GridContainer
+      className="pt-8 pb-16 items-end sm:py-16"
+      style={{ minHeight: '100svh' }}
+    >
       <div
         className={classNames(
           'col-start-1 col-span-3',
