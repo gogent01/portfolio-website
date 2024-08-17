@@ -1,0 +1,54 @@
+---
+question: |
+  How to properly implement a CSS masonry layout with a left-to-right fill order and no existing items reordering when adding new items?
+publishedOn: '2024-07-30T12:00:00+0100'
+id: 9vxYxu
+---
+The solution is to use a vertical wrapping flexbox layout + an ordering trick. Here's how to do it:
+1. Create a container with `display: flex`, `flex-direction: column`, `flex-wrap: wrap` and `align-content: space-between`. Set some arbitrary height for wrapping to work.
+2. Use `:nth-of-type(Xn+Y)` on grid items to set their order. For `Y === 0`, the order will be `X`, and for `Y > 0` the order will be `Y`. This way every Xth element will have a same order value and will fill a corresponding column in order of appearance in HTML. `Xn+1` elements fill the first column, `Xn+2` elements fill the second column, and so on.
+3. At the end of grid items, add `X - 1` break elements, which should take up all available height. This way, two short elements will never be placed in the same column.
+
+An example for a 4-column layout:
+```html
+<div class="container">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  ...
+  <span class="item break"></span>
+  <span class="item break"></span>
+  <span class="item break"></span>
+</div>
+```
+
+```css
+:root {
+  --gap: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: 600px;
+  padding: var(--gap);
+}
+
+.item {
+  width: calc((100% - (4 - 1) * var(--gap)) / 4);
+  margin-bottom: var(--gap);
+}
+
+.item:nth-of-type(4n+1) { order: 1; }
+.item:nth-of-type(4n+2) { order: 2; }
+.item:nth-of-type(4n+3) { order: 3; }
+.item:nth-of-type(4n)   { order: 4; }
+
+.break {
+  flex-basis: 100%;
+  width: 0;
+  margin: 0;
+}
+```

@@ -1,0 +1,10 @@
+---
+question: |
+  When multiple floated elements exist, they may collide with each other, causing a 'staircase' layout. How to make an element flow below a previous one?
+publishedOn: '2024-07-08T12:00:00+0100'
+id: gs90jH
+---
+
+A `clear` property allows elements that are located later in html to float below previous elements. The available values are `left | right | both | none`.
+
+The property can also be applied to non-floating elements. In this case, their border-edge is moved below any floats on that side.

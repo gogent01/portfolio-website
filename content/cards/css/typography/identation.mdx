@@ -1,0 +1,25 @@
+---
+question: |
+  What are three approaches to indent a paragraph text in CSS?
+publishedOn: '2024-07-30T12:00:00+0100'
+id: cgrWmm
+---
+
+There are two ways to indent a paragraph text in CSS:
+- using `text-indent` property;
+- or by styling the first line of a paragraph with `::first-line` pseudo-element, providing a padding or margin;
+- or by styling the first letter of a paragraph with `::first-letter` pseudo-element, providing a padding or margin.
+
+```css
+  .text-indent {
+    text-indent: 2rem;
+  }
+
+  .line-indent::first-line {
+    padding-left: 2rem;
+  }
+
+  .letter-indent::first-letter {
+    padding-left: 2rem;
+  }
+```

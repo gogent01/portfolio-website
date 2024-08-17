@@ -1,0 +1,20 @@
+---
+question: |
+  How to add a large drop cap to the first paragraph of a text section, while keeping the text accessible for screen readers? If it is a complex technique, describe the steps to achieve it.
+publishedOn: '2024-07-30T12:00:00+0100'
+id: yfyEb5
+---
+1. Target the first letter of the first paragraph with a `:first-of-type::first-letter` selector.
+2. Apply a larger font size.
+3. Set the `line-height` to the same value as the font size to avoid excessive vertical space around the letter.
+4. Add `float: left` to move the letter to the left and make the text wrap around it.
+5. Use `margin-right` to create space between the drop cap and the rest of the text.
+
+```css
+p:first-of-type::first-letter {
+  font-size: 3rem;
+  line-height: 1em;
+  float: left;
+  margin-right: 0.2em;
+}
+```
