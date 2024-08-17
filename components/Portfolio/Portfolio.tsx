@@ -12,29 +12,20 @@ import ProjectCardioImages from '@/components/ProjectCardioImages';
 import CaseStudyLink from '@/components/CaseStudyLink';
 import GithubLink from '@/components/GithubLink';
 import DemoLink from '@/components/DemoLink';
-
-type Project = {
-  count: number;
-  title: string;
-  role: string;
-  description: string;
-  purpose: string;
-  caseStudy?: string;
-  github?: string;
-  demo?: string;
-};
+import { Project } from '@/types';
 
 const projects: Record<string, Project> = {
   trivialno: {
-    count: 1,
+    position: 1,
     title: 'Trivialno',
     role: 'Tech Lead • Solution Architect',
     description:
       'An online platform for Math tutors, school students, and their parents. Comprised of three web apps, a company website, and a microservice backend.',
     purpose: 'Platform',
+    // caseStudy: '/projects/trivialno',
   },
   trialBi: {
-    count: 2,
+    position: 2,
     title: 'Trial Bi',
     role: 'Frontend Lead • UI Designer',
     description:
@@ -44,7 +35,7 @@ const projects: Record<string, Project> = {
     demo: 'https://trial-bi-client.vercel.app/',
   },
   cardio: {
-    count: 3,
+    position: 3,
     title: 'Cardio',
     role: 'Full Stack Developer • UI Designer',
     description:
@@ -79,7 +70,7 @@ function ProjectDescription({ project }: { project: Project }) {
                 'lg:text-4xl'
               )}
             >
-              {project.count.toString().padStart(2, '0')}
+              {project.position.toString().padStart(2, '0')}
             </TextDiscovery>
           </div>
 

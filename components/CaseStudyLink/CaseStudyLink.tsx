@@ -5,7 +5,7 @@ function CaseStudyLink({ href }: { href?: string }) {
   if (!href) return;
 
   return (
-    <LinkButton type="primary" href={href} target="_blank">
+    <LinkButton type="primary" href={href}>
       Case study
     </LinkButton>
   );

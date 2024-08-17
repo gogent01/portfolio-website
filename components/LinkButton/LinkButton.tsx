@@ -17,7 +17,7 @@ function LinkButton({
 }) {
   const styles: Record<ButtonType, string> = {
     primary: classnames(
-      'flex items-center bg-gray-800 border border-transparent rounded-md shadow-sm font-semibold text-white transition-colors hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-800',
+      'flex items-center bg-gray-700 border border-transparent rounded-lg shadow-sm font-semibold text-white transition-colors hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700',
       'gap-1 px-5 py-3 text-base',
       'sm:gap-2 sm:px-5 sm:py-3 sm:text-base',
       'md:gap-2 md:px-5 md:py-2.5 md:text-base',
