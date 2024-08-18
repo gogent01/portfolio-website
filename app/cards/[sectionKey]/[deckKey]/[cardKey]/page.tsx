@@ -12,6 +12,7 @@ import {
 } from '@/components/catalyst/sidebar';
 import { Text } from '@/components/catalyst/text';
 import { Divider } from '@/components/catalyst/divider';
+import CardButtons from '@/components/cards/CardButtons';
 
 import { ALL_DECKS } from '@/content/cards/metadata';
 import { checkCardIds, loadCard } from '@/helpers';
@@ -85,7 +86,7 @@ export default async function Page(props: CardPageProps) {
         </Sidebar>
       }
     >
-      <article className="max-w-screen-sm mx-auto">
+      <article className="h-full lg:max-w-screen-sm mx-auto flex flex-col">
         <Text>{card.question}</Text>
         <Divider className="my-4" />
         <Text>
@@ -111,6 +112,8 @@ export default async function Page(props: CardPageProps) {
             }}
           />
         </Text>
+
+        <CardButtons deck={deck} card={card} className="mt-auto" />
       </article>
     </SidebarLayout>
   );
