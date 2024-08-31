@@ -16,6 +16,7 @@ import CardButtons from '@/components/cards/CardButtons';
 
 import { ALL_DECKS } from '@content/cards/metadata';
 import { checkCardIds, loadCard } from '@/helpers';
+import { Heading } from '@/components/catalyst/heading';
 
 type CardPageProps = {
   params: {
@@ -86,21 +87,52 @@ export default async function Page(props: CardPageProps) {
         </Sidebar>
       }
     >
-      <article className="h-full lg:max-w-screen-sm mx-auto flex flex-col">
+      <article className="h-full sm:max-w-screen-sm mx-auto flex flex-col">
         <Text>{card.question}</Text>
         <Divider className="my-4" />
         <Text>
           <MDXRemote
             source={card.answer}
             components={{
-              p: (props) => (
-                <p {...props} className="mt-3 first-of-type:mt-0" />
+              h1: (props) => (
+                <Heading
+                  {...props}
+                  level={1}
+                  className="mt-9 -mb-3 first:mt-0"
+                />
               ),
+              h2: (props) => (
+                <Heading
+                  {...props}
+                  level={2}
+                  className="mt-9 -mb-2 first:mt-0"
+                />
+              ),
+              h3: (props) => (
+                <Heading
+                  {...props}
+                  level={3}
+                  className="mt-9 -mb-3 first:mt-0"
+                />
+              ),
+              p: (props) => <Text {...props} className="mt-3 first:mt-0" />,
               ol: (props) => (
-                <ol {...props} className="list-decimal list-inside" />
+                <ol
+                  {...props}
+                  className="mt-3 first:mt-0 list-decimal list-inside"
+                />
+              ),
+              blockquote: (props) => (
+                <blockquote
+                  {...props}
+                  className="ml-6 mt-3 first:mt-0 px-4 py-3 border-l-4 bg-zinc-500/10 text-zinc-500 dark:bg-zinc-300/10 dark:text-zinc-300/90 sm:ml-12"
+                />
               ),
               ul: (props) => (
-                <ul {...props} className="list-disc list-inside" />
+                <ul
+                  {...props}
+                  className="mt-3 first:mt-0 list-disc list-inside"
+                />
               ),
               code: (props) => (
                 <code

@@ -11,7 +11,7 @@ export function Text({
       {...props}
       className={clsx(
         className,
-        'text-base text-zinc-500 dark:text-zinc-300/80'
+        'text-base text-zinc-500 dark:text-zinc-300/90 md:text-lg'
       )}
     />
   );
