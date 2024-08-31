@@ -14,7 +14,7 @@ import { Text } from '@/components/catalyst/text';
 import { Divider } from '@/components/catalyst/divider';
 import CardButtons from '@/components/cards/CardButtons';
 
-import { ALL_DECKS } from '@/content/cards/metadata';
+import { ALL_DECKS } from '@content/cards/metadata';
 import { checkCardIds, loadCard } from '@/helpers';
 
 type CardPageProps = {

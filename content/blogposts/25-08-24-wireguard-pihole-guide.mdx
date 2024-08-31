@@ -1,0 +1,77 @@
+---
+title: 'Eliminate Distractions: How to Set up WireGuard VPN and Pi-hole for a Personal Site Blacklist'
+abstract: To be done.
+publishedOn: '2024-08-25T16:00:00+0100'
+---
+1. Introduction
+2. Who is speaking?
+3. Part I. Rent a server
+4. Part II. Set up Wireguard
+5. Part III. Set up Pi-hole
+6. Conclusion. Pros / cons, future considerations.
+
+# Introduction
+
+Recently, I noticed a lot of distractions in my workflow. No good. Sometimes you have to wait, but surfing Instagram or watching YouTube shorts always takes more time than you have to wait and significantly sucks out mental energy. Much better would be to have a walk or even to sit doing nothing. But when patterns of unwanted behavior are already established, it's hard to resist them. So, I decided to set up a blacklist to stop me from visiting certain sites. The requirements were:
+- global blacklist (not just in a particular browser);
+- easy to set up on multiple devices;
+- easy to turn on / off (sometimes I need YouTube for work or study!);
+- secure and cheap as possible.
+
+In the end, I found out the best solution for me was to set up a VPN server with WireGuard and Pi-hole. Pi-hole allows to block unwanted sites by domain name, while WireGuard apps allow quickly turning blocking on and off on any device. Additional benefits are universal ad blocking by Pi-hole and security boost by using a VPN. In this guide, I will show you how to set up a VPN server with WireGuard and Pi-hole on a rented server.
+
+<WhoIsAuthor />
+
+# Part I. Renting a server
+
+First, you need to rent a separate server. Any basic virtual private server (VPS) would suffice. Mind you, Pi-hole is supposed to be run on Raspberry Pi! WireGuard is a bit more demanding, but still, it is just a network tunnel. You can choose any VPS provider. My choice is the most basic droplet on DigitalOcean (not an advertisement, just a force of habit! 😄). DigitalOcean also claim they have one of the cheapest prices for network bandwidth, which is handy if you are not going to block video services, but I did not verify this information.
+![For my purposes, I chose the most basic droplet on DigitalOcean. You can choose any VPS provider to your preference](/blog/renting-a-basic-droplet.png)
+
+After you connect to your server through SSH, let's introduce some essential security changes for the new server.
+
+### 1. Update the system
+
+### 2. Disable password login
+
+### 3. Set up a firewall
+
+### 4. Create a new user with non-root rights
+
+
+# Part II. Setting up WireGuard
+
+- install WireGuard on server
+- allow ports 53/udp and ?
+- install WireGuard on the first client device
+- create a folder for server keys and create them
+- create a folder for the first client keys and create them
+- create a configuration file for the server
+- run the server, check with `wg show`
+- create a configuration file for the first client
+- run the client, check ip before / after
+
+- install WireGuard on the second client device
+- create a new folder for the second client keys and create them
+- create a configuration file for the second client
+- update the configuration file for the server, restart wg-service
+- generate a qr code for the second client, start WireGuard on mobile
+- run the second client, check ip before / after
+
+
+# Part III. Setting up Pi-hole
+
+- install Pi-hole on server
+- allow ports 80 and ?
+- add unwanted sites to the blacklist
+- update WireGuard settings (manually and through config files)
+- clear browser cache and check results
+
+
+# Conclusion
+
+- you can add additional clients through the same process, as in part II, but mind bandwidth usage
+- is it concrete? no, you can easily switch off, but hopefully an additional action would keep you away from accessing the website
+- additional benefits: ad-blocking, internet privacy, static ip
+- drawbacks: sometimes access to websites is blocked, not free
+
+<SelfPromo />

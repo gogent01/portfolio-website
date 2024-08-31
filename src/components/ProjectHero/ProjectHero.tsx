@@ -11,7 +11,7 @@ type ProjectHeroProps = {
 function ProjectHero({ title, description, className }: ProjectHeroProps) {
   return (
     <header className={classNames('pb-20', className)}>
-      <Link href="/" className="underline hover:no-underline">
+      <Link href="/public" className="underline hover:no-underline">
         {'<'} Back to Projects
       </Link>
       <h1

@@ -2,7 +2,7 @@ import React from 'react';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import { ALL_DECKS } from '@/content/cards/metadata';
+import { ALL_DECKS } from '@content/cards/metadata';
 import { Flashcard, Project } from '@/types';
 
 export const loadProject = React.cache(async function loadBlogPost(
