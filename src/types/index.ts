@@ -1,3 +1,11 @@
+export type CardPageProps = {
+  params: {
+    sectionKey: string;
+    deckKey: string;
+    cardKey: string;
+  };
+};
+
 export type Project = {
   position: number;
   title: string;

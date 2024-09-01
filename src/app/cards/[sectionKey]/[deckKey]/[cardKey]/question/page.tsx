@@ -68,65 +68,11 @@ export default async function Page(props: CardPageProps) {
       <article className="h-full sm:max-w-screen-sm mx-auto flex flex-col">
         <Text>{card.question}</Text>
         <Divider className="my-4" />
-        <Text>
-          <MDXRemote
-            source={card.answer}
-            components={{
-              h1: (props) => (
-                <Heading
-                  {...props}
-                  level={1}
-                  className="mt-9 -mb-3 first:mt-0"
-                />
-              ),
-              h2: (props) => (
-                <Heading
-                  {...props}
-                  level={2}
-                  className="mt-9 -mb-2 first:mt-0"
-                />
-              ),
-              h3: (props) => (
-                <Heading
-                  {...props}
-                  level={3}
-                  className="mt-9 -mb-3 first:mt-0"
-                />
-              ),
-              p: (props) => <Text {...props} className="mt-3 first:mt-0" />,
-              ol: (props) => (
-                <ol
-                  {...props}
-                  className="mt-3 first:mt-0 list-decimal list-inside"
-                />
-              ),
-              blockquote: (props) => (
-                <blockquote
-                  {...props}
-                  className="ml-6 mt-3 first:mt-0 px-4 py-3 border-l-4 bg-zinc-500/10 text-zinc-500 dark:bg-zinc-300/10 dark:text-zinc-300/90 sm:ml-12"
-                />
-              ),
-              ul: (props) => (
-                <ul
-                  {...props}
-                  className="mt-3 first:mt-0 list-disc list-inside"
-                />
-              ),
-              code: (props) => (
-                <code
-                  {...props}
-                  className="rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-1 py-0.5 text-sm font-medium text-zinc-950 sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5 dark:text-amber-200/85"
-                />
-              ),
-              pre: (props) => <Code {...props} />,
-            }}
-          />
-        </Text>
 
         <CardButtons
           deck={deck}
           card={card}
-          currentSide="answer"
+          currentSide="question"
           className="mt-auto"
         />
       </article>

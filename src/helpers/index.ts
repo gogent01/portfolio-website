@@ -65,5 +65,5 @@ export const loadCard = React.cache(async function (
     content: string;
   };
 
-  return { ...data, answer: content };
+  return { ...data, key: cardKey, answer: content };
 });
