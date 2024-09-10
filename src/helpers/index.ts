@@ -1,11 +1,12 @@
-import React from 'react';
+import { cache } from 'react';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
+
 import { ALL_DECKS } from '@content/cards/metadata';
 import { Flashcard, Project } from '@/types';
 
-export const loadProject = React.cache(async function loadBlogPost(
+export const loadProject = cache(async function loadBlogPost(
   slug: string
 ): Promise<{ data: Project; content: string } | never> {
   const rawContent = await fs
@@ -43,7 +44,7 @@ export async function checkCardIds() {
   }
 }
 
-export const loadCard = React.cache(async function (
+export const loadCard = cache(async function (
   sectionKey: string,
   deckKey: string,
   cardKey: string

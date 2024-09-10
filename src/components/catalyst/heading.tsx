@@ -12,7 +12,10 @@ export function Heading({ className, level = 1, ...props }: HeadingProps) {
       {...props}
       className={clsx(
         className,
-        'text-2xl/8 font-semibold text-zinc-950 sm:text-xl/8 dark:text-white'
+        'font-semibold text-zinc-950  dark:text-white',
+        level === 1 && 'text-2xl/8 sm:text-xl/8',
+        level === 2 && 'text-xl/7 sm:text-lg/7',
+        level >= 3 && 'text-lg/6 sm:text-base/6'
       )}
     />
   );

@@ -1,13 +1,15 @@
-import * as React from 'react';
+'use client';
+
+import { RefObject, useCallback, useEffect, useState } from 'react';
 
 function useDeviceDims(
-  ref: React.RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement>,
   HW_RATIO: number,
   orientation: 'portrait' | 'landscape' = 'portrait'
 ) {
-  const [dims, setDims] = React.useState<number[]>([0, 0]);
+  const [dims, setDims] = useState<number[]>([0, 0]);
 
-  const recalculateHW = React.useCallback(() => {
+  const recalculateHW = useCallback(() => {
     const viewHeight = document.documentElement.clientHeight;
     const container = ref.current;
     if (!container) return;
@@ -40,7 +42,7 @@ function useDeviceDims(
     setDims(nextDims);
   }, [ref, HW_RATIO, orientation]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     recalculateHW();
 
     window.addEventListener('resize', recalculateHW);

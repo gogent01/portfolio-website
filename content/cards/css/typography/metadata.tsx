@@ -1,9 +1,9 @@
+import { cache } from 'react';
 import fs from 'fs';
 import path from 'path';
-import React from 'react';
 import { Deck } from '@/types';
 
-const DECK_INFO = React.cache((): Deck => {
+const DECK_INFO = cache((): Deck => {
   const deckPath = path.join(process.cwd(), '/content/cards/css/typography');
 
   return {

@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { loadProject } from '@/helpers';
 import { COMPONENT_MAP } from '@/helpers/components';
-import ProjectHero from '@/components/ProjectHero';
-import GridContainer from '@/components/GridContainer';
+import ProjectHero from '../../../components/landing/ProjectHero';
+import GridContainer from '../../../components/landing/GridContainer';
 import classNames from 'classnames';
 
 export async function generateMetadata({
