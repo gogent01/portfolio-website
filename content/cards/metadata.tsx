@@ -1,8 +1,10 @@
 import { Deck } from '@/types';
-import TYPOGRAPHY_META from '@content/cards/css/typography/metadata';
-import CODE_COMPLETE_FOUNDATION_META from '@content/cards/code-complete/foundation/metadata';
+import TYPOGRAPHY from '@content/cards/css/typography/metadata';
+import CODE_COMPLETE_FOUNDATION from '@content/cards/code-complete/foundation/metadata';
+import CODE_COMPLETE_ARCHITECTURE from '@content/cards/code-complete/architecture/metadata';
 
 export const ALL_DECKS: Deck[] = [
-  TYPOGRAPHY_META(),
-  CODE_COMPLETE_FOUNDATION_META(),
+  TYPOGRAPHY(),
+  CODE_COMPLETE_FOUNDATION(),
+  CODE_COMPLETE_ARCHITECTURE(),
 ];
