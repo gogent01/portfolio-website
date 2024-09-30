@@ -2,14 +2,7 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Code } from 'bright';
 
-import { SidebarLayout } from '@/components/catalyst/sidebar-layout';
-import { Navbar, NavbarSpacer } from '@/components/catalyst/navbar';
-import {
-  Sidebar,
-  SidebarBody,
-  SidebarHeading,
-  SidebarSection,
-} from '@/components/catalyst/sidebar';
+import SidebarNavigation from '@/components/cards/SidebarNavigation';
 import { Heading } from '@/components/catalyst/heading';
 import { Text } from '@/components/catalyst/text';
 import { Divider } from '@/components/catalyst/divider';
@@ -49,26 +42,11 @@ export default async function Page(props: CardPageProps) {
   const deck = ALL_DECKS.find((deck) => deck.key === deckKey)!;
 
   return (
-    <SidebarLayout
-      navbar={
-        <Navbar>
-          <NavbarSpacer />
-        </Navbar>
-      }
-      sidebar={
-        <Sidebar>
-          <SidebarBody>
-            <SidebarSection>
-              <SidebarHeading>{deck.title}</SidebarHeading>
-            </SidebarSection>
-          </SidebarBody>
-        </Sidebar>
-      }
-    >
+    <SidebarNavigation deck={deck} card={card}>
       <article className="h-full sm:max-w-screen-sm mx-auto flex flex-col">
         <Text>{card.question}</Text>
         <Divider className="my-4" />
-        <Text>
+        <Text as="div">
           <MDXRemote
             source={card.answer}
             components={{
@@ -130,6 +108,6 @@ export default async function Page(props: CardPageProps) {
           className="mt-auto"
         />
       </article>
-    </SidebarLayout>
+    </SidebarNavigation>
   );
 }

@@ -1,3 +1,5 @@
+import { MAX_CARD_PROGRESS } from '@/config/variables';
+
 export type CardPageProps = {
   params: {
     sectionKey: string;
@@ -34,3 +36,34 @@ export type Flashcard = {
   question: string;
   answer: string;
 };
+
+export type CardProgress = {
+  cardKey: string;
+  deckKey: string;
+  sectionKey: string;
+  progress: CardProgressRange;
+};
+
+export type CardPath = {
+  sectionKey: string;
+  deckKey: string;
+  cardKey: string;
+};
+
+export type CardProgressRange = RangeToUnion<0, typeof MAX_CARD_PROGRESS>;
+
+export type RangeToUnion<
+  RangeMin extends number,
+  RangeMax extends number,
+  Counter extends unknown[] = [],
+> = Counter['length'] extends RangeMin
+  ? RangeMin extends RangeMax
+    ? RangeMin
+    :
+        | Counter['length']
+        | RangeToUnion<
+            [...Counter, unknown]['length'],
+            RangeMax,
+            [...Counter, unknown]
+          >
+  : RangeToUnion<RangeMin, RangeMax, [...Counter, unknown]>;

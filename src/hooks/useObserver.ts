@@ -6,7 +6,7 @@ type UseObserverOptions = {
   threshold: number;
 };
 
-function useObserver(
+export function useObserver(
   ref: RefObject<HTMLElement>,
   callback: EffectCallback,
   options: UseObserverOptions = { threshold: 0 }

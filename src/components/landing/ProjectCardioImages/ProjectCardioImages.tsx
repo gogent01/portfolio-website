@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 import { HW_RATIO_PHONE } from '@/config/variables';
-import useDeviceDims from '@/hooks/UseDeviceDims';
-import useObserver from '@/hooks/UseObserver';
+import { useDeviceDims } from '@/hooks/useDeviceDims';
+import { useObserver } from '@/hooks/useObserver';
 import { CurrentViewContext } from '@/components/landing/CurrentViewProvider';
 
 function ProjectCardioImages() {

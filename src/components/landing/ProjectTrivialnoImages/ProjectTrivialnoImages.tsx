@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 import { HW_RATIO_PHONE, HW_RATIO_TABLET } from '@/config/variables';
-import useObserver from '@/hooks/UseObserver';
-import useDeviceDims from '@/hooks/UseDeviceDims';
+import { useObserver } from '@/hooks/useObserver';
+import { useDeviceDims } from '@/hooks/useDeviceDims';
 import { CurrentViewContext } from '@/components/landing/CurrentViewProvider';
 
 function ProjectTrivialnoImages() {

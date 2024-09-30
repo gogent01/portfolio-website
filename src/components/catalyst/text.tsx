@@ -1,14 +1,17 @@
 import clsx from 'clsx';
 import { Link } from './link';
 
-export function Text({
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<'p'>) {
+type TextProps = {
+  as?: 'p' | 'div';
+} & React.ComponentPropsWithoutRef<'p' | 'div'>;
+
+export function Text(props: TextProps) {
+  const { as: Element = 'p', className, ...delegated } = props;
+
   return (
-    <p
+    <Element
       data-slot="text"
-      {...props}
+      {...delegated}
       className={clsx(
         className,
         'text-base text-zinc-500 dark:text-zinc-300/90 md:text-lg'

@@ -2,7 +2,7 @@
 
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
-function useDeviceDims(
+export function useDeviceDims(
   ref: RefObject<HTMLElement>,
   HW_RATIO: number,
   orientation: 'portrait' | 'landscape' = 'portrait'

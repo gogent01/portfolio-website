@@ -1,12 +1,15 @@
 'use client';
 
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 
+import { CardProgressStorageContext } from '@/providers/CardProgressStorageProvider';
+
 import { Button } from '@/components/catalyst/button';
-import { Deck, Flashcard } from '@/types';
-import { useEffect, useState } from 'react';
+
 import { getRandomElement } from '@/utils';
+import { Deck, Flashcard } from '@/types';
 
 type CardButtonsProps = {
   deck: Deck;
@@ -17,23 +20,38 @@ type CardButtonsProps = {
 
 export default function CardButtons(props: CardButtonsProps) {
   const { deck, card, currentSide, className } = props;
+  const { getNextCardKey, addStat } = useContext(CardProgressStorageContext);
   const router = useRouter();
+
   const [nextUrl, setNextUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    const getRandomCardKey = getRandomElement<string>;
+    async function prepareNextCard() {
+      const nextCardKey = await getNextCardKey(
+        {
+          sectionKey: deck.sectionKey,
+          deckKey: deck.key,
+          cardKey: card.key,
+        },
+        () => {
+          const availableCardKeys = deck.cardKeys.filter(
+            (key) => key !== card.id
+          );
+          return getRandomElement(availableCardKeys);
+        }
+      );
+
+      const nextCardUrl = `/cards/${deck.sectionKey}/${deck.key}/${nextCardKey}/question`;
+      setNextUrl(nextCardUrl);
+      router.prefetch(nextCardUrl);
+    }
 
     if (currentSide === 'question') {
       const answerUrl = `/cards/${deck.sectionKey}/${deck.key}/${card.key}`;
       setNextUrl(answerUrl);
       router.prefetch(answerUrl);
     } else if (currentSide === 'answer') {
-      const nextCardKey = getRandomCardKey(
-        deck.cardKeys.filter((key) => key !== card.key)
-      );
-      const questionUrl = `/cards/${deck.sectionKey}/${deck.key}/${nextCardKey}/question`;
-      setNextUrl(questionUrl);
-      router.prefetch(questionUrl);
+      prepareNextCard();
     }
   }, []);
 
@@ -42,10 +60,26 @@ export default function CardButtons(props: CardButtonsProps) {
   }
 
   function handleRemember() {
+    addStat(
+      {
+        sectionKey: deck.sectionKey,
+        deckKey: deck.key,
+        cardKey: card.key,
+      },
+      'recalled'
+    );
     if (nextUrl) router.push(nextUrl);
   }
 
   function handleForgot() {
+    addStat(
+      {
+        sectionKey: deck.sectionKey,
+        deckKey: deck.key,
+        cardKey: card.key,
+      },
+      'forgot'
+    );
     if (nextUrl) router.push(nextUrl);
   }
 
