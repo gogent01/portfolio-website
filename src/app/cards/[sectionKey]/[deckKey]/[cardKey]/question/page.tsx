@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 
-import SidebarNavigation from '@/components/cards/SidebarNavigation';
 import { Text } from '@/components/catalyst/text';
 import { Divider } from '@/components/catalyst/divider';
 import CardButtons from '@/components/cards/CardButtons';
@@ -39,18 +38,16 @@ export default async function Page(props: CardPageProps) {
   const deck = ALL_DECKS.find((deck) => deck.key === deckKey)!;
 
   return (
-    <SidebarNavigation deck={deck} card={card}>
-      <article className="h-full sm:max-w-screen-sm mx-auto flex flex-col">
-        <Text>{card.question}</Text>
-        <Divider className="my-4" />
+    <article className="h-full sm:max-w-screen-sm mx-auto flex flex-col">
+      <Text>{card.question}</Text>
+      <Divider className="my-4" />
 
-        <CardButtons
-          deck={deck}
-          card={card}
-          currentSide="question"
-          className="mt-auto"
-        />
-      </article>
-    </SidebarNavigation>
+      <CardButtons
+        deck={deck}
+        card={card}
+        currentSide="question"
+        className="mt-auto"
+      />
+    </article>
   );
 }

@@ -85,12 +85,35 @@ export function useCardProgressStorage() {
     return dbInstance.getFromIndex('card-progress', 'cardPath', range);
   }
 
-  async function getAll(transaction?: CardProgressRWTransaction) {
+  async function getAll(
+    anyPath?: Partial<CardPath>,
+    transaction?: CardProgressRWTransaction
+  ) {
     const db = await getDb();
     let dbInstance = transaction ? transaction.db : db;
     if (!dbInstance) return;
 
-    return dbInstance.getAll('card-progress');
+    let allProgress = await dbInstance.getAll('card-progress');
+    if (!allProgress) return;
+
+    const { sectionKey, deckKey, cardKey } = anyPath ?? {};
+    if (cardKey) {
+      allProgress = allProgress.filter(
+        (progress) => progress.cardKey === cardKey
+      );
+    }
+    if (deckKey) {
+      allProgress = allProgress.filter(
+        (progress) => progress.deckKey === deckKey
+      );
+    }
+    if (sectionKey) {
+      allProgress = allProgress.filter(
+        (progress) => progress.sectionKey === sectionKey
+      );
+    }
+
+    return allProgress;
   }
 
   return {

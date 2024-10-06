@@ -1,12 +1,6 @@
 import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 
-import CardProgressStorageProvider from '@/providers/CardProgressStorageProvider';
-import { ALL_DECKS } from '@content/cards/metadata';
-
-import DbInit from '@/components/cards/DbInit';
-import BodyBackground from '@/components/cards/BodyBackground';
-
 import { loadCard } from '@/helpers';
 import { CardPageProps } from '@/types';
 
@@ -30,13 +24,6 @@ export default async function Layout(props: {
   children: ReactNode;
 }) {
   const { params, children } = props;
-  const { deckKey } = params;
-  const deck = ALL_DECKS.find((deck) => deck.key === deckKey)!;
 
-  return (
-    <CardProgressStorageProvider>
-      <DbInit deck={deck} />
-      <BodyBackground>{children}</BodyBackground>
-    </CardProgressStorageProvider>
-  );
+  return <>{children}</>;
 }

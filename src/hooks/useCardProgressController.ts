@@ -36,7 +36,10 @@ export function useCardProgressController() {
     currentCardPath: CardPath,
     fallback: () => string
   ) {
-    const allStats = await getAll();
+    const allStats = await getAll({
+      sectionKey: currentCardPath.sectionKey,
+      deckKey: currentCardPath.deckKey,
+    });
     if (!allStats) return fallback();
 
     const availableStats = allStats.filter(
@@ -59,5 +62,9 @@ export function useCardProgressController() {
     return getByPath(cardPath);
   }
 
-  return { init, addStat, getNextCardKey, getStat };
+  async function getAllStats(anyPath?: Partial<CardPath>) {
+    return getAll(anyPath);
+  }
+
+  return { init, addStat, getNextCardKey, getStat, getAllStats };
 }
