@@ -18,8 +18,25 @@ type CardProgressRWTransaction = IDBPTransaction<
 >;
 export function useCardProgressStorage() {
   function getDb() {
-    return openDB<Schema>('card-progress', 1, {
-      upgrade(db) {
+    return openDB<Schema>('card-progress', 22, {
+      async upgrade(db, oldVersion, newVersion, transaction) {
+        let oldData: any[] = [];
+
+        if (db.objectStoreNames.contains('card-progress')) {
+          oldData = await ((
+            transaction.store as unknown as IDBObjectStore
+          ).getAll() as unknown as Promise<CardProgress[]>);
+          db.deleteObjectStore('card-progress');
+        }
+
+        const newData = oldData.filter(Boolean).map((record) => {
+          if (record.hasOwnProperty('dayLastRecalled')) return record;
+          return {
+            ...record,
+            dayLastRecalled: 0,
+          };
+        });
+
         const store = db.createObjectStore('card-progress', {
           keyPath: 'id',
           autoIncrement: true,
@@ -27,6 +44,8 @@ export function useCardProgressStorage() {
         store.createIndex('cardPath', ['sectionKey', 'deckKey', 'cardKey'], {
           unique: true,
         });
+
+        await Promise.all(newData.map((record) => store.add(record)));
       },
     });
   }
@@ -93,8 +112,9 @@ export function useCardProgressStorage() {
     let dbInstance = transaction ? transaction.db : db;
     if (!dbInstance) return;
 
-    let allProgress = await dbInstance.getAll('card-progress');
-    if (!allProgress) return;
+    let allProgress = (await dbInstance.getAll('card-progress')).filter(
+      Boolean
+    );
 
     const { sectionKey, deckKey, cardKey } = anyPath ?? {};
     if (cardKey) {

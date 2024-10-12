@@ -21,8 +21,12 @@ export function useCardProgressController() {
     if (!cardProgress) return;
 
     if (outcome === 'forgot') {
-      cardProgress.progress = 0;
+      cardProgress.progress = Math.max(
+        cardProgress.progress - 2,
+        0
+      ) as CardProgressRange;
     } else {
+      cardProgress.dayLastRecalled = new Date().getDate();
       cardProgress.progress = Math.min(
         cardProgress.progress + 1,
         MAX_CARD_PROGRESS
@@ -36,13 +40,31 @@ export function useCardProgressController() {
     currentCardPath: CardPath,
     fallback: () => string
   ) {
-    const allStats = await getAll({
-      sectionKey: currentCardPath.sectionKey,
-      deckKey: currentCardPath.deckKey,
-    });
-    if (!allStats) return fallback();
+    const allStats = (
+      (await getAll({
+        sectionKey: currentCardPath.sectionKey,
+        deckKey: currentCardPath.deckKey,
+      })) ?? []
+    ).filter(Boolean);
+    if (allStats.length === 0) return fallback();
 
-    const availableStats = allStats.filter(
+    const ec = exceptCurrentCard(allStats, currentCardPath);
+    const ecr = exceptRecalledToday(ec);
+    const availableStats = ecr.length > 0 ? ecr : ec;
+
+    for (let progress = 0; progress <= MAX_CARD_PROGRESS; progress++) {
+      const stat = getRandomElement(availableStats);
+      if (stat.progress <= progress) return stat.cardKey;
+    }
+
+    return fallback();
+  }
+
+  function exceptCurrentCard(
+    allStats: CardProgress[],
+    currentCardPath: CardPath
+  ) {
+    return allStats.filter(
       (stat) =>
         !(
           stat.sectionKey === currentCardPath.sectionKey &&
@@ -50,12 +72,13 @@ export function useCardProgressController() {
           stat.cardKey === currentCardPath.cardKey
         )
     );
-    for (let progress = 0; progress <= MAX_CARD_PROGRESS; progress++) {
-      const stat = getRandomElement(availableStats);
-      if (stat.progress <= progress) return stat.cardKey;
-    }
+  }
 
-    return fallback();
+  function exceptRecalledToday(allStats: CardProgress[]) {
+    const todayDate = new Date().getDate();
+    return allStats.filter(
+      (stat) => stat.progress < 3 || stat.dayLastRecalled !== todayDate
+    );
   }
 
   async function getStat(cardPath: CardPath) {

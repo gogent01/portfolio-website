@@ -42,6 +42,7 @@ export type CardProgress = {
   deckKey: string;
   sectionKey: string;
   progress: CardProgressRange;
+  dayLastRecalled: number;
 };
 
 export type CardPath = {

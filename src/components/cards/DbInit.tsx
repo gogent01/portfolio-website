@@ -10,17 +10,25 @@ type DbInitProps = {
 
 export default function DbInit(props: DbInitProps) {
   const { deck } = props;
-  const { init } = useContext(CardProgressStorageContext);
+  const { init, updateAllCurrentStats } = useContext(
+    CardProgressStorageContext
+  );
 
   useEffect(() => {
-    const initialData: CardProgress[] = deck.cardKeys.map((cardKey) => ({
-      sectionKey: deck.sectionKey,
-      deckKey: deck.key,
-      cardKey,
-      progress: 0,
-    }));
+    async function initDeckProgress() {
+      const initialData: CardProgress[] = deck.cardKeys.map((cardKey) => ({
+        sectionKey: deck.sectionKey,
+        deckKey: deck.key,
+        cardKey,
+        progress: 0,
+        dayLastRecalled: 0,
+      }));
 
-    init(initialData);
+      await init(initialData);
+      updateAllCurrentStats({ sectionKey: deck.sectionKey, deckKey: deck.key });
+    }
+
+    initDeckProgress();
   }, []);
 
   return null;
