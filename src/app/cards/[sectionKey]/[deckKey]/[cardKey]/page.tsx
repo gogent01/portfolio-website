@@ -80,10 +80,10 @@ export default async function Page(props: CardPageProps) {
             code: (props) => (
               <code
                 {...props}
-                className="rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-1 py-0.5 text-sm font-medium text-zinc-950 sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5 dark:text-amber-200/85"
+                className="rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-1 py-px text-[0.8125rem] font-medium text-zinc-950 dark:border-white/20 dark:bg-white/5 dark:text-amber-200/85 md:py-0.5"
               />
             ),
-            pre: (props) => <Code {...props} />,
+            pre: (props) => <Code className="text-sm" {...props} />,
           }}
         />
       </Text>
