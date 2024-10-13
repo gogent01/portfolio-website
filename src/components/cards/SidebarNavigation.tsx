@@ -15,11 +15,12 @@ import {
   SidebarSection,
 } from '@/components/catalyst/sidebar';
 import { Navbar, NavbarItem, NavbarSpacer } from '@/components/catalyst/navbar';
-import ProgressIcon from '@/components/cards/ProgressIcon';
+import ProgressIconCircle from '@/components/cards/ProgressIconCircle';
 import { Heading } from '@/components/catalyst/heading';
 import { kebabToTitleCase } from '@/utils';
 
 import { CardProgress, Deck } from '@/types';
+import ProgressIconDots from '@/components/cards/ProgressIconDots';
 
 type SidebarNavigationProps = {
   deck: Deck;
@@ -49,7 +50,7 @@ export default function SidebarNavigation(props: SidebarNavigationProps) {
         <Navbar>
           <NavbarSpacer />
           <NavbarItem>
-            <ProgressIcon
+            <ProgressIconCircle
               progress={currentCardStat?.progress ?? 0}
               size={24}
               variant="base"
@@ -66,7 +67,7 @@ export default function SidebarNavigation(props: SidebarNavigationProps) {
                   {deck.title}
                 </Heading>
                 <div className="flex items-start gap-2 -translate-x-0.5">
-                  <ProgressIcon
+                  <ProgressIconCircle
                     progress={currentCardStat?.progress ?? 0}
                     size={24}
                     variant="accent"
@@ -102,15 +103,30 @@ export default function SidebarNavigation(props: SidebarNavigationProps) {
             <SidebarDivider />
 
             <SidebarSection>
-              {allCurrentStats.map(({ sectionKey, deckKey, cardKey }) => (
-                <SidebarItem
-                  key={cardKey}
-                  current={cardKey === currentCardKey}
-                  href={`/cards/${sectionKey}/${deckKey}/${cardKey}/question`}
-                >
-                  {kebabToTitleCase(cardKey)}
-                </SidebarItem>
-              ))}
+              {allCurrentStats.map(
+                ({ sectionKey, deckKey, cardKey, progress }) => (
+                  <SidebarItem
+                    key={cardKey}
+                    current={cardKey === currentCardKey}
+                    href={`/cards/${sectionKey}/${deckKey}/${cardKey}/question`}
+                  >
+                    <div className="">
+                      {kebabToTitleCase(cardKey)
+                        .split(' ')
+                        .slice(0, -1)
+                        .join(' ')}{' '}
+                      <span className="whitespace-nowrap">
+                        {kebabToTitleCase(cardKey)
+                          .split(' ')
+                          .slice(-1)
+                          .join(' ')}
+                        &nbsp;&nbsp;
+                        <ProgressIconDots progress={progress} />
+                      </span>
+                    </div>
+                  </SidebarItem>
+                )
+              )}
             </SidebarSection>
           </SidebarBody>
         </Sidebar>

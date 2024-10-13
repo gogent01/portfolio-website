@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { CardProgressRange } from '@/types';
 
-type ProgressIconProps = {
+type ProgressIconCircleProps = {
   progress: CardProgressRange;
   size?: number;
   variant?: 'base' | 'accent';
 };
 
-export default function ProgressIcon(props: ProgressIconProps) {
+export default function ProgressIconCircle(props: ProgressIconCircleProps) {
   const { progress } = props;
   const size = props.size ?? 16;
   const variant = props.variant ?? 'base';

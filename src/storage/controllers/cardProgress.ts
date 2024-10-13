@@ -1,8 +1,10 @@
 import { openDB } from 'idb';
-import { CardPath, CardProgress, CardProgressRange } from '@/types';
+
+import { CardProgressRWTransaction, IdbSchema } from '@/storage/schema';
 import { MAX_CARD_PROGRESS } from '@/config/variables';
 import { getRandomElement } from '@/utils';
-import { CardProgressRWTransaction, IdbSchema } from '@/storage/schema';
+
+import { CardPath, CardProgress, CardProgressRange } from '@/types';
 
 export async function addStat(
   cardPath: CardPath,
@@ -43,7 +45,7 @@ export async function getNextCardKey(
 
   const ec = exceptCurrentCard(allStats, currentCardPath);
   const ecr = exceptRecalledToday(ec);
-  const availableStats = ecr.length > 0 ? ecr : ec;
+  const availableStats = ecr.length > 0 && Math.random() < 0.5 ? ecr : ec;
 
   for (let progress = 0; progress <= MAX_CARD_PROGRESS; progress++) {
     const stat = getRandomElement(availableStats);
