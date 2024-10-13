@@ -3,6 +3,7 @@
 import { ReactNode, useContext, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { getStat } from '@/storage/controllers/cardProgress';
 import { CardProgressStorageContext } from '@/providers/CardProgressStorageProvider';
 
 import { SidebarLayout } from '@/components/catalyst/sidebar-layout';
@@ -12,7 +13,6 @@ import {
   SidebarDivider,
   SidebarItem,
   SidebarSection,
-  SidebarSpacer,
 } from '@/components/catalyst/sidebar';
 import { Navbar, NavbarItem, NavbarSpacer } from '@/components/catalyst/navbar';
 import ProgressIcon from '@/components/cards/ProgressIcon';
@@ -31,7 +31,7 @@ export default function SidebarNavigation(props: SidebarNavigationProps) {
   const [currentCardStat, setCurrentCardStat] = useState<
     CardProgress | undefined
   >(undefined);
-  const { currentCardKey, allCurrentStats, getStat } = useContext(
+  const { currentCardKey, allCurrentStats } = useContext(
     CardProgressStorageContext
   );
 

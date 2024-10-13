@@ -1,7 +1,10 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
+
+import { populateStats } from '@/storage/controllers/cardProgress';
 import { CardProgressStorageContext } from '@/providers/CardProgressStorageProvider';
+
 import { CardProgress, Deck } from '@/types';
 
 type DbInitProps = {
@@ -10,9 +13,7 @@ type DbInitProps = {
 
 export default function DbInit(props: DbInitProps) {
   const { deck } = props;
-  const { init, updateAllCurrentStats } = useContext(
-    CardProgressStorageContext
-  );
+  const { refreshDeckStats } = useContext(CardProgressStorageContext);
 
   useEffect(() => {
     async function initDeckProgress() {
@@ -24,8 +25,8 @@ export default function DbInit(props: DbInitProps) {
         dayLastRecalled: 0,
       }));
 
-      await init(initialData);
-      updateAllCurrentStats({ sectionKey: deck.sectionKey, deckKey: deck.key });
+      await populateStats(initialData);
+      refreshDeckStats({ sectionKey: deck.sectionKey, deckKey: deck.key });
     }
 
     initDeckProgress();

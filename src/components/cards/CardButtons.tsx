@@ -10,6 +10,7 @@ import { Button } from '@/components/catalyst/button';
 
 import { getRandomElement } from '@/utils';
 import { Deck, Flashcard } from '@/types';
+import { addStat, getNextCardKey } from '@/storage/controllers/cardProgress';
 
 type CardButtonsProps = {
   deck: Deck;
@@ -20,14 +21,15 @@ type CardButtonsProps = {
 
 export default function CardButtons(props: CardButtonsProps) {
   const { deck, card, currentSide, className } = props;
-  const { getNextCardKey, addStat, setCurrentCardKey, updateAllCurrentStats } =
-    useContext(CardProgressStorageContext);
+  const { setCurrentCardKey, refreshDeckStats } = useContext(
+    CardProgressStorageContext
+  );
   const router = useRouter();
 
   const [nextUrl, setNextUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    updateAllCurrentStats({
+    refreshDeckStats({
       sectionKey: deck.sectionKey,
       deckKey: deck.key,
     });
@@ -71,8 +73,8 @@ export default function CardButtons(props: CardButtonsProps) {
     if (nextUrl) router.push(nextUrl);
   }
 
-  function handleRemember() {
-    addStat(
+  async function handleRemember() {
+    await addStat(
       {
         sectionKey: deck.sectionKey,
         deckKey: deck.key,
@@ -83,8 +85,8 @@ export default function CardButtons(props: CardButtonsProps) {
     if (nextUrl) router.push(nextUrl);
   }
 
-  function handleForgot() {
-    addStat(
+  async function handleForgot() {
+    await addStat(
       {
         sectionKey: deck.sectionKey,
         deckKey: deck.key,
