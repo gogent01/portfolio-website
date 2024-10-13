@@ -1,6 +1,6 @@
 {
   "name": "portfolio-website",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,7 +19,7 @@
     "framer-motion": "^10.18.0",
     "gray-matter": "^4.0.3",
     "idb": "^8.0.0",
-    "next": "14.0.3",
+    "next": "14.2.10",
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18"
