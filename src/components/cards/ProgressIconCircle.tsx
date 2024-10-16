@@ -68,7 +68,7 @@ export default function ProgressIconCircle(props: ProgressIconCircleProps) {
         viewBox="0 0 64 64"
         width={size}
         height={size}
-        className="text-zinc-100 dark:text-zinc-800"
+        className="text-zinc-300 dark:text-zinc-800"
       >
         <circle
           cx="32"
@@ -92,11 +92,12 @@ export default function ProgressIconCircle(props: ProgressIconCircleProps) {
           }}
         />
         <path
-          d="M 20 32 L 31 40 L 42 25"
+          d="M 20 32 L 31 41 L 44 26"
           stroke={isDarkMode ? barColor.dark : barColor.light}
           strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"
+          fill="none"
           style={{ transition: 'opacity 0.2s ease-out 0.5s' }}
           className={arcPercent === 100 ? 'opacity-100' : 'opacity-0'}
         />

@@ -1,16 +1,15 @@
 ---
 question: |
   How does float property work in CSS for single and multiple elements?
-  What are the available values for the float property?
+  What are the available values for it?
 publishedOn: '2024-07-08T12:00:00+0100'
 id: YBDXcq
 ---
 
 An active `float` property takes an element out of a normal flow (though the element stays part of it) and moves it to the left or right of a parent container. Inline elements inside the parent container wrap around the floated element. If there already is another floated element, the current one is moved to the left or right until encountering the existing one.
 
-Floated elements have zero margins, so it is better to set some when applying `float` property to an element.
+Float elements have zero margins, so it is better to set some when applying `float` property to an element.
 
-Available values:
 ```css
 img {
     float: left; /* left | right | inline-start | inline-end | none */

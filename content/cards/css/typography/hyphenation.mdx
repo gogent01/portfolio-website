@@ -1,16 +1,14 @@
 ---
 question: |
   How to hyphenate text in CSS?
-  What additional property can be used to ensure a text never overflows?
+  What additional property should be used to ensure a text never overflows?
 publishedOn: '2024-06-26T12:00:00+0100'
 id: tem9aV
 ---
 
-Hyphenation in CSS can be achieved using the [`hyphens` property](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens). The `hyphens` property controls when and where words should be hyphenated. It can take three values: `none`, `manual` (through manual usage of `&shy;` html symbol), and `auto`.
-
 ```css
 p {
   hyphens: auto;
-  overflow-wrap: break-word; /* Breaks words not detected by a hyphenation algorithm */
+  overflow-wrap: break-word; /* Breaks inside the words not processed by the hyphenation algorithm */
 }
 ```

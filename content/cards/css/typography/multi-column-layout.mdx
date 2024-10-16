@@ -1,25 +1,21 @@
 ---
 question: |
-  How a page content may be controlled using a multi-column layout?
+  Describe how to work with a multi-column layout in CSS.
 publishedOn: '2024-07-08T12:00:00+0100'
 id: miVW0F
 ---
 
-Multi-column layout is one of the main layout modes along with flow, positioned, flexbox and grid layouts. Spawned with a `columns: <count>` property. Gaps between columns are controlled with a `column-gap` property and these can be filled with borders using a `column-rule` property (same syntax as for `border` one).
-
-One of the major problems which may arise is splitting of a paragraph between different columns. To fix that, use a `break-inside: avoid` property on column children.
-
-Additionally, an element spanning across all columns may be inserted with a `column-span: all` property. Remaining elements will position themselves above and below the span.
-
-Complete example:
-
+One of the main layout modes, along with flow, positioned, flexbox and grid layouts. Set `column-gap` to add gaps, and `column-rule` to add borders between columns.
 ```css
 div {
     columns: 3;
     column-gap: 2rem;
     column-rule: 1px dotted darkslategray;
 }
+```
+Use `break-inside: avoid` to prevent splitting paragraphs between columns. Use `column-span: all` to make an element span all columns.
 
+```css
 p {
     break-inside: avoid; /* auto (default, makes breaks) | avoid | avoid-region | avoid-column | avoid-page */
 }

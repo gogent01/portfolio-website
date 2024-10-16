@@ -14,7 +14,7 @@ export function Text(props: TextProps) {
       {...delegated}
       className={clsx(
         className,
-        'text-base text-zinc-500 dark:text-zinc-300/90 md:text-lg'
+        'text-base text-zinc-900 dark:text-zinc-300/90 md:text-lg'
       )}
     />
   );

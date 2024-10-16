@@ -1,15 +1,11 @@
 ---
 question: |
-  What are three approaches to create a simple masonry layout using CSS?
-  What are the problems with implementing a masonry layout this way and how to solve them?
+  Name three approaches to create a simple masonry layout using only CSS.
+  What are the problems with each?
 publishedOn: '2024-07-30T12:00:00+0100'
 id: HJ1Scw
 ---
 ### Multi-Column Approach
-1. Create a container element with a `columns` property set to the desired number of columns.
-2. Set a `--gap` variable to use in container padding and `column-gap` properties.
-3. For elements inside the container, use a `break-inside: avoid` property to prevent splitting them between columns.
-4. And add a `margin-bottom` with `--gap` value to have consistent vertical space between elements.
 
 ```css
   :root {
@@ -33,10 +29,6 @@ id: HJ1Scw
 - Adding new elements will cause the grid to be reorganized.
 
 ### Vertical Flexbox Approach
-1. Create a container element with a `display: flex` property.
-2. Make it `flex-direction: column` and `flex-wrap: wrap` along with some arbitrary height.
-3. Define a `--gap` variable, then set `gap` and `padding` properties with it.
-4. For elements inside, define a `width` property with a percentage value to distribute them evenly across the container. One may first define a `--column-count` variable and then use `calc((100% - (var(--column-count) - 1) * var(--gap)) / var(--column-count))` to calculate the value.
 
 ```css
   :root {
@@ -63,10 +55,6 @@ id: HJ1Scw
 - Adding new elements will cause the grid to be reorganized.
 
 ### Horizontal Flexbox Approach
-1. Create a container element with a `display: flex` property.
-2. Make it `flex-wrap: wrap` and define a `--gap` variable.
-3. Set `gap` and `padding` properties with the `--gap` value.
-4. For elements inside, define a `flex-basis` property with a percentage value to distribute them evenly across the container. One may first define a `--column-count` variable and then use `calc((100% - (var(--column-count) - 1) * var(--gap)) / var(--column-count))` to calculate the value.
 
 ```css
   :root {
@@ -92,5 +80,6 @@ id: HJ1Scw
 - Each row of the grid will have a height of its tallest element, leaving empty vertical spaces around shorter elements.
 
 ### Solving the Problems
-- either use a JavaScript library like Masonry.js;
+
+- use a JavaScript library like Masonry.js;
 - or use the Horizontal Flexbox Approach with an [element ordering trick](https://tobiasahlin.com/blog/masonry-with-css/).

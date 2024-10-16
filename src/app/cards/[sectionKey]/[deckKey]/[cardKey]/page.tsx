@@ -68,7 +68,7 @@ export default async function Page(props: CardPageProps) {
             blockquote: (props) => (
               <blockquote
                 {...props}
-                className="ml-6 mt-3 first:mt-0 px-4 py-3 border-l-4 bg-zinc-500/10 text-zinc-500 dark:bg-zinc-300/10 dark:text-zinc-300/90 sm:ml-12"
+                className="mt-3 first:mt-0 px-4 py-3 border-l-4 bg-zinc-500/10 text-zinc-500 dark:bg-zinc-300/10 dark:text-zinc-300/90"
               />
             ),
             ul: (props) => (
@@ -80,7 +80,7 @@ export default async function Page(props: CardPageProps) {
             code: (props) => (
               <code
                 {...props}
-                className="rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-1 py-px text-[0.8125rem] font-medium text-zinc-950 dark:border-white/20 dark:bg-white/5 dark:text-amber-200/85 md:py-0.5"
+                className="rounded border border-zinc-950/10 bg-zinc-950/5 px-1 py-px text-[0.8125rem] font-medium text-amber-800 dark:border-white/20 dark:bg-white/5 dark:text-amber-200/85 md:py-0.5"
               />
             ),
             pre: (props) => <Code className="text-sm" {...props} />,

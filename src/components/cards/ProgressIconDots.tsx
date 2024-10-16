@@ -55,6 +55,7 @@ export default function ProgressIconDots(props: ProgressIconSquaresProps) {
         strokeWidth="5"
         strokeLinecap="round"
         strokeLinejoin="round"
+        fill="none"
         style={{
           transition:
             progress === 4

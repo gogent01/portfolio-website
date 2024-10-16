@@ -1,16 +1,16 @@
 ---
 question: |
-  How to affect kerning of a text in CSS?
-  How to control kerning space of individual characters?
+  How to change kerning of a text in CSS?
   What is browsers' default strategy for kerning?
+  Is there a way to control kerning space of individual characters?
 publishedOn: '2024-07-08T12:00:00+0100'
 id: 3CAvgM
 ---
 
-By default, all fonts except for `monospace` ones have kerning enabled. Sometimes kerning is also disabled automatically for smaller font-sizes. Disabling kerning can be achieved through `font-kerning` property set to `none`:
+By default, all fonts have kerning enabled, except for `monospace` ones. Kerning may also be disabled automatically for smaller font-sizes. Disabling kerning can be achieved through `font-kerning` property set to `none`:
 ```css
 p {
-  font-kerning: none; /* auto | normal | none */
+  font-kerning: none; /* auto | normal */
 }
 ```
 
@@ -21,7 +21,7 @@ p {
 }
 ```
 
-To kern individual letters, one should disable kerning in a paragraph, then wrap each letter in a separate `<span>` and set letter-spacing there individually:
+To kern individual letters, disable kerning, then wrap each letter in a separate `<span>` and set letter-spacing there individually:
 
 ```css
 p {

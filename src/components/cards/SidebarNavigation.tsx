@@ -63,7 +63,10 @@ export default function SidebarNavigation(props: SidebarNavigationProps) {
           <SidebarBody>
             <SidebarSection>
               <div className="mb-1 px-2 space-y-2">
-                <Heading level={1} className="!text-xs uppercase opacity-50">
+                <Heading
+                  level={1}
+                  className="!text-xs uppercase opacity-75 dark:opacity-50"
+                >
                   {deck.title}
                 </Heading>
                 <div className="flex items-start gap-2 -translate-x-0.5">

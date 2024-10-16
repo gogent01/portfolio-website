@@ -1,6 +1,7 @@
 ---
 question: |
-  What are different strategies of font antialiasing on web and their support status?
+  What are the different strategies of font antialiasing on web?
+  What OS and browser combinations support them?
   Is there a way to control font antialiasing through CSS?
 publishedOn: '2024-07-08T12:00:00+0100'
 id: B3INzW
@@ -14,6 +15,6 @@ p {
 }
 ```
 
-Subpixel antialiasing works only on macOS, though, excluding Firefox. Windows uses `antialiased` value by default, and it is not subject to changes.
+Subpixel antialiasing works only on macOS browsers, excluding Firefox. Windows uses `antialiased` value by default, and it is not subject to changes.
 
 > Subpixel antialiasing is a technique of font smoothing which uses only red / green / blue parts of pixels around letters. It produces thicker font lines, but is of little use in a modern era of high-DPI screens.
