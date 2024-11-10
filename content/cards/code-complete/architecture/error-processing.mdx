@@ -1,0 +1,13 @@
+---
+question: |
+  Which topics should be covered by a project architecture in the domain of error processing? (Name 7)
+publishedOn: '2024-11-11T12:00:00+0100'
+id: zUZwRa
+---
+- error detection strategy: actively check for errors in inputs before processing or execute some actions only when invalid inputs lead to processing failure?
+- error action strategy: detect and immediately fallback / quit, or try to recover by fixing the invalid data?
+- error processing strategy: discard invalid data once detected, or enter error-processing state to fix it, or store the error and display an error summary at the end of a process?
+- error handling strategy: handle errors right at points of detection or pass them up or use a specific error-handling class?
+- error reporting strategy: ideally a single and consistent error message convention
+- exception strategy: when a code can throw exceptions, how are they logged and documented? What is a mechanism of exception handling, a built-in or a custom one?
+- class input validation strategy: is each class responsible to validate inputs itself or are there data validation classes? Which classes can assume the input data is always clean?

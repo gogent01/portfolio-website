@@ -1,0 +1,13 @@
+---
+question: |
+  Which topics should be covered by a project architecture in the domains of data design, input/output, and system interoperability? (Name 5)
+publishedOn: '2024-09-02T12:00:00+0100'
+id: NOJn4D
+---
+- major files and table designs used + considered alternatives for each table and column
+- rationales for choices of databases and their count, including vs. flat file storage
+- reading schemes to be used in various parts of the program (look-ahead / just-in-time / look-behind)
+- level of I/O error detection: at the field / record / stream / file level
+- possible interactions with other programs on the same data or resources, and how this is to be handled
+
+Note: usually, only *one* class should be able to access database data directly.

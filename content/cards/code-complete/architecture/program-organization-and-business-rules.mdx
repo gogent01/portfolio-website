@@ -1,0 +1,11 @@
+---
+question: |
+  Which topics should be covered by a project architecture in the domains of program organization and business rules? (Name 5)
+publishedOn: '2024-09-02T12:00:00+0100'
+id: xBCL3I
+---
+- the architecture must define the major *building blocks* of a program (classes or their subsystems)
+- every feature in requirements must be covered with at least one building block
+- each block should have a single area of responsibility and know as little as possible about other blocks
+- communication between blocks should be well-defined, the architecture should specify how blocks use each other in direct or indirect way
+- if the architecture depends on some business rules, it must specify them and describe their impact on the design

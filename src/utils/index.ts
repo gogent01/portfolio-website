@@ -71,7 +71,7 @@ export function kebabToTitleCase(str: string): string {
     'within',
   ]);
 
-  const words = str.split('-');
+  const words = str.replaceAll('--', ',-').split('-');
 
   const titleCased = words.map((word, index) => {
     const lowerCaseWord = word.toLowerCase();
