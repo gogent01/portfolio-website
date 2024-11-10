@@ -21,7 +21,7 @@ type CardButtonsProps = {
 
 export default function CardButtons(props: CardButtonsProps) {
   const { deck, card, currentSide, className } = props;
-  const { setCurrentCardKey, refreshDeckStats } = useContext(
+  const { setCurrentCardKey, loadDeckStats } = useContext(
     CardProgressStorageContext
   );
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function CardButtons(props: CardButtonsProps) {
   const [nextUrl, setNextUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    refreshDeckStats({
+    loadDeckStats({
       sectionKey: deck.sectionKey,
       deckKey: deck.key,
     });

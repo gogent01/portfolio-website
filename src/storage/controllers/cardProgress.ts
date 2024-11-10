@@ -4,7 +4,7 @@ import { CardProgressRWTransaction, IdbSchema } from '@/storage/schema';
 import { MAX_CARD_PROGRESS } from '@/config/variables';
 import { getRandomElement } from '@/utils';
 
-import { CardPath, CardProgress, CardProgressRange } from '@/types';
+import { CardPath, CardProgress, CardProgressRange, Deck } from '@/types';
 
 export async function addStat(
   cardPath: CardPath,
@@ -97,11 +97,13 @@ function getDb() {
       }
 
       const newData = oldData.filter(Boolean).map((record) => {
-        if (record.hasOwnProperty('dayLastRecalled')) return record;
-        return {
-          ...record,
-          dayLastRecalled: 0,
-        };
+        const nextRecord = record;
+
+        if (!nextRecord.hasOwnProperty('dayLastRecalled')) {
+          nextRecord.dayLastRecalled = 0;
+        }
+
+        return nextRecord;
       });
 
       const store = db.createObjectStore('card-progress', {
@@ -117,14 +119,50 @@ function getDb() {
   });
 }
 
-export async function populateStats(stats: CardProgress[]) {
+export async function populateCardStats(deck: Deck) {
   const transaction = await getTransaction();
   if (!transaction) return;
 
+  const initialStats: CardProgress[] = deck.cardKeys.map((cardKey) => ({
+    sectionKey: deck.sectionKey,
+    deckKey: deck.key,
+    cardKey,
+    progress: 0,
+    dayLastRecalled: 0,
+  }));
+
   await Promise.all(
-    stats.map((stat) => {
+    initialStats.map((stat) => {
       create(stat, transaction)?.catch(() => {});
     })
+  );
+}
+
+export async function dropRemovedCardStats(deck: Deck) {
+  const transaction = await getTransaction();
+  if (!transaction) return;
+
+  const allStats = await getAll(
+    { sectionKey: deck.sectionKey, deckKey: deck.key },
+    transaction
+  );
+  if (!allStats) return;
+
+  const oldStats = allStats.filter(
+    (stat) => !deck.cardKeys.includes(stat.cardKey)
+  );
+
+  await Promise.all(
+    oldStats.map((stat) =>
+      deleteByPath(
+        {
+          sectionKey: stat.sectionKey,
+          deckKey: stat.deckKey,
+          cardKey: stat.cardKey,
+        },
+        transaction
+      )
+    )
   );
 }
 
@@ -199,4 +237,19 @@ export async function getAll(
   }
 
   return allProgress;
+}
+
+async function deleteByPath(
+  cardPath: CardPath,
+  transaction?: CardProgressRWTransaction
+) {
+  const db = await getDb();
+  let dbInstance = transaction ? transaction.db : db;
+
+  const range = IDBKeyRange.only([
+    cardPath.sectionKey,
+    cardPath.deckKey,
+    cardPath.cardKey,
+  ]);
+  return dbInstance.delete('card-progress', range);
 }

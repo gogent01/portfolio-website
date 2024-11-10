@@ -8,12 +8,12 @@ export const CardProgressStorageContext = createContext<{
   currentCardKey: string;
   allCurrentStats: CardProgress[];
   setCurrentCardKey: (nextCardKey: string) => void;
-  refreshDeckStats: (anyPath?: Partial<CardPath>) => void;
+  loadDeckStats: (anyPath?: Partial<CardPath>) => void;
 }>({
   currentCardKey: '',
   allCurrentStats: [],
   setCurrentCardKey: () => {},
-  refreshDeckStats: async () => {},
+  loadDeckStats: async () => {},
 });
 
 export default function CardProgressStorageProvider({
@@ -24,7 +24,7 @@ export default function CardProgressStorageProvider({
   const [currentCardKey, setCurrentCardKey] = useState('');
   const [allCurrentStats, setAllCurrentStats] = useState<CardProgress[]>([]);
 
-  function refreshDeckStats(anyPath?: Partial<CardPath>) {
+  function loadDeckStats(anyPath?: Partial<CardPath>) {
     getAllStats(anyPath).then((nextStats) =>
       setAllCurrentStats(nextStats ?? [])
     );
@@ -36,7 +36,7 @@ export default function CardProgressStorageProvider({
         currentCardKey,
         allCurrentStats,
         setCurrentCardKey,
-        refreshDeckStats,
+        loadDeckStats,
       }}
     >
       {children}
