@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 import { ALL_DECKS } from '@content/cards/metadata';
+import { removeSortingDigits } from '@/helpers/flashcards';
 import { Flashcard, Project } from '@/types';
 
 export const loadProject = cache(async function loadBlogPost(
@@ -49,11 +50,19 @@ export const loadCard = cache(async function (
   deckKey: string,
   cardKey: string
 ): Promise<Flashcard> {
+  const dirContent = await fs.readdir(
+    path.join(process.cwd(), `/content/cards/${sectionKey}/${deckKey}`)
+  );
+
+  const cardFilename = dirContent.find(
+    (filename) => removeSortingDigits(filename) === `${cardKey}.mdx`
+  );
+
   const rawContent = await fs
     .readFile(
       path.join(
         process.cwd(),
-        `/content/cards/${sectionKey}/${deckKey}/${cardKey}.mdx`
+        `/content/cards/${sectionKey}/${deckKey}/${cardFilename}`
       ),
       'utf8'
     )

@@ -1,6 +1,6 @@
-import { Deck } from '@/types';
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
+import { Deck } from '@/types';
 
 export function deckInfoFnFactory(options: {
   sectionKey: string;
@@ -23,7 +23,12 @@ export function deckInfoFnFactory(options: {
     cardsPath: deckPath,
     cardKeys: fs
       .readdirSync(deckPath)
-      .filter((file) => file.endsWith('.mdx'))
-      .map((file) => file.replace(/\.mdx$/, '')),
+      .filter((filename) => filename.endsWith('.mdx'))
+      .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+      .map((filename) => removeSortingDigits(filename.replace(/\.mdx$/, ''))),
   });
+}
+
+export function removeSortingDigits(str: string) {
+  return str.replace(/^\d+-/g, '');
 }
