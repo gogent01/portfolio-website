@@ -1,0 +1,15 @@
+---
+question: |
+  What are some of the most useful TS compiler options to improve the quality of a codebase?
+publishedOn: '2024-11-28T12:00:00+0100'
+id: yJxqRO
+---
+
+- `noImplicitAny`: throw when an untyped variable type cannot be inferred.
+- `noImplicitThis`: throw when `this` reference object type cannot be inferred.
+- `strictNullChecks`: throw when a typed variable is assigned `null` or `undefined` without stating these types as possible in its type signature.
+- all options above (and some more) are set to `true` when `"strict": true` option is used
+
+To go even stricter:
+- `noUncheckedIndexedAccess`: any `T[]` array element accessed by index is always `T | undefined` to cover cases when the index is out of bounds. Iterations still return `T`.
+- `noImplicitOverride`: throw when a subclass overrides a parent class method without an `override` keyword. This way when a parent method is renamed, this rename is surely propagated to all subclasses overriding it.

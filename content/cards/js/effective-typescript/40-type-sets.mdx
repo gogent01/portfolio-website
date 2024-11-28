@@ -1,0 +1,16 @@
+---
+question: |
+  Speak some words about TypeScript's approach to types as to sets of values.
+publishedOn: '2024-11-28T12:00:00+0100'
+id: 8fU7Tu
+---
+Types in TS represent sets of all possible values that can fit into some type. Types form a hierarchy from the most narrow to the most broad ones.
+
+The *bottom type* is `never`: no value can be assigned to a variable of this type.
+Next come *literal types* (or *unit types*), such as `1` or `'PENDING'` or `undefined`.
+Then go *type unions*, such as `'PENDING' | 'SUCCESS' | 'FAILURE'` or `1 | 2 | 3 | 'none' | null`.
+Then go *infinite types*, such as `string` or `number`, followed by their unions.
+Second-top type is `unknown`: any value can be assigned to a variable of this type, but no assumptions of it can be made then without additional checks.
+The *top-type* is `any`: any value can be assigned to a variable of this type and any further assumption about its contents is considered to be valid.
+
+Type A is a *subtype* of type B, if A contains all properties from B (+ any additional ones). Subtypes are value supersets of their parent types due to this.

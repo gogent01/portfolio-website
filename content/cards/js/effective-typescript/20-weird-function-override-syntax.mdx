@@ -1,0 +1,23 @@
+---
+question: |
+  Why function overloading in TS has such a weird syntax?
+publishedOn: '2024-11-28T12:00:00+0100'
+id: 4GUbeW
+---
+```typescript
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: number | string, b: number | string): number | string {
+  if (typeof a === 'number' && typeof b === 'number') {
+    return a + b;
+  } else if (typeof a === 'string' && typeof b === 'string') {
+   const parsedA = parseFloat(a) || 0;
+   const parsedB = parseFloat(b) || 0;
+   return (parsedA + parsedB).toFixed(2);
+  }
+
+  throw new Error('One or more of function arguments have incorrect types');
+}
+```
+
+Functions can be overloaded by providing all possible signatures and then a signature that takes a union of types for each parameter. That is because JS has no mechanism of function overloading. Thus, function's body needs to expect all possible combinations of parameter types and act conditionally based on type checks inside.

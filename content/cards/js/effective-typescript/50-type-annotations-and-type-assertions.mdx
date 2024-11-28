@@ -1,0 +1,33 @@
+---
+question: |
+  How are type annotations in TS are different from type assertions?
+  What is the best practice of using each?
+publishedOn: '2024-11-28T12:00:00+0100'
+id: N4OIdS
+---
+*Type annotation* goes after declaring a variable, but before assignment of a value to it. *Type assertion* goes after the value using `as` keyword.
+
+```typescript
+type Car = {
+  brand: string;
+  maxSpeedMPH: number;
+}
+
+// type annotation
+const ambulance: Car = {
+  brand: 'Mercedes',
+  maxSpeedMPH: 90,
+}
+
+// type assertion
+const policeCar = {
+  brand: 'Ford',
+  maxSpeedMPH: 135,
+} as Car;
+```
+
+Prefer type annotations everywhere, as they perform value checks for conforming the type.
+
+Type assertions, on the contrary, do not check anything. Use them when you definitely know more about a variable than a compiler. A good style is to also include a comment next to each type assertion on why it is valid.
+
+> Type assertions are incorrectly to be named as 'type casts.' The runtime value type does not change during an assertion. Any type information gets removed upon compilation.

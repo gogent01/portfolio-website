@@ -1,0 +1,63 @@
+---
+question: |
+  What is an excess property checking and how does it differ from a regular type checking?
+publishedOn: '2024-11-28T12:00:00+0100'
+id: JXQDDF
+---
+During *excess property checking* TS checks whether *an object literal* of a certain type has all properties following the type definition and *no more*.
+
+```typescript
+type Car = {
+  brand: string;
+  maxSpeedMPH: number;
+}
+
+const ambulance: Car = {
+  brand: 'Mercedes',
+  maxSpeedMPH: 90,
+  capacity: 6, // ~~~~ 'capacity' does not exist in type 'Car'...
+}
+```
+
+But no error is thrown when a non-literal object is assigned due to the *regular type checking*:
+
+```typescript
+type Car = {
+  brand: string;
+  maxSpeedMPH: number;
+}
+
+const someCar = {
+  brand: 'Mercedes',
+  maxSpeedMPH: 90,
+  capacity: 6,
+}
+
+const ambulance: Car = someCar;
+```
+
+But for *weak types* (objects with only optional properties) assignability checks require that object is either is empty or at least has one property same as in type definition:
+
+```typescript
+type Option = {
+    label?: string;
+    value?: string;
+};
+
+const o1 = {};
+const o2 = {
+    label: 'Second option',
+};
+const o3 = {
+    label: 'Third option',
+    key: 'third-option',
+}
+const o4 = {
+    key: 'third-option',
+}
+
+let option: Option = o1; // ✅
+option = o2; // ✅
+option = o3; // ✅
+option = o4; // ❌
+```

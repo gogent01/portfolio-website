@@ -1,0 +1,25 @@
+---
+question: |
+  What are the things common between types and interfaces?
+  What are the different things for them?
+  When to use each?
+publishedOn: '2024-11-28T12:00:00+0100'
+id: fPiTge
+---
+Types and interfaces in TS are very alike each other. Both:
+- can be used to define a named type
+- support index signature
+- can define function types
+- support generics
+- can extend each other (through `extends` for interfaces and `&` for types)
+- can be `implement`ed by a class
+- can be recursive
+
+Only types:
+- support unions (`'A' | 'a'`)
+- and extension of unions (`(A | B) & C`)
+- have cleaner syntax for function types (`(a: number) => number`) and tuple types (`[a: string, b: string]`)
+
+Only interfaces:
+- complain if a subtype overrides some parent property type (type intersection produces `never` silently, which makes the property unusable)
+- can be *augmented* (i.e., support *declaration merging*) (they combine all fields from multiple interface definitions inside one file; useful for library declaration files)
