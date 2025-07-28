@@ -189,14 +189,14 @@ function Hero() {
         )}
       >
         <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
-          Georgy
+          George
         </SlidingName>
         <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
           Mishurovsky
         </SlidingName>
         <div className="flex flex-wrap">
-          <SlidingRole>Full&nbsp;Stack&nbsp;</SlidingRole>
-          <SlidingRole>&&nbsp;Frontend&nbsp;Developer</SlidingRole>
+          <SlidingRole>Senior Full&nbsp;Stack&nbsp;</SlidingRole>
+          <SlidingRole>&&nbsp;Frontend&nbsp;Engineer</SlidingRole>
         </div>
       </div>
 

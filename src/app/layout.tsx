@@ -9,9 +9,9 @@ import './globals.css';
 const mainFont = Red_Hat_Text({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Georgy Mishurovsky | Full Stack Developer',
+  title: 'Georgy Mishurovsky | Senior Software Engineer',
   description:
-    'Experienced Full Stack Developer in TypeScript, React, Vue, and Node. I build performant web apps with great UX and clearly communicate technical concepts.',
+    'Senior Full Stack Engineer in TypeScript, Node.js, React, and Vue. I design and build data-intensive applications with great UX and performance.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

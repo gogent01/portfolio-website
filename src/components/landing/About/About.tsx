@@ -82,7 +82,7 @@ function About() {
 
   const title = 'About Me';
   const bio =
-    'Full Stack Engineer from Montenegro with a focus on Frontend development and Technical Leadership. I create user‑friendly, high‑performance, data‑rich web applications. Proficient in all stages of software development, from solution architecture to UX motion design, using TypeScript, React, Vue, and Node.js.';
+    'Senior Software Engineer from Montenegro with a focus on Frontend Development and User Experience. I design and build user‑friendly, high‑performance, data‑rich web applications. Proficient in all stages of software development, from system architecture to acceptance testing, using TypeScript, Node.js, React, and Next.js — but not limited to them.';
 
   return (
     <GridContainer
