@@ -54,7 +54,7 @@ function SlidingName({
           animate={{ y: '0' }}
           transition={{ duration: 1.5, ease: easeOutCubic, delay: 0.5 }}
           className={classNames(
-            'text-gray-900 font-bold tracking-wide',
+            'text-gray-900 font-bold',
             'text-5xl',
             'sm:text-7xl',
             'md:text-8xl',
@@ -101,8 +101,9 @@ function SlidingRole({ children }: { children: ReactNode }) {
       <div
         className={classNames(
           'w-full select-auto',
-          'h-10',
-          'sm:h-12',
+          'h-8',
+          'sm:h-11',
+          'lg:h-16',
           '2xl:h-16'
         )}
       >
@@ -112,8 +113,9 @@ function SlidingRole({ children }: { children: ReactNode }) {
           transition={{ duration: 1.375, ease: easeOutCubic, delay: 1.375 }}
           className={classNames(
             'text-gray-900 font-light',
-            'text-3xl',
+            'text-2xl',
             'sm:text-4xl sm:leading-tight',
+            'lg:text-5xl lg:leading-tight',
             '2xl:text-5xl 2xl:leading-tight',
             heroFont.className
           )}
@@ -127,7 +129,7 @@ function SlidingRole({ children }: { children: ReactNode }) {
           'absolute w-full bg-white',
           '-bottom-10 h-10',
           'sm:-bottom-12 sm:h-12',
-          '2xl:-bottom-16 2xl:h-16'
+          'lg:-bottom-16 lg:h-16'
         )}
       ></div>
     </div>
@@ -200,7 +202,7 @@ function Hero() {
         <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
           Mishurovsky
         </SlidingName>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mt-0 sm:mt-0.5 md:mt-4 lg:mt-8">
           <SlidingRole>Senior Full&nbsp;Stack&nbsp;</SlidingRole>
           <SlidingRole>&&nbsp;Frontend&nbsp;Engineer</SlidingRole>
         </div>
