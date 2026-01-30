@@ -11,7 +11,7 @@ import {
 
 import GridContainer from '@/components/landing/GridContainer';
 import HeroIcon from '@/components/landing/HeroIcon';
-import { GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
+import { BlogIcon, GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
 import { Red_Hat_Display } from 'next/font/google';
 
 const heroFont = Red_Hat_Display({
@@ -169,7 +169,13 @@ function HeroIcons({ ...delegated }: ComponentProps<'div'>) {
         link={'mailto:gamishurovskiy@gmail.com'}
         text={'E-mail'}
         delay={2.375}
-        className="-mt-1.5"
+        className="-mt-1"
+      />
+      <HeroIcon
+        Icon={BlogIcon}
+        link={'https://mishurovsky.com/blog'}
+        text={'Blog'}
+        delay={2}
       />
     </div>
   );
