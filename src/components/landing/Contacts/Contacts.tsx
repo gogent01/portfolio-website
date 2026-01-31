@@ -61,14 +61,14 @@ function ContactIcons() {
 
       <ContactIcon
         Icon={CvIcon}
-        link={'/files/cv_georgy_mishurovsky.pdf'}
+        link={'/files/cv_george_mishurovsky.pdf'}
         text={'CV'}
         style={{ transform: 'translateX(-16.67%)' }}
         className="hidden sm:block"
       />
       <ContactIcon
         Icon={CvIcon}
-        link={'/files/cv_georgy_mishurovsky.pdf'}
+        link={'/files/cv_george_mishurovsky.pdf'}
         text={'CV'}
         className="block sm:hidden"
       />
