@@ -11,7 +11,7 @@ import { CurrentViewContext } from '@/components/landing/CurrentViewProvider';
 function Title({ children }: { children: ReactNode }) {
   return (
     <SlidingTitle
-      level={'h1'}
+      level={'h2'}
       topTarget={0.5}
       offsetTop={0.95}
       pause={0.5}
@@ -82,7 +82,7 @@ function About() {
 
   const title = 'About Me';
   const bio =
-    'Senior Software Engineer from Montenegro with a focus on Frontend Development and User Experience. I design and build user‑friendly, high‑performance, data‑rich web applications. Proficient in all stages of software development, from system architecture to acceptance testing, using TypeScript, Node.js, React, and Next.js — but not limited to them.';
+    'Purpose-driven Senior Software Engineer based in Montenegro. I design and build performant, user‑friendly, data‑rich web applications with a focus on User Experience and Product Development. Proficient in all stages of software engineering, from system architecture to acceptance testing, using TypeScript, .NET, Node.js, React, and Next.js — but not limited to them.';
 
   return (
     <GridContainer

@@ -25,9 +25,9 @@ function SlidingName({
   const easeOutCubic = [0.33, 1, 0.68, 1];
 
   return (
-    <div
+    <span
       className={classNames(
-        'relative pointer-events-none select-none',
+        'block relative pointer-events-none select-none',
         'translate-y-12',
         'sm:translate-y-12',
         'md:translate-y-12',
@@ -39,9 +39,9 @@ function SlidingName({
         width: 'calc(100vw - 2 * var(--gutter))',
       }}
     >
-      <div
+      <span
         className={classNames(
-          'w-full select-auto',
+          'block w-full select-auto',
           'h-13',
           'sm:h-19.5',
           'md:h-26',
@@ -49,12 +49,12 @@ function SlidingName({
           '2xl:h-44'
         )}
       >
-        <motion.h1
+        <motion.span
           initial={{ y: '100%' }}
           animate={{ y: '0' }}
           transition={{ duration: 1.5, ease: easeOutCubic, delay: 0.5 }}
           className={classNames(
-            'text-gray-900 font-bold',
+            'block text-gray-900 font-bold',
             'text-5xl',
             'sm:text-7xl',
             'md:text-8xl',
@@ -65,19 +65,19 @@ function SlidingName({
           style={{ transform: 'translateZ(0)' }}
         >
           {children}
-        </motion.h1>
-      </div>
-      <div
+        </motion.span>
+      </span>
+      <span
         className={classNames(
-          'absolute w-full bg-white',
+          'absolute block w-full bg-white',
           '-bottom-16 h-16',
           'sm:-bottom-19.5 sm:h-19.5',
           'md:-bottom-26 md:h-26',
           'lg:-bottom-35 lg:h-35',
           '2xl:-bottom-44 2xl:h-44'
         )}
-      ></div>
-    </div>
+      ></span>
+    </span>
   );
 }
 
@@ -85,9 +85,9 @@ function SlidingRole({ children }: { children: ReactNode }) {
   const easeOutCubic = [0.33, 1, 0.68, 1];
 
   return (
-    <div
+    <span
       className={classNames(
-        'relative pointer-events-none select-none',
+        'block relative pointer-events-none select-none',
         'translate-y-14',
         'sm:translate-y-14',
         'md:translate-y-12',
@@ -98,21 +98,21 @@ function SlidingRole({ children }: { children: ReactNode }) {
         minWidth: 'min(max-content, calc(100vw - var(--gutter)))',
       }}
     >
-      <div
+      <span
         className={classNames(
-          'w-full select-auto',
+          'block w-full select-auto',
           'h-8',
           'sm:h-11',
           'lg:h-16',
           '2xl:h-16'
         )}
       >
-        <motion.h2
+        <motion.span
           initial={{ y: '100%' }}
           animate={{ y: '0' }}
           transition={{ duration: 1.375, ease: easeOutCubic, delay: 1.375 }}
           className={classNames(
-            'text-gray-900 font-light',
+            'block text-gray-900 font-light',
             'text-2xl',
             'sm:text-4xl sm:leading-tight',
             'lg:text-5xl lg:leading-tight',
@@ -122,17 +122,17 @@ function SlidingRole({ children }: { children: ReactNode }) {
           style={{ transform: 'translateZ(0)' }}
         >
           {children}
-        </motion.h2>
-      </div>
-      <div
+        </motion.span>
+      </span>
+      <span
         className={classNames(
-          'absolute w-full bg-white',
+          'absolute block w-full bg-white',
           '-bottom-10 h-10',
           'sm:-bottom-12 sm:h-12',
           'lg:-bottom-16 lg:h-16'
         )}
-      ></div>
-    </div>
+      ></span>
+    </span>
   );
 }
 
@@ -189,24 +189,24 @@ function Hero() {
       className="pt-8 pb-16 items-end sm:py-16"
       style={{ minHeight: '100svh' }}
     >
-      <div
+      <h1
         className={classNames(
-          'col-start-1 col-span-3',
+          'block col-start-1 col-span-3',
           'md:col-span-7',
           'lg:col-span-11'
         )}
       >
         <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
-          George
+          George&nbsp;
         </SlidingName>
         <SlidingName className="-ml-0.25 sm:-ml-0.5 md:-ml-1 lg:-ml-1.5">
-          Mishurovsky
+          Mishurovsky&nbsp;
         </SlidingName>
-        <div className="flex flex-wrap mt-0 sm:mt-0.5 md:mt-4 lg:mt-8">
-          <SlidingRole>Senior Full&nbsp;Stack&nbsp;</SlidingRole>
-          <SlidingRole>&&nbsp;Frontend&nbsp;Engineer</SlidingRole>
-        </div>
-      </div>
+        <span className="flex flex-wrap mt-0 sm:mt-0.5 md:mt-4 lg:mt-8">
+          <SlidingRole>Senior&nbsp;Product&nbsp;Engineer&nbsp;</SlidingRole>
+          <SlidingRole>&&nbsp;Software&nbsp;Architect</SlidingRole>
+        </span>
+      </h1>
 
       <HeroIcons
         className={classNames(

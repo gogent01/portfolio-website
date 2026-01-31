@@ -10,7 +10,7 @@ import GridContainer from '@/components/landing/GridContainer';
 function Title({ children }: { children: ReactNode }) {
   return (
     <SlidingTitle
-      level={'h1'}
+      level={'h2'}
       topTarget={0.5}
       offsetTop={0.95}
       pause={0.5}
@@ -31,24 +31,24 @@ function Title({ children }: { children: ReactNode }) {
 
 function SkillSet() {
   const skills: string[] = [
+    'TypeScript & JavaScript',
+    '.NET (C# & F#)',
     'HTML & CSS',
-    'TypeScript',
     'React & Next.js',
     'Vue.js',
     'Tailwind CSS',
     'Storybook',
     'REST API',
-    'GraphQL API',
     'Node.js',
-    'PostgreSQL',
-    'MongoDB',
-    'Sequelize & Prisma',
+    'SQL (PostgreSQL)',
+    'NoSQL (MongoDB)',
     'Jest & Playwright',
     'Keycloak',
     'Linux',
     'Docker',
     'AWS',
-    'Python',
+    'Git',
+    'Python & R',
   ];
 
   const wrapperRef = useRef<HTMLDivElement>(null);

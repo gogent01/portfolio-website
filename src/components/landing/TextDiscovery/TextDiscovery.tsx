@@ -5,11 +5,13 @@ import classNames from 'classnames';
 function TextDiscovery({
   fgBarClassName = 'bg-gray-900',
   bgBarClassName = 'bg-white',
+  as = 'p',
   children,
   ...delegated
 }: {
   fgBarClassName?: string;
   bgBarClassName?: string;
+  as?: 'p' | 'h2' | 'h3';
   children: ReactNode;
 } & ComponentProps<'p'>) {
   const [scope, animate] = useAnimate();
@@ -43,7 +45,13 @@ function TextDiscovery({
         id="bg-bar"
         className={classNames('absolute w-full h-full z-10', bgBarClassName)}
       ></div>
-      <p {...delegated}>{children}</p>
+      {as === 'h2' ? (
+        <h2 {...delegated}>{children}</h2>
+      ) : as === 'h3' ? (
+        <h3 {...delegated}>{children}</h3>
+      ) : (
+        <p {...delegated}>{children}</p>
+      )}
     </div>
   );
 }

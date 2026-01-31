@@ -11,7 +11,7 @@ import { CvIcon, GithubIcon, LinkedInIcon, MailIcon } from '@/assets/icons';
 function Title({ children }: { children: ReactNode }) {
   return (
     <SlidingTitle
-      level={'h1'}
+      level={'h2'}
       topTarget={0.5}
       offsetTop={0.95}
       pause={0.5}

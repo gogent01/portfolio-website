@@ -113,6 +113,7 @@ function ProjectDescription({ project }: { project: Project }) {
                     'lg:text-5xl',
                     '2xl:text-6xl'
                   )}
+                  as="h2"
                 >
                   {project.title}
                 </TextDiscovery>
