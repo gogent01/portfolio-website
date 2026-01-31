@@ -13,6 +13,32 @@ export const metadata: Metadata = {
   title: 'George Mishurovsky | Product Engineer & Software Architect',
   description:
     'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+
+  openGraph: {
+    title: 'George Mishurovsky | Product Engineer & Software Architect',
+    description:
+      'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+    url: 'https://mishurovsky.com',
+    siteName: 'George Mishurovsky',
+    images: [
+      {
+        url: 'https://mishurovsky.com/opengraph-image.jpg',
+        width: 1600,
+        height: 1600,
+        alt: 'George Mishurovsky | Product Engineer & Software Architect',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'George Mishurovsky | Product Engineer & Software Architect',
+    description:
+      'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+    images: ['https://mishurovsky.com/twitter-image.jpg'],
+  },
 };
 
 export default function Home() {
