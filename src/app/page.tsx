@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   },
   title: 'George Mishurovsky | Product Engineer & Software Architect',
   description:
-    'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+    'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
 
   openGraph: {
     title: 'George Mishurovsky | Product Engineer & Software Architect',
     description:
-      'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+      'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
     url: 'https://mishurovsky.com',
     siteName: 'George Mishurovsky',
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'George Mishurovsky | Product Engineer & Software Architect',
     description:
-      'Purpose-driven Senior Software Engineer based in Montenegro, building performant, user-friendly web applications with a strong focus on UX, product development, and system architecture.',
+      'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
     images: ['https://mishurovsky.com/twitter-image.jpg'],
   },
 };
