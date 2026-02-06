@@ -31,24 +31,24 @@ function Title({ children }: { children: ReactNode }) {
 
 function SkillSet() {
   const skills: string[] = [
-    'TypeScript & JavaScript',
     '.NET (C# & F#)',
+    'JavaScript',
+    'TypeScript',
+    'Node.js',
     'HTML & CSS',
-    'React & Next.js',
-    'Vue.js',
+    'React & Vue.js',
+    'Next.js',
     'Tailwind CSS',
     'Storybook',
-    'REST API',
-    'Node.js',
+    'Playwright',
+    'Keycloak',
+    'REST & GraphQL',
     'SQL (PostgreSQL)',
     'NoSQL (MongoDB)',
-    'Jest & Playwright',
-    'Keycloak',
-    'Linux',
     'Docker',
     'AWS',
-    'Git',
-    'Python & R',
+    'Linux & Git',
+    'Python & R',
   ];
 
   const wrapperRef = useRef<HTMLDivElement>(null);
