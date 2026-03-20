@@ -203,8 +203,8 @@ function Hero() {
           Mishurovsky&nbsp;
         </SlidingName>
         <span className="flex flex-wrap mt-0 sm:mt-0.5 md:mt-4 lg:mt-8">
-          <SlidingRole>Senior&nbsp;Product&nbsp;Engineer&nbsp;</SlidingRole>
-          <SlidingRole>&&nbsp;Software&nbsp;Architect</SlidingRole>
+          <SlidingRole>Senior&nbsp;Software&nbsp;Engineer&nbsp;</SlidingRole>
+          <SlidingRole>&&nbsp;Systems&nbsp;Architect</SlidingRole>
         </span>
       </h1>
 

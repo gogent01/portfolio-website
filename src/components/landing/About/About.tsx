@@ -82,7 +82,7 @@ function About() {
 
   const title = 'About Me';
   const bio =
-    'Purpose-driven Senior Software Engineer based in Montenegro. I design and build performant, user‑friendly, data‑rich web applications with a focus on User Experience and Product Development. Proficient in all stages of software engineering, from system architecture to acceptance testing, using TypeScript, .NET, Node.js, React, and Next.js — but not limited to them.';
+    'Product-minded Software Engineer based in Montenegro. I design and build performant, user‑friendly, data‑rich systems with a focus on user experience and performance. Proficient in all stages of software engineering, from system architecture to acceptance testing, using TypeScript, .NET, Node.js, React, and Next.js — but not limited to them.';
 
   return (
     <GridContainer

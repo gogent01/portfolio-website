@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: 'George Mishurovsky | Product Engineer & Software Architect',
+  title: 'George Mishurovsky | Software Engineer & Systems Architect',
   description:
-    'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
+    'Senior Software Engineer with product thinking and medical background. Helping companies build user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
 
   openGraph: {
-    title: 'George Mishurovsky | Product Engineer & Software Architect',
+    title: 'George Mishurovsky | Software Engineer & Systems Architect',
     description:
-      'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
+      'Senior Software Engineer with product thinking and medical background. Helping companies build user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
     url: 'https://mishurovsky.com',
     siteName: 'George Mishurovsky',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: 'https://mishurovsky.com/opengraph-image.jpg',
         width: 1600,
         height: 1600,
-        alt: 'George Mishurovsky | Product Engineer & Software Architect',
+        alt: 'George Mishurovsky | Software Engineer & Systems Architect',
       },
     ],
     locale: 'en_US',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'George Mishurovsky | Product Engineer & Software Architect',
+    title: 'George Mishurovsky | Software Engineer & Systems Architect',
     description:
-      'Senior Product Engineer with a medical background. Helping companies build performant user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
+      'Senior Software Engineer with product thinking and medical background. Helping companies build user-focused applications with .NET, TypeScript, React, and AWS/Azure.',
     images: ['https://mishurovsky.com/twitter-image.jpg'],
   },
 };
