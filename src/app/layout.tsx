@@ -20,6 +20,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={mainFont.className}>
         <main>{children}</main>
 
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="7fad4d27-0c46-40f7-b4f5-645b781b7142"
+        />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MJV84TY2L9"
